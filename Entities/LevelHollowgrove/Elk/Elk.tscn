@@ -1,0 +1,186 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Entities/LevelHollowgrove/Elk/Elk.gd" type="Script" id=3]
+[ext_resource path="res://Entities/LevelHollowgrove/Elk/Elk.png" type="Texture" id=12]
+
+[sub_resource type="OccluderPolygon2D" id=105]
+polygon = PoolVector2Array( -1.88626, 0.10687, 2.05124, 0.0756201, 3.17148, 2.11074, 3.03905, 5.09048, 2.17818, 5.27144, 2.10377, 6.01553, 0.962828, 7.03246, 1.18606, 8.27262, 2.15338, 8.29742, 2.05417, 9.88482, 1.28527, 10.0088, -2.83205, 10.108, -2.80725, 8.1486, -0.798195, 8.1734, -0.674179, 7.00766, -1.6663, 6.01553, -1.91434, 5.14742, -2.65556, 5.09048, -2.78799, 1.77965 )
+
+[sub_resource type="OccluderPolygon2D" id=101]
+polygon = PoolVector2Array( -1.88626, 0.10687, 2.05124, 0.0756201, 1.98874, 1.91937, -1.85501, 1.91937 )
+
+[sub_resource type="OccluderPolygon2D" id=102]
+polygon = PoolVector2Array( -2.91751, 0.10687, 3.11374, 0.0443701, 2.98874, 1.01312, -2.85501, 1.10687 )
+
+[sub_resource type="OccluderPolygon2D" id=103]
+polygon = PoolVector2Array( -2.07376, 0.16937, 1.89499, 0.0756202, 1.89499, 0.98187, -2.13626, 1.01312 )
+
+[sub_resource type="OccluderPolygon2D" id=104]
+polygon = PoolVector2Array( -2.07376, 0.16937, 1.89499, 0.0756202, 1.95749, 0.95062, 3.83249, 1.10687, 3.86374, 1.98187, 1.83249, 2.16937, -2.29251, 2.04437, -3.98001, 1.85687, -4.10501, 1.20062, -2.44876, 0.88812 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 32, 31, 30, 29, 28 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Occluders:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 2 ), Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Occluders:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0.9375 ), Vector2( 0, -0.00892866 ), Vector2( 0, -1.19494 ), Vector2( 0, -0.0699407 ), Vector2( 0, 0.930059 ), Vector2( 0, -0.00744069 ), Vector2( 0, -1.00744 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachine" id=3]
+states/Idle/node = SubResource( 2 )
+states/Idle/position = Vector2( 412, 301 )
+states/Walk/node = SubResource( 7 )
+states/Walk/position = Vector2( 855, 444 )
+transitions = [ "Idle", "Walk", SubResource( 8 ), "Walk", "Idle", SubResource( 9 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -51, 96 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 1.78316
+height = 24.804
+
+[node name="Elk" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 11.9316 ],
+"_edit_vertical_guides_": [ 17.0505, -7.9375, -4.88584 ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+hframes = 12
+vframes = 8
+frame = 7
+
+[node name="WallDetect" type="RayCast2D" parent="Sprite"]
+position = Vector2( 3.76469, 3.63879 )
+rotation = -1.57079
+collision_mask = 8
+
+[node name="FloorDetect" type="RayCast2D" parent="Sprite"]
+visible = false
+position = Vector2( 38.2647, -14.8612 )
+cast_to = Vector2( 0, 80 )
+collision_mask = 8
+
+[node name="Occluders" type="Node2D" parent="Sprite"]
+visible = false
+show_behind_parent = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( -0.0662155, -11.0232 )
+occluder = SubResource( 105 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( 0, -0.03125 )
+occluder = SubResource( 101 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( 0.03125, 2.9375 )
+occluder = SubResource( 102 )
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( 0.21875, 4.90625 )
+occluder = SubResource( 103 )
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( 0.21875, 6.96875 )
+occluder = SubResource( 103 )
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Sprite/Occluders"]
+position = Vector2( 0.21875, 9 )
+occluder = SubResource( 104 )
+
+[node name="Sounds" type="Node2D" parent="Sprite"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Idle = SubResource( 1 )
+anims/Walk = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.51566, -2.02042 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="StatesTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="WanderTimer" to="." method="_on_WanderTimer_timeout"]
+[connection signal="timeout" from="StatesTimer" to="." method="_on_StatesTimer_timeout"]

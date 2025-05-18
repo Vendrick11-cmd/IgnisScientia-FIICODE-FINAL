@@ -1,0 +1,315 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Levels/Level1/Sprites/SimpleCandle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Misc/Coins/GoldDrop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Misc/Overlap/HurtBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break3.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break2.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Levels/LevelAssets/Furniture/FurnitureCollisionLess.gd" type="Script" id=7]
+[ext_resource path="res://Levels/LevelAssets/Furniture/CH3.png" type="Texture" id=8]
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=9]
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 6.02829, 1.7869 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "broke"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtBox:monitorable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HurtBox:hurteffect_show")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Light2D4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Light2D:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4194304 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox:hurteffect_show")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtBox:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Light2D:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.5563, 42.6134 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -3.42275, -7.84123, 7.3916, -7.98988, 8.61797, -5.5743, -3.49708, -5.42565 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[node name="CH" type="StaticBody2D"]
+collision_layer = 4194304
+collision_mask = 0
+script = ExtResource( 7 )
+
+[node name="SimpleCandle" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3.04499, -24.1893 )
+
+[node name="SimpleCandle2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.99552, -22.7416 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.0532742, -22.4665 )
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.0273256, -8.02068 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+reset_on_save = false
+playback_process_mode = 0
+anims/broke = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, -6.48921 )
+collision_layer = 0
+collision_mask = 320
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( 1.19209e-07, 0 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[node name="Break1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="Break2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="Break3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="GoldDrop" parent="." instance=ExtResource( 2 )]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( 0, 1.5043 )
+occluder = SubResource( 6 )
+
+[node name="Light2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0.00225884, -24.8387 )
+texture_scale = 0.5
+
+[node name="Light2D4" type="Sprite" parent="."]
+modulate = Color( 0.819608, 0.45098, 0.180392, 1 )
+self_modulate = Color( 1, 1, 1, 0.431373 )
+material = SubResource( 8 )
+position = Vector2( 0.125141, -24.5793 )
+scale = Vector2( 0.368037, 0.368037 )
+texture = ExtResource( 9 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

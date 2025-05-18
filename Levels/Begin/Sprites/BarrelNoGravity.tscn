@@ -1,0 +1,245 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Misc/Overlap/HurtBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/FurnitureCollision.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break3.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/wood/Break2.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Levels/Begin/Sprites/Barrel.png" type="Texture" id=6]
+[ext_resource path="res://Misc/Coins/GoldDrop.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SegmentShape2D" id=10]
+a = Vector2( 197.341, -2.11603 )
+b = Vector2( -199.666, -2.11603 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "broke"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtBox:monitorable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HurtBox:hurteffect_show")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4194312 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox:hurteffect_show")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtBox:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 41.4375, 54.0795 )
+
+[sub_resource type="OccluderPolygon2D" id=11]
+polygon = PoolVector2Array( -7.84375, -12.9063, 7.86027, -12.6918, 8.375, -10.125, 8.3125, 8.875, 7.80127, 12.6158, -7.84375, 12.5625, -8.5, 10.3125, -8.4375, -10.375 )
+
+[node name="Barrel" type="StaticBody2D"]
+collision_layer = 4194312
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+position = Vector2( -0.0273256, -0.0283475 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0153351, -12.9308 )
+scale = Vector2( 0.0400654, 0.0400654 )
+shape = SubResource( 10 )
+one_way_collision = true
+one_way_collision_margin = 4.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+reset_on_save = false
+playback_process_mode = 0
+anims/broke = SubResource( 8 )
+anims/idle = SubResource( 9 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+position = Vector2( -0.707123, 15.2028 )
+collision_layer = 0
+collision_mask = 320
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+position = Vector2( 0.60751, -15.5342 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[node name="Break1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="Break2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="Break3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.45712, 29.2028 )
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="GoldDrop" parent="." instance=ExtResource( 7 )]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
+occluder = SubResource( 11 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

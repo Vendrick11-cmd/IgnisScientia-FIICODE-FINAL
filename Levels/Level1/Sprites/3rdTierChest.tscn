@@ -1,0 +1,368 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends StaticBody2D
+
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+func _on_PickUpArea_area_entered(area):
+	$AnimationPlayer.play(\"Open\")
+	$OpenTimer.start()
+	$OpenTimer2.start()
+	$OpenTimer3.start()
+	set_collision_layer_bit(10, false)
+
+func _bronze_coins() :
+	var Bronzecoin = preload(\"res://Misc/Coins/5GoldCoin.tscn\")
+	var bronzecoin = Bronzecoin.instance()
+
+	add_child(bronzecoin)
+	bronzecoin.global_position = global_position
+
+	var bronzecoin2 = Bronzecoin.instance()
+	add_child(bronzecoin2)
+	bronzecoin2.global_position = global_position
+
+	var bronzecoin3 = Bronzecoin.instance()
+	add_child(bronzecoin3)
+	bronzecoin3.global_position = global_position
+
+	var bronzecoin4 = Bronzecoin.instance()
+	add_child(bronzecoin4)
+	bronzecoin4.global_position = global_position
+
+	var bronzecoin5 = Bronzecoin.instance()
+	add_child(bronzecoin5)
+	bronzecoin5.global_position = global_position
+
+	var bronzecoin6 = Bronzecoin.instance()
+	add_child(bronzecoin6)
+	bronzecoin6.global_position = global_position
+
+
+func _silver_coins() :
+	var Silvercoin = preload(\"res://Misc/Coins/10GoldCoin.tscn\")
+	var silvercoin = Silvercoin.instance()
+
+	add_child(silvercoin)
+	silvercoin.global_position = global_position
+
+	var silvercoin2 = Silvercoin.instance()
+	add_child(silvercoin2)
+	silvercoin2.global_position = global_position
+
+	var silvercoin3 = Silvercoin.instance()
+	add_child(silvercoin3)
+	silvercoin3.global_position = global_position
+
+	var silvercoin4 = Silvercoin.instance()
+	add_child(silvercoin4)
+	silvercoin4.global_position = global_position
+
+	var silvercoin5 = Silvercoin.instance()
+	add_child(silvercoin5)
+	silvercoin5.global_position = global_position
+
+	var silvercoin6 = Silvercoin.instance()
+	add_child(silvercoin6)
+	silvercoin6.global_position = global_position
+
+	var silvercoin7 = Silvercoin.instance()
+	add_child(silvercoin7)
+	silvercoin7.global_position = global_position
+
+
+
+
+
+func _gold_coins() :
+	var Goldcoin = preload(\"res://Misc/Coins/25GoldCoin.tscn\")
+	var goldcoin = Goldcoin.instance()
+
+	add_child(goldcoin)
+	goldcoin.global_position = global_position
+
+	var goldcoin2 = Goldcoin.instance()
+	add_child(goldcoin2)
+	goldcoin2.global_position = global_position
+
+	var goldcoin3 = Goldcoin.instance()
+	add_child(goldcoin3)
+	goldcoin3.global_position = global_position
+
+	var goldcoin4 = Goldcoin.instance()
+	add_child(goldcoin4)
+	goldcoin4.global_position = global_position
+
+	var goldcoin5 = Goldcoin.instance()
+	add_child(goldcoin5)
+	goldcoin5.global_position = global_position
+
+	var goldcoin6 = Goldcoin.instance()
+	add_child(goldcoin6)
+	goldcoin6.global_position = global_position
+
+	var goldcoin7 = Goldcoin.instance()
+	add_child(goldcoin7)
+	goldcoin7.global_position = global_position
+
+	var goldcoin8 = Goldcoin.instance()
+	add_child(goldcoin8)
+	goldcoin8.global_position = global_position
+
+	var goldcoin9 = Goldcoin.instance()
+	add_child(goldcoin9)
+	goldcoin9.global_position = global_position
+
+	var goldcoin10 = Goldcoin.instance()
+	add_child(goldcoin10)
+	goldcoin10.global_position = global_position
+
+	var goldcoin11 = Goldcoin.instance()
+	add_child(goldcoin11)
+	goldcoin11.global_position = global_position
+
+	var goldcoin12 = Goldcoin.instance()
+	add_child(goldcoin12)
+	goldcoin12.global_position = global_position
+
+	var goldcoin13 = Goldcoin.instance()
+	add_child(goldcoin13)
+	goldcoin13.global_position = global_position
+
+	var goldcoin14 = Goldcoin.instance()
+	add_child(goldcoin14)
+	goldcoin14.global_position = global_position
+
+	var goldcoin15 = Goldcoin.instance()
+	add_child(goldcoin15)
+	goldcoin15.global_position = global_position
+
+	var goldcoin16 = Goldcoin.instance()
+	add_child(goldcoin16)
+	goldcoin16.global_position = global_position
+
+	var goldcoin17 = Goldcoin.instance()
+	add_child(goldcoin17)
+	goldcoin17.global_position = global_position
+
+	var goldcoin18 = Goldcoin.instance()
+	add_child(goldcoin18)
+	goldcoin18.global_position = global_position
+
+	var goldcoin19 = Goldcoin.instance()
+	add_child(goldcoin19)
+	goldcoin19.global_position = global_position
+
+	var goldcoin20 = Goldcoin.instance()
+	add_child(goldcoin20)
+	goldcoin20.global_position = global_position
+
+	var goldcoin21 = Goldcoin.instance()
+	add_child(goldcoin21)
+	goldcoin21.global_position = global_position
+
+	var goldcoin22 = Goldcoin.instance()
+	add_child(goldcoin22)
+	goldcoin22.global_position = global_position
+
+	var goldcoin23 = Goldcoin.instance()
+	add_child(goldcoin23)
+	goldcoin23.global_position = global_position
+
+	var goldcoin24 = Goldcoin.instance()
+	add_child(goldcoin24)
+	goldcoin24.global_position = global_position
+
+	var goldcoin25 = Goldcoin.instance()
+	add_child(goldcoin25)
+	goldcoin25.global_position = global_position
+
+func _on_OpenTimer_timeout():
+	_bronze_coins()
+
+func _on_OpenTimer2_timeout():
+	_silver_coins()
+
+func _on_OpenTimer3_timeout():
+	_gold_coins()
+"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/3rdTierChest.png-2b12035cabfa418b9a0dc0a66f4b3b1e.stex"
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 23.3861, 12.618 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PickUpArea:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1024 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PickUpArea:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PickUpArea:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1024 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 7.2481
+
+[node name="3rdTierChest" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 7 )
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.395554, 2.61797 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/Open = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+position = Vector2( -12.5694, -12.5859 )
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( 9.78978, 18.4773 )
+shape = SubResource( 5 )
+
+[node name="OpenTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="OpenTimer2" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="OpenTimer3" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="PickUpArea" to="." method="_on_PickUpArea_area_entered"]
+[connection signal="timeout" from="OpenTimer" to="." method="_on_OpenTimer_timeout"]
+[connection signal="timeout" from="OpenTimer2" to="." method="_on_OpenTimer2_timeout"]
+[connection signal="timeout" from="OpenTimer3" to="." method="_on_OpenTimer3_timeout"]

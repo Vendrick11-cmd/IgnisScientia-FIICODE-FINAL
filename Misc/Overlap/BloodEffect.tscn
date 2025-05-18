@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="CPUParticles2D2" type="CPUParticles2D"]
+position = Vector2( 0, -2 )
+amount = 120
+lifetime = 1.37
+speed_scale = 1.96
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 4.63
+gravity = Vector2( 0, 30 )
+initial_velocity = 7.62
+angular_velocity = 720.0
+linear_accel = 50.0
+linear_accel_random = 1.0
+radial_accel = 21.64
+damping = 11.11
+color = Color( 0.654902, 0.0352941, 0.0235294, 1 )

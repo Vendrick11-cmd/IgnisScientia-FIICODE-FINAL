@@ -1,0 +1,60 @@
+!Healing and Regen! - Base: Lavender, Yarrow
+Yarrow
+Plantain
+Comfrey
+Lavender
+Honey
+
+!General Recovery and Vitality! - Base: Ginseng, Rosemary
+Ginseng
+Rosemary
+Valerian Root
+Bone Marrow
+
+!Poison! - Base: Mandrake
+Mandrake
+Mugwort
+Blue Lotus
+
+!Stamina! - Base: Ginger, Nettle
+Ginger
+Thistle
+Nettle
+
+!Mana! - Base: Eyebright
+Billberry
+Eyebright
+LuckyClover
+
+!Antidote! - Base : Charcoal 
+Charcoal
+Bone Meal
+Bones
+
+Lavender X
+Nettle X 
+Lucky Clover -
+Rosemary X 
+Comfrey X
+Thistle X
+Yarrow X 
+Ginger X
+Ginseng X
+Active Charcoal -
+Valerian Root X
+Mugwort X
+Blue Lotus X
+Mandrake X
+Honey - 
+Plantain X
+Bilberry X
+Garlic X
+Eyebright X
+Bone Meal -
+Bones -
+Bone Marrow -
+
+
+
+
+

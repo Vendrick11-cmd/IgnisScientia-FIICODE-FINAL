@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sounds/UI/PickUpItem.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Misc/Inventory/InventoryAdd.gd" type="Script" id=3]
+
+[node name="InventoryAdd" type="CanvasLayer"]
+layer = 10
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_vertical_guides_": [ 961.288 ]
+}
+
+[node name="InventoryAdd" type="VBoxContainer" parent="."]
+pause_mode = 2
+physics_interpolation_mode = 1
+margin_left = 552.0
+margin_top = 652.0
+margin_right = 1364.0
+margin_bottom = 1141.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 410.866, 370.041 )
+mouse_filter = 2
+alignment = 2
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="PickUp" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 1 )
+volume_db = -15.0
+bus = "SFX"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Misc/Dialogues/DialoguePortraits.gd" type="Script" id=2]
+
+[node name="DialoguePortraits" type="CanvasLayer"]
+layer = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1034.0 ]
+}

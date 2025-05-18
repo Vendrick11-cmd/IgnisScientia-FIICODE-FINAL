@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Misc/Rooms/SmallRooms/SmallRoom10.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/RoomTree.gd" type="Script" id=3]
+[ext_resource path="res://Misc/Rooms/SmallRoomPlaceholder.tscn" type="PackedScene" id=5]
+
+[node name="RoomTree" type="Node2D"]
+position = Vector2( -1574.17, -727.247 )
+script = ExtResource( 3 )
+
+[node name="SmallRoomPlaceholder" parent="." instance=ExtResource( 5 )]
+position = Vector2( 147.499, -34.3777 )
+
+[node name="SmallRoomPlaceholder2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -478.981, -34.3777 )
+
+[node name="SmallRoomPlaceholder3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1106.17, -34.3777 )
+
+[node name="SmallRoomPlaceholder4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1732.65, -34.3777 )
+
+[node name="SmallRoomPlaceholder5" parent="." instance=ExtResource( 5 )]
+position = Vector2( -2359.6, -34.3777 )
+
+[node name="SmallRoomPlaceholder6" parent="." instance=ExtResource( 5 )]
+position = Vector2( -2986.08, -34.3777 )
+
+[node name="SmallRoomPlaceholder7" parent="." instance=ExtResource( 5 )]
+position = Vector2( -4238.89, -34.3777 )
+
+[node name="SmallRoomPlaceholder8" parent="." instance=ExtResource( 5 )]
+position = Vector2( -4865.37, -34.3777 )
+
+[node name="SmallRoomPlaceholder9" parent="." instance=ExtResource( 5 )]
+position = Vector2( -5492.21, -34.3777 )
+
+[node name="SmallRoomPlaceholder10" parent="." instance=ExtResource( 5 )]
+position = Vector2( -6119.16, -34.3777 )
+
+[node name="SmallRoomPlaceholder11" parent="." instance=ExtResource( 5 )]
+position = Vector2( -6745.64, -34.3777 )
+
+[node name="SmallRoomPlaceholder12" parent="." instance=ExtResource( 5 )]
+position = Vector2( -7372.83, -34.3777 )
+
+[node name="SmallRoomPlaceholder13" parent="." instance=ExtResource( 5 )]
+position = Vector2( -7999.32, -34.3777 )
+
+[node name="RestRoom" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3612.59, -34.4537 )

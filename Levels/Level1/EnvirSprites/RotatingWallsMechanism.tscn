@@ -1,0 +1,628 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Levels/Level1/EnvirSprites/RotatingWallsMechanism.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level1/EnvirSprites/RotatingWall.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Level1/Sprites/Cogs/Cog4.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Level1/Sprites/Cogs/Cog3.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level1/Sprites/Cogs/Cog2.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level1/Sprites/Cogs/Cog.png" type="Texture" id=6]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -88.8086, -6.58689, 89.1016, -6.44659, 89.25, 7.45, -88.6683, 7.44388 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 88.6629, 6.60712 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Horizontal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -720.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 90.0, -1.0, 0.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Vertical"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 360.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -360.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 720.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -720.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 91.0, 90.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Horizontal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -720.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 90.0, -1.0, 0.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Vertical"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 360.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -360.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 720.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -720.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 91.0, 90.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Horizontal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -720.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 90.0, -1.0, 0.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Vertical"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AddSprites/Cog2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 360.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AddSprites/Cog:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -360.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AddSprites/Cog3:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 720.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AddSprites/Cog4:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -720.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 91.0, 90.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_busy"
+}, {
+"args": [  ],
+"method": "_not_busy"
+} ]
+}
+
+[node name="RotatingWallsMechanism" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="WallStatic" type="StaticBody2D" parent="."]
+rotation = 1.5708
+collision_layer = 8388616
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WallStatic"]
+occluder = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallStatic"]
+position = Vector2( 0.542358, 0.363494 )
+shape = SubResource( 1 )
+
+[node name="RotatingWall" type="Sprite" parent="WallStatic"]
+position = Vector2( 0.448761, 0.478027 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallStatic"]
+reset_on_save = false
+method_call_mode = 1
+anims/Horizontal = SubResource( 5 )
+anims/Vertical = SubResource( 4 )
+
+[node name="AddSprites" type="Node2D" parent="WallStatic"]
+show_behind_parent = true
+
+[node name="Cog2" type="Sprite" parent="WallStatic/AddSprites"]
+position = Vector2( -14.7263, -6.80677 )
+texture = ExtResource( 5 )
+
+[node name="Cog" type="Sprite" parent="WallStatic/AddSprites"]
+position = Vector2( 17.1573, -8.02197 )
+texture = ExtResource( 6 )
+
+[node name="Cog3" type="Sprite" parent="WallStatic/AddSprites"]
+position = Vector2( 21.5831, 8.59123 )
+texture = ExtResource( 4 )
+
+[node name="Cog4" type="Sprite" parent="WallStatic/AddSprites"]
+texture = ExtResource( 3 )
+
+[node name="WallStatic2" type="StaticBody2D" parent="."]
+position = Vector2( 147.757, 0 )
+collision_layer = 8388616
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WallStatic2"]
+occluder = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallStatic2"]
+position = Vector2( 0.542358, 0.363494 )
+shape = SubResource( 1 )
+
+[node name="RotatingWall" type="Sprite" parent="WallStatic2"]
+position = Vector2( 0.448761, 0.478027 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallStatic2"]
+reset_on_save = false
+method_call_mode = 1
+anims/Horizontal = SubResource( 6 )
+anims/Vertical = SubResource( 7 )
+
+[node name="AddSprites" type="Node2D" parent="WallStatic2"]
+show_behind_parent = true
+
+[node name="Cog2" type="Sprite" parent="WallStatic2/AddSprites"]
+position = Vector2( -14.7263, -6.80677 )
+rotation = 6.28319
+texture = ExtResource( 5 )
+
+[node name="Cog" type="Sprite" parent="WallStatic2/AddSprites"]
+position = Vector2( 17.1573, -8.02197 )
+rotation = -6.28319
+texture = ExtResource( 6 )
+
+[node name="Cog3" type="Sprite" parent="WallStatic2/AddSprites"]
+position = Vector2( 21.5831, 8.59123 )
+rotation = 12.5664
+texture = ExtResource( 4 )
+
+[node name="Cog4" type="Sprite" parent="WallStatic2/AddSprites"]
+rotation = -12.5664
+texture = ExtResource( 3 )
+
+[node name="WallStatic3" type="StaticBody2D" parent="."]
+position = Vector2( -145.199, 0 )
+collision_layer = 8388616
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WallStatic3"]
+occluder = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallStatic3"]
+position = Vector2( 0.542358, 0.363495 )
+shape = SubResource( 1 )
+
+[node name="RotatingWall" type="Sprite" parent="WallStatic3"]
+position = Vector2( 0.448761, 0.478027 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallStatic3"]
+reset_on_save = false
+method_call_mode = 1
+anims/Horizontal = SubResource( 8 )
+anims/Vertical = SubResource( 9 )
+
+[node name="AddSprites" type="Node2D" parent="WallStatic3"]
+show_behind_parent = true
+
+[node name="Cog2" type="Sprite" parent="WallStatic3/AddSprites"]
+position = Vector2( -14.7263, -6.80677 )
+rotation = 6.28319
+texture = ExtResource( 5 )
+
+[node name="Cog" type="Sprite" parent="WallStatic3/AddSprites"]
+position = Vector2( 17.1573, -8.02197 )
+rotation = -6.28319
+texture = ExtResource( 6 )
+
+[node name="Cog3" type="Sprite" parent="WallStatic3/AddSprites"]
+position = Vector2( 21.5831, 8.59123 )
+rotation = 12.5664
+texture = ExtResource( 4 )
+
+[node name="Cog4" type="Sprite" parent="WallStatic3/AddSprites"]
+rotation = -12.5664
+texture = ExtResource( 3 )

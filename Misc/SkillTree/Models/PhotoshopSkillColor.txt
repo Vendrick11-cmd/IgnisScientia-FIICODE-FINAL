@@ -1,0 +1,3 @@
+Green = 329225 effects, +113 tint
+gray = 8b8b8a effects, 0 saturation
+Purple = 5b2592 effects, -79 tint

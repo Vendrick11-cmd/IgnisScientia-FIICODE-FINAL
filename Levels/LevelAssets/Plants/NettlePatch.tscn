@@ -1,0 +1,321 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Shaders/wind.gdshader" type="Shader" id=1]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (2).png" type="Texture" id=2]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (3).png" type="Texture" id=3]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (5).png" type="Texture" id=4]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (4).png" type="Texture" id=5]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (6).png" type="Texture" id=6]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (1).png" type="Texture" id=7]
+[ext_resource path="res://Misc/Overlap/InteractRay.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/LevelAssets/Plants/NettlePatch.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant2.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant1.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant3.mp3" type="AudioStream" id=12]
+
+[sub_resource type="ShaderMaterial" id=941]
+shader = ExtResource( 1 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.03
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 25.0
+shader_param/interval = 1.0
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
+
+[sub_resource type="RectangleShape2D" id=942]
+extents = Vector2( 11.5077, 14.6563 )
+
+[sub_resource type="Animation" id=943]
+resource_name = "0"
+
+[sub_resource type="Animation" id=944]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nettle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=945]
+resource_name = "2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nettle2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Nettle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=946]
+resource_name = "3"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nettle3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Nettle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Nettle2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=947]
+resource_name = "4"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nettle6:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Nettle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Nettle2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Nettle3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=948]
+resource_name = "5"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nettle5:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Nettle4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Nettle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Nettle2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Nettle3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Nettle6:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="NettlePatch" type="Node2D"]
+position = Vector2( 0.525146, 2.65009 )
+script = ExtResource( 9 )
+
+[node name="Nettle" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( -8.36343, -3.78005 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Nettle2" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( 3.56669, -3.78005 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[node name="Nettle3" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( -12.7851, -3.0292 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="Nettle4" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( -3.1075, -3.78005 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="Nettle5" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( 9.49005, -1.52751 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Nettle6" type="Sprite" parent="."]
+material = SubResource( 941 )
+position = Vector2( 14.746, -3.78005 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 6 )
+
+[node name="InteractRay" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9.41447, -2.70848 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+position = Vector2( 0.0936432, 0 )
+collision_layer = 1024
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( -2.19516, -1.31348 )
+shape = SubResource( 942 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/0 = SubResource( 943 )
+anims/1 = SubResource( 944 )
+anims/2 = SubResource( 945 )
+anims/3 = SubResource( 946 )
+anims/4 = SubResource( 947 )
+anims/5 = SubResource( 948 )
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -2.1875 )
+stream = ExtResource( 11 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="PickUp2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -2.1875 )
+stream = ExtResource( 10 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="PickUp3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -2.1875 )
+stream = ExtResource( 12 )
+volume_db = 10.0
+bus = "SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

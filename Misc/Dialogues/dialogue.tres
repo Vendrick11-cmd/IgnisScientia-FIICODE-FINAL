@@ -1,0 +1,89 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 136
+syntax_version = 2
+raw_text = "~ NoWayBackNow
+#_talkright()
+#_talkleft()
+#_monologue()
+#_monologueend()
+# _pause()
+# _unpause()
+
+if noway == false
+	
+	do _pause()
+	
+	
+	Hemwick: No way back now...
+	
+	do _unpause()
+	
+"
+errors = [  ]
+titles = {
+"NoWayBackNow": "8"
+}
+lines = {
+"0": {
+"next_id": "8",
+"text": "NoWayBackNow",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "13",
+"parent_id": "8",
+"type": "mutation"
+},
+"13": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "15",
+"parent_id": "8",
+"replacements": [  ],
+"text": "No way back now...",
+"translation_key": "No way back now...",
+"type": "dialogue"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "8",
+"type": "mutation"
+},
+"8": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "noway"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "10",
+"next_id_after": "end!",
+"type": "condition"
+}
+}

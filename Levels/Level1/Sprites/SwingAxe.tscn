@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Misc/Overlap/HitBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/SwingAxe.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/Level1/BladeSwing.mp3" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.95168
+
+[sub_resource type="Animation" id=1]
+resource_name = "Start"
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0.1, 0.6 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 59.9999, -59.9999 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 3.54289
+height = 71.4336
+
+[node name="SwingAxe" type="Node2D" groups=["enemies"]]
+__meta__ = {
+"_edit_horizontal_guides_": [ 109.246, 39.37 ],
+"_edit_vertical_guides_": [ -137.574 ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.285713, -21.8571 )
+rotation = -0.30997
+texture = ExtResource( 2 )
+offset = Vector2( 0.184433, 34.8234 )
+
+[node name="HitBox" parent="Sprite" instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 0.0733328, 62.1829 )
+rotation = -2.35804
+collision_layer = 256
+collision_mask = 640
+damage = 8
+
+[node name="CollisionShape2D" parent="Sprite/HitBox" index="0"]
+position = Vector2( -0.0563889, -0.00654602 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start"
+reset_on_save = false
+playback_speed = 0.3
+anims/Start = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+max_distance = 800.0
+bus = "SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 13.435 )
+shape = SubResource( 3 )
+disabled = true
+
+[editable path="Sprite/HitBox"]

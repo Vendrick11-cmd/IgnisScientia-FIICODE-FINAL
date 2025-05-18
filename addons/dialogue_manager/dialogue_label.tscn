@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_label.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=490]
+font_path = "res://Fonts/alagard.ttf"
+
+[sub_resource type="DynamicFont" id=491]
+size = 35
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 490 )
+
+[sub_resource type="Theme" id=492]
+default_font = SubResource( 491 )
+
+[node name="DialogueLabel" type="RichTextLabel"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource( 492 )
+bbcode_enabled = true
+meta_underlined = false
+fit_content_height = true
+scroll_active = false
+script = ExtResource( 1 )

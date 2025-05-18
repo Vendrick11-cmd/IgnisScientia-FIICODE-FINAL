@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Entities/Hemwick/Bows/Arrows/SimpleArrow.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/offsetshadow.gdshader" type="Shader" id=3]
+[ext_resource path="res://Misc/Inventory/ArrowRibbon.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Inventory/ArrowFrame.png" type="Texture" id=5]
+[ext_resource path="res://Misc/Inventory/ArrowsHUD.gd" type="Script" id=6]
+[ext_resource path="res://Misc/Inventory/ArrowFramePress.png" type="Texture" id=7]
+[ext_resource path="res://Misc/Inventory/ArrowFrameActive.png" type="Texture" id=8]
+
+[sub_resource type="ShaderMaterial" id=1233]
+shader = ExtResource( 3 )
+shader_param/offset = Vector2( 24, 13 )
+shader_param/modulate = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFontData" id=1237]
+font_path = "res://Fonts/JenrivTitlingRegular-x3RKV.otf"
+
+[sub_resource type="DynamicFont" id=1246]
+size = 120
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1237 )
+
+[sub_resource type="Theme" id=1236]
+default_font = SubResource( 1246 )
+
+[sub_resource type="Animation" id=1241]
+resource_name = "Hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.26, 0.26 ), Vector2( 0.29, 0.29 ) ]
+}
+
+[sub_resource type="Animation" id=1245]
+resource_name = "Inactive"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.26, 0.26 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=1242]
+resource_name = "Press"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.29, 0.29 ), Vector2( 0.31, 0.31 ), Vector2( 0.26, 0.26 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=1243]
+resource_name = "UnHover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.29, 0.29 ), Vector2( 0.26, 0.26 ) ]
+}
+
+[node name="ArrowsHUD" type="Node2D"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_vertical_guides_": [ 544.0, 712.0 ]
+}
+
+[node name="ArrowsRibbon" type="Sprite" parent="."]
+material = SubResource( 1233 )
+position = Vector2( 625.947, 286.955 )
+scale = Vector2( 0.135719, 0.135719 )
+texture = ExtResource( 4 )
+
+[node name="ArrowSlot1" type="Sprite" parent="."]
+material = SubResource( 1233 )
+position = Vector2( 628.19, 397.574 )
+scale = Vector2( 0.26, 0.26 )
+texture = ExtResource( 8 )
+
+[node name="ButtonSlot1" type="Button" parent="ArrowSlot1"]
+margin_left = -197.191
+margin_top = -203.02
+margin_right = 194.809
+margin_bottom = 198.98
+flat = true
+
+[node name="Arrow1" type="Sprite" parent="ArrowSlot1"]
+position = Vector2( 4.26196, -5.01526 )
+rotation = -0.785397
+scale = Vector2( 28, 28 )
+texture = ExtResource( 2 )
+
+[node name="Text" type="RichTextLabel" parent="ArrowSlot1/Arrow1"]
+visible = false
+margin_left = -228.19
+margin_top = -31.5612
+margin_right = 234.81
+margin_bottom = 72.4388
+rect_rotation = 44.9999
+rect_scale = Vector2( 0.035, 0.035 )
+rect_pivot_offset = Vector2( 220.788, 38.7432 )
+rect_clip_content = false
+theme = SubResource( 1236 )
+bbcode_enabled = true
+bbcode_text = "[center]Basic"
+text = "Basic"
+scroll_active = false
+
+[node name="ArrowSlotAnim" type="AnimationPlayer" parent="ArrowSlot1"]
+anims/Hover = SubResource( 1241 )
+anims/Inactive = SubResource( 1245 )
+anims/Press = SubResource( 1242 )
+anims/UnHover = SubResource( 1243 )
+
+[node name="ArrowNumber" type="Label" parent="ArrowSlot1"]
+margin_left = -196.0
+margin_top = -303.0
+margin_right = 198.0
+margin_bottom = -183.0
+theme = SubResource( 1236 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="mouse_entered" from="ArrowSlot1/ButtonSlot1" to="." method="_on_ButtonSlot1_mouse_entered"]
+[connection signal="mouse_exited" from="ArrowSlot1/ButtonSlot1" to="." method="_on_ButtonSlot1_mouse_exited"]
+[connection signal="pressed" from="ArrowSlot1/ButtonSlot1" to="." method="_on_ButtonSlot1_pressed"]

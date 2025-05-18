@@ -1,0 +1,38 @@
+~ Gramophone
+
+do _pause()
+do _hemwick()
+
+Hemwick: Still working after all this time, but this melody... something’s off.
+
+do _unpause()
+
+=> END
+~ Gramophone2
+do _pause()
+do _hemwick()
+Hemwick: It shouldn't be playing at all and yet, here it is.
+do _unpause()
+
+=> END
+~ Letter
+do _pause()
+do _hemwick()
+Hemwick: To whomever finds this...
+
+do _unpause()
+=> END
+~ Letter2
+do _pause()
+do _hemwick()
+Hemwick: Let us read it again.
+do _unpause()
+
+=> END
+~ Mirror
+do _pause()
+do _hemwick()
+Hemwick: Am I even here?
+
+do _unpause()
+

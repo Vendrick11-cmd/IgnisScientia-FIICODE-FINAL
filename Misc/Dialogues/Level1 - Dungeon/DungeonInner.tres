@@ -1,0 +1,244 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 17
+syntax_version = 2
+raw_text = "~ Gramophone
+
+do _pause()
+do _hemwick()
+
+Hemwick: Still working after all this time, but this melody... something’s off.
+
+do _unpause()
+
+~ Gramophone2
+do _pause()
+do _hemwick()
+Hemwick: It shouldn't be playing at all and yet, here it is.
+do _unpause()
+
+
+~ Mirror
+do _pause()
+do _hemwick()
+Hemwick: Am I even here?
+
+do _unpause()
+
+~ Vision
+do _pause()
+do _hemwick()
+Hemwick: Must've been another one of those visions I've been having recently.
+Hemwick: I better continue. I hope I'll find this witch, Eleanore.
+
+do _unpause()"
+errors = [  ]
+titles = {
+"Gramophone": "2",
+"Gramophone2": "10",
+"Mirror": "17",
+"Vision": "24"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "Gramophone",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "11",
+"type": "mutation"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "12",
+"type": "mutation"
+},
+"12": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "13",
+"replacements": [  ],
+"text": "It shouldn't be playing at all and yet, here it is.",
+"translation_key": "It shouldn't be playing at all and yet, here it is.",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"16": {
+"next_id": "17",
+"text": "Mirror",
+"type": "title"
+},
+"17": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "18",
+"type": "mutation"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "19",
+"type": "mutation"
+},
+"19": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "21",
+"replacements": [  ],
+"text": "Am I even here?",
+"translation_key": "Am I even here?",
+"type": "dialogue"
+},
+"2": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "3",
+"type": "mutation"
+},
+"21": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"23": {
+"next_id": "24",
+"text": "Vision",
+"type": "title"
+},
+"24": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "26",
+"type": "mutation"
+},
+"26": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "27",
+"replacements": [  ],
+"text": "Must've been another one of those visions I've been having recently.",
+"translation_key": "Must've been another one of those visions I've been having recently.",
+"type": "dialogue"
+},
+"27": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "29",
+"replacements": [  ],
+"text": "I better continue. I hope I'll find this witch, Eleanore.",
+"translation_key": "I better continue. I hope I'll find this witch, Eleanore.",
+"type": "dialogue"
+},
+"29": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "5",
+"type": "mutation"
+},
+"5": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "7",
+"replacements": [  ],
+"text": "Still working after all this time, but this melody... something’s off.",
+"translation_key": "Still working after all this time, but this melody... something’s off.",
+"type": "dialogue"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"9": {
+"next_id": "10",
+"text": "Gramophone2",
+"type": "title"
+}
+}

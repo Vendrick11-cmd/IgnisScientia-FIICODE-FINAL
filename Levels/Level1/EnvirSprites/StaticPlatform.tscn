@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/Level1/EnvirSprites/RotatingWall.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -88.8086, -6.58689, 89.1016, -6.44659, 89.25, 7.45, -88.6683, 7.44388 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 88.6629, 6.60712 )
+
+[node name="StaticPlatform" type="StaticBody2D"]
+collision_layer = 8388616
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.542358, 0.363495 )
+shape = SubResource( 2 )
+
+[node name="RotatingWall" type="Sprite" parent="."]
+position = Vector2( 0.448761, 0.478027 )
+texture = ExtResource( 1 )

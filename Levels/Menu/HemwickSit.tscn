@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Menu/HemwickSit.png" type="Texture" id=1]
+[ext_resource path="res://Entities/Hemwick/Accessories/Head/WizardHat.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hemwick:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hemwick/Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 32 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+closed = false
+cull_mode = 1
+polygon = PoolVector2Array( 6.19285, -9.48076, 6.85576, -9.12721, 7.23141, -8.75156, 7.49658, -6.60814, 7.49658, -5.70216, 7.78384, -4.70779, 8.63266, -3.81644, 9.40435, -2.34321, 9.40434, 4.56695, 8.17665, 6.0051, 9.38069, 7.04093, 10.6057, 7.93183, 11.4966, 8.82273, 11.974, 9.28069, 11.9949, 12.4301, 12.9543, 12.4301, 13.0169, 15.4126, 13.9346, 15.4126, 13.9971, 16.3929, 11.0772, 16.3512, 10.9937, 15.4752, 10.0969, 15.3292, 10.0552, 13.3895, 9.11662, 13.3269, 8.97062, 10.3861, 7.01007, 10.407, 7.01007, 16.3512, 7.92777, 16.3929, 7.94863, 17.3732, 3.94411, 17.3523, 4.0484, 10.3444, 2.04614, 10.3652, 2.02528, 9.40583, 0.961581, 9.42669, 0.0136137, 9.41495, 0.0726061, 8.50057, -0.812276, 8.2646, -0.281343, -3.79929, 3.01283, -5.99472, 2.98802, -9.61598, 3.98015, -9.56638, 4.30489, -9.86709 )
+
+[node name="HemwickSit" type="StaticBody2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 18.0, -10.0 ]
+}
+
+[node name="Hemwick" type="Sprite" parent="."]
+position = Vector2( 0, -44.6179 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 2
+
+[node name="Head" type="Sprite" parent="Hemwick"]
+position = Vector2( 3, 32 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+reset_on_save = false
+anims/Idle = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+disabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+show_behind_parent = true
+occluder = SubResource( 3 )

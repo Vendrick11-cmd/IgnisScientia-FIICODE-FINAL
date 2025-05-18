@@ -1,0 +1,259 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/2.png" type="Texture" id=2]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/3.png" type="Texture" id=3]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/4.png" type="Texture" id=4]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/5.png" type="Texture" id=5]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/6.png" type="Texture" id=6]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/7.png" type="Texture" id=7]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/8.png" type="Texture" id=8]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/9.png" type="Texture" id=9]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/10.png" type="Texture" id=10]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/CrumblingWall/CrumbleRubble.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.01433, 8.16041 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 3.03463, 4.25961 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6.06346, 4.38479 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6.06346, 5.20619 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 6.67411, 6.6539 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 7.40252, 5.75492 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3.84925, 6.35484 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 4.50458, 6.35484 )
+
+[node name="CrumbleRubble" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( -14.2989, 16.8915 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( -16.797, 7.24061 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( -0.0195026, 0.516958 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2( -0.0195026, 0.0169582 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2( -1.32977, 11.5271 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2( -0.585766, 0.0124207 )
+shape = SubResource( 3 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+position = Vector2( -15.9838, -3.57474 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D4"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2( -1.66856, 0.282169 )
+shape = SubResource( 4 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="."]
+position = Vector2( 13.6755, 13.8749 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D5"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
+position = Vector2( 0.751776, 0.407349 )
+shape = SubResource( 5 )
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="."]
+position = Vector2( -15.1075, -13.2063 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D6"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
+position = Vector2( 0.250647, 0.206751 )
+shape = SubResource( 6 )
+
+[node name="RigidBody2D7" type="RigidBody2D" parent="."]
+position = Vector2( -2.65882, -4.73055 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D7"]
+position = Vector2( 0.250647, 0.596519 )
+shape = SubResource( 7 )
+
+[node name="RigidBody2D8" type="RigidBody2D" parent="."]
+position = Vector2( 12.5752, 2.52465 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D8"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D8"]
+position = Vector2( -0.159519, 1.4955 )
+shape = SubResource( 8 )
+
+[node name="RigidBody2D9" type="RigidBody2D" parent="."]
+position = Vector2( -4.30884, -18.9173 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D9"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D9"]
+position = Vector2( -0.159519, 0.895576 )
+shape = SubResource( 9 )
+
+[node name="RigidBody2D10" type="RigidBody2D" parent="."]
+position = Vector2( 9.0489, -9.46229 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D10"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D10"]
+position = Vector2( 0.495819, 0.895576 )
+shape = SubResource( 10 )
+
+[node name="RigidBody2D11" type="RigidBody2D" parent="."]
+position = Vector2( 4.01352, -16.1559 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D11"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D11"]
+position = Vector2( -1.66856, 0.282169 )
+shape = SubResource( 4 )
+
+[node name="RigidBody2D12" type="RigidBody2D" parent="."]
+position = Vector2( 15.9139, -17.6568 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D12"]
+position = Vector2( -0.0195026, 0.516958 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D12"]
+position = Vector2( -0.0195026, 0.0169582 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D13" type="RigidBody2D" parent="."]
+position = Vector2( 14.425, -5.39272 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D13"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D13"]
+position = Vector2( 0.250647, 0.596519 )
+shape = SubResource( 7 )
+
+[node name="RigidBody2D14" type="RigidBody2D" parent="."]
+position = Vector2( -10.9181, -1.97744 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D14"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D14"]
+position = Vector2( 0.250647, 0.596519 )
+shape = SubResource( 7 )
+
+[node name="RigidBody2D15" type="RigidBody2D" parent="."]
+position = Vector2( -5.52857, 8.28115 )
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D15"]
+position = Vector2( -0.0131388, 0.512421 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D15"]
+position = Vector2( -0.159519, 1.4955 )
+shape = SubResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

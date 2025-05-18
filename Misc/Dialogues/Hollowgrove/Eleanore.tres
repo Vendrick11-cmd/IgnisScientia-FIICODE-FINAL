@@ -1,0 +1,1628 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 35
+syntax_version = 2
+raw_text = "~ Eleanore
+
+do _pause()
+do _eleanore()
+Eleanore: The forest warned me about new, enstranged footsteps. I knew you were coming.
+- Are you the one they call Eleanore?
+	do _hemwick()
+	Hemwick: Are you Eleanore?
+	do _eleanore()
+	Eleanore: Names come and go. That one's still warm though. Let's say yes, for now.
+- You knew I was coming?
+	do _hemwick()
+	Hemwick: How did you know I was coming?
+	do _eleanore()
+	Eleanore: The wind of these forests know more than it lets on. And you carry questions like burrs on your cape.
+- Am I interrupting something?
+	do _hemwick()
+	Hemwick: I'm sorry, am I interrupting something?
+	do _eleanore()
+	Eleanore: Only silence. And that's always easy to break.
+do _eleanore()
+Eleanore: So! You've come all this way, and still you haven't said why.
+- I am seeking knowledge. The old kind.
+	do _hemwick()
+	Hemwick: I am looking for knowledge, the old kind.
+	do _eleanore()
+	Eleanore: Then you will need older ears than mine. But I can point you toward whispers.
+- They told me you could teach me.
+	do _hemwick()
+	Hemwick: They told me you could teach me.
+	do _eleanore()
+	Eleanore: They always do. Still... maybe you are worth the telling.
+	do _hemwick()
+	Hemwick: You can be sure I am.
+	do _eleanore()
+	Eleanore: We will see about that.
+- I do not know yet.
+	do _hemwick()
+	Hemwick: I... do not entirely know yet.
+	do _eleanore()
+	Eleanore: That is better than thinking you do, so do not fret.
+do _eleanore()
+Eleanore: Ancient knowledge does not sit in books. It grows, hides, waits to be coaxed. And sometimes it even bites.
+- So? Where do I begin?
+	do _hemwick()
+	Hemwick: Where do I begin?
+	do _eleanore()
+	Eleanore: Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.
+- What do I need to do?
+	do _hemwick()
+	Hemwick: What do I need to do?
+	do _eleanore()
+	Eleanore: Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.
+- That is a poetic way to say nothing.
+	do _hemwick()
+	Hemwick: Thanks for saying nothing so poetically. 
+	do _eleanore()
+	Eleanore: And yet you stayed to listen. Perhaps you are more patient than you let on... but you just do not know it yet.
+do _eleanore()
+Eleanore: Out back, there is soil. It has been waiting.
+Eleanore: You may plant what you find. Or what finds you. Pay attention to how things grow... and how they do not.
+do _unpause()
+
+~ EleanoreAfter
+do _pause()
+
+do _eleanore()
+Eleanore: What are you waiting for?
+- You want me to grow plants?
+	do _hemwick()
+	Hemwick: Do you want me to grow plants?
+	do _eleanore()
+	Eleanore: Want is a strong word, but yes. You'll need their trust before you can wield them.
+- ...Are you always this vague?
+	do _hemwick()
+	Hemwick: Are you always like this? Like this vague?
+	do _eleanore()
+	Eleanore: Only when I'm being honest.
+do _eleanore()
+Eleanore: Stay. Learn. Grow. And when you feel ready... the old stones beneath this forest have more to say.
+do _unpause()
+
+~ EleanoreDrake
+do _pause()
+do _eleanore()
+Eleanore: You’re picking things up faster than I expected. Perhaps there’s more to you than dirt and determination.
+do _hemwick()
+Hemwick: I've had worse compliments. Something on your mind?
+do _eleanore()
+Eleanore: There is... someone. A hunter named Drake. He’s from these woods, knows every bend in the river, every stubborn root. Or at least... he did. He hasn’t been by in days.
+- Sounds like trouble. Want me to help?
+	do _hemwick()
+	Hemwick: Sounds like trouble. Want me to look for him?
+	do _eleanore()
+	Eleanore: Only if you’ve time while staying around this land. But yes. I’d appreciate that.
+- Maybe he just wandered off.
+	do _hemwick()
+	Hemwick: Maybe he just wandered off. Hunters like space, don’t they?
+	do _eleanore()
+	Eleanore: Drake is a man of space, yes. But he never breaks a promise. Not without a reason. He was meant to bring me sprigs from the ridge three days ago.
+- Who's he more exactly?
+	do _hemwick()
+	Hemwick: What’s he to you?
+	do _eleanore()
+	Eleanore: A thorn in my side. And sometimes a flower, if he remembers how.
+do _eleanore()
+Eleanore: Look, I know this isn’t what you came here for, but if you do find him, just... make sure he's not face-down in a briar patch somewhere.
+do _hemwick()
+Hemwick: I'll keep an eye out. No promises, though.
+do _eleanore()
+Eleanore: I wouldn’t ask for promises. Just eyes, and maybe a little luck. The woods are kind to those who tread gently.
+
+do _unpause()
+
+
+~ EleanoreEnd
+do _pause()
+do _eleanore()
+Eleanore: Back in one piece. That's either talent, or the dungeon took pity on you.
+do _hemwick()
+Hemwick: I'll take pity. Easier on the bones. Anyway, Drake's fine. Bit singed, but alive.
+do _eleanore()
+Eleanore: You found him?
+do _hemwick()
+Hemwick: Found him sitting by a fire like nothing happened. Said he was trapped in a room and he couldn't get out. Classic hunter nonsense.But he's breathing and grumbling, so I call that a success.
+do _eleanore()
+Eleanore: Good. That’s... good to hear.
+- You care about him, huh?
+	do _hemwick()
+	Hemwick: You care about him pretty much, huh?
+	do _eleanore()
+	Eleanore: Care is a strong word. Let's say I'm accustomed to his silence.
+- He said not to fuss over him, by the way.
+	do _hemwick()
+	Hemwick: He said not to fuss over him, you know.
+	do _eleanore()
+	Eleanore: Of course he did. And I'm sure he thinks that stops me.
+do _eleanore()
+Eleanore: You've done well, Hemwick. You learned more than just roots and remedies here.
+do _eleanore()
+Eleanore: When the road ahead get darker, and it will, remember that light doesn't always come from the sun.
+do _eleanore()
+Eleanore: One more thing...
+do _eleanore()
+Eleanore: Thank you. For walking with us. For now, this is where the trail ends. You are free to continue growing and maintaining the soil with diverse plants you find.
+do _eleanore()
+Eleanore: The fire's still warm... and the story is far from over.
+
+do _eleanore_fade()
+do _unpause()
+
+
+
+
+
+
+
+
+
+
+"
+errors = [  ]
+titles = {
+"Eleanore": "2",
+"EleanoreAfter": "64",
+"EleanoreDrake": "83",
+"EleanoreEnd": "116"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "Eleanore",
+"type": "title"
+},
+"10": {
+"next_id": "11",
+"next_id_after": "20",
+"replacements": [  ],
+"text": "You knew I was coming?",
+"translation_key": "You knew I was coming?",
+"type": "response"
+},
+"100": {
+"next_id": "101",
+"next_id_after": "105",
+"replacements": [  ],
+"text": "Who's he more exactly?",
+"translation_key": "Who's he more exactly?",
+"type": "response"
+},
+"101": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "102",
+"parent_id": "100",
+"type": "mutation"
+},
+"102": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "103",
+"parent_id": "100",
+"replacements": [  ],
+"text": "What’s he to you?",
+"translation_key": "What’s he to you?",
+"type": "dialogue"
+},
+"103": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "104",
+"parent_id": "100",
+"type": "mutation"
+},
+"104": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "105",
+"parent_id": "100",
+"replacements": [  ],
+"text": "A thorn in my side. And sometimes a flower, if he remembers how.",
+"translation_key": "A thorn in my side. And sometimes a flower, if he remembers how.",
+"type": "dialogue"
+},
+"105": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "106",
+"type": "mutation"
+},
+"106": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "107",
+"replacements": [  ],
+"text": "Look, I know this isn’t what you came here for, but if you do find him, just... make sure he's not face-down in a briar patch somewhere.",
+"translation_key": "Look, I know this isn’t what you came here for, but if you do find him, just... make sure he's not face-down in a briar patch somewhere.",
+"type": "dialogue"
+},
+"107": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "108",
+"type": "mutation"
+},
+"108": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "109",
+"replacements": [  ],
+"text": "I'll keep an eye out. No promises, though.",
+"translation_key": "I'll keep an eye out. No promises, though.",
+"type": "dialogue"
+},
+"109": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "110",
+"type": "mutation"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "12",
+"parent_id": "10",
+"type": "mutation"
+},
+"110": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "112",
+"replacements": [  ],
+"text": "I wouldn’t ask for promises. Just eyes, and maybe a little luck. The woods are kind to those who tread gently.",
+"translation_key": "I wouldn’t ask for promises. Just eyes, and maybe a little luck. The woods are kind to those who tread gently.",
+"type": "dialogue"
+},
+"112": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"115": {
+"next_id": "116",
+"text": "EleanoreEnd",
+"type": "title"
+},
+"116": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "117",
+"type": "mutation"
+},
+"117": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "118",
+"type": "mutation"
+},
+"118": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "119",
+"replacements": [  ],
+"text": "Back in one piece. That's either talent, or the dungeon took pity on you.",
+"translation_key": "Back in one piece. That's either talent, or the dungeon took pity on you.",
+"type": "dialogue"
+},
+"119": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "120",
+"type": "mutation"
+},
+"12": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "13",
+"parent_id": "10",
+"replacements": [  ],
+"text": "How did you know I was coming?",
+"translation_key": "How did you know I was coming?",
+"type": "dialogue"
+},
+"120": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "121",
+"replacements": [  ],
+"text": "I'll take pity. Easier on the bones. Anyway, Drake's fine. Bit singed, but alive.",
+"translation_key": "I'll take pity. Easier on the bones. Anyway, Drake's fine. Bit singed, but alive.",
+"type": "dialogue"
+},
+"121": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "122",
+"type": "mutation"
+},
+"122": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "123",
+"replacements": [  ],
+"text": "You found him?",
+"translation_key": "You found him?",
+"type": "dialogue"
+},
+"123": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "124",
+"type": "mutation"
+},
+"124": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "125",
+"replacements": [  ],
+"text": "Found him sitting by a fire like nothing happened. Said he was trapped in a room and he couldn't get out. Classic hunter nonsense.But he's breathing and grumbling, so I call that a success.",
+"translation_key": "Found him sitting by a fire like nothing happened. Said he was trapped in a room and he couldn't get out. Classic hunter nonsense.But he's breathing and grumbling, so I call that a success.",
+"type": "dialogue"
+},
+"125": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "126",
+"type": "mutation"
+},
+"126": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "127",
+"replacements": [  ],
+"text": "Good. That’s... good to hear.",
+"translation_key": "Good. That’s... good to hear.",
+"type": "dialogue"
+},
+"127": {
+"next_id": "128",
+"next_id_after": "137",
+"replacements": [  ],
+"responses": PoolStringArray( "127", "132" ),
+"text": "You care about him, huh?",
+"translation_key": "You care about him, huh?",
+"type": "response"
+},
+"128": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "129",
+"parent_id": "127",
+"type": "mutation"
+},
+"129": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "130",
+"parent_id": "127",
+"replacements": [  ],
+"text": "You care about him pretty much, huh?",
+"translation_key": "You care about him pretty much, huh?",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "14",
+"parent_id": "10",
+"type": "mutation"
+},
+"130": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "131",
+"parent_id": "127",
+"type": "mutation"
+},
+"131": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "137",
+"parent_id": "127",
+"replacements": [  ],
+"text": "Care is a strong word. Let's say I'm accustomed to his silence.",
+"translation_key": "Care is a strong word. Let's say I'm accustomed to his silence.",
+"type": "dialogue"
+},
+"132": {
+"next_id": "133",
+"next_id_after": "137",
+"replacements": [  ],
+"text": "He said not to fuss over him, by the way.",
+"translation_key": "He said not to fuss over him, by the way.",
+"type": "response"
+},
+"133": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "134",
+"parent_id": "132",
+"type": "mutation"
+},
+"134": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "135",
+"parent_id": "132",
+"replacements": [  ],
+"text": "He said not to fuss over him, you know.",
+"translation_key": "He said not to fuss over him, you know.",
+"type": "dialogue"
+},
+"135": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "136",
+"parent_id": "132",
+"type": "mutation"
+},
+"136": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "137",
+"parent_id": "132",
+"replacements": [  ],
+"text": "Of course he did. And I'm sure he thinks that stops me.",
+"translation_key": "Of course he did. And I'm sure he thinks that stops me.",
+"type": "dialogue"
+},
+"137": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "138",
+"type": "mutation"
+},
+"138": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "139",
+"replacements": [  ],
+"text": "You've done well, Hemwick. You learned more than just roots and remedies here.",
+"translation_key": "You've done well, Hemwick. You learned more than just roots and remedies here.",
+"type": "dialogue"
+},
+"139": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "140",
+"type": "mutation"
+},
+"14": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "20",
+"parent_id": "10",
+"replacements": [  ],
+"text": "The wind of these forests know more than it lets on. And you carry questions like burrs on your cape.",
+"translation_key": "The wind of these forests know more than it lets on. And you carry questions like burrs on your cape.",
+"type": "dialogue"
+},
+"140": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "141",
+"replacements": [  ],
+"text": "When the road ahead get darker, and it will, remember that light doesn't always come from the sun.",
+"translation_key": "When the road ahead get darker, and it will, remember that light doesn't always come from the sun.",
+"type": "dialogue"
+},
+"141": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "142",
+"type": "mutation"
+},
+"142": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "143",
+"replacements": [  ],
+"text": "One more thing...",
+"translation_key": "One more thing...",
+"type": "dialogue"
+},
+"143": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "144",
+"type": "mutation"
+},
+"144": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "145",
+"replacements": [  ],
+"text": "Thank you. For walking with us. For now, this is where the trail ends. You are free to continue growing and maintaining the soil with diverse plants you find.",
+"translation_key": "Thank you. For walking with us. For now, this is where the trail ends. You are free to continue growing and maintaining the soil with diverse plants you find.",
+"type": "dialogue"
+},
+"145": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "146",
+"type": "mutation"
+},
+"146": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "148",
+"replacements": [  ],
+"text": "The fire's still warm... and the story is far from over.",
+"translation_key": "The fire's still warm... and the story is far from over.",
+"type": "dialogue"
+},
+"148": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore_fade",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "149",
+"type": "mutation"
+},
+"149": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"15": {
+"next_id": "16",
+"next_id_after": "20",
+"replacements": [  ],
+"text": "Am I interrupting something?",
+"translation_key": "Am I interrupting something?",
+"type": "response"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "17",
+"parent_id": "15",
+"type": "mutation"
+},
+"17": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "18",
+"parent_id": "15",
+"replacements": [  ],
+"text": "I'm sorry, am I interrupting something?",
+"translation_key": "I'm sorry, am I interrupting something?",
+"type": "dialogue"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "19",
+"parent_id": "15",
+"type": "mutation"
+},
+"19": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "20",
+"parent_id": "15",
+"replacements": [  ],
+"text": "Only silence. And that's always easy to break.",
+"translation_key": "Only silence. And that's always easy to break.",
+"type": "dialogue"
+},
+"2": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "21",
+"type": "mutation"
+},
+"21": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "22",
+"replacements": [  ],
+"text": "So! You've come all this way, and still you haven't said why.",
+"translation_key": "So! You've come all this way, and still you haven't said why.",
+"type": "dialogue"
+},
+"22": {
+"next_id": "23",
+"next_id_after": "41",
+"replacements": [  ],
+"responses": PoolStringArray( "22", "27", "36" ),
+"text": "I am seeking knowledge. The old kind.",
+"translation_key": "I am seeking knowledge. The old kind.",
+"type": "response"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "24",
+"parent_id": "22",
+"type": "mutation"
+},
+"24": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "25",
+"parent_id": "22",
+"replacements": [  ],
+"text": "I am looking for knowledge, the old kind.",
+"translation_key": "I am looking for knowledge, the old kind.",
+"type": "dialogue"
+},
+"25": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "26",
+"parent_id": "22",
+"type": "mutation"
+},
+"26": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "41",
+"parent_id": "22",
+"replacements": [  ],
+"text": "Then you will need older ears than mine. But I can point you toward whispers.",
+"translation_key": "Then you will need older ears than mine. But I can point you toward whispers.",
+"type": "dialogue"
+},
+"27": {
+"next_id": "28",
+"next_id_after": "41",
+"replacements": [  ],
+"text": "They told me you could teach me.",
+"translation_key": "They told me you could teach me.",
+"type": "response"
+},
+"28": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "29",
+"parent_id": "27",
+"type": "mutation"
+},
+"29": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "30",
+"parent_id": "27",
+"replacements": [  ],
+"text": "They told me you could teach me.",
+"translation_key": "They told me you could teach me.",
+"type": "dialogue"
+},
+"3": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "4",
+"type": "mutation"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "31",
+"parent_id": "27",
+"type": "mutation"
+},
+"31": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "32",
+"parent_id": "27",
+"replacements": [  ],
+"text": "They always do. Still... maybe you are worth the telling.",
+"translation_key": "They always do. Still... maybe you are worth the telling.",
+"type": "dialogue"
+},
+"32": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "33",
+"parent_id": "27",
+"type": "mutation"
+},
+"33": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "34",
+"parent_id": "27",
+"replacements": [  ],
+"text": "You can be sure I am.",
+"translation_key": "You can be sure I am.",
+"type": "dialogue"
+},
+"34": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "35",
+"parent_id": "27",
+"type": "mutation"
+},
+"35": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "41",
+"parent_id": "27",
+"replacements": [  ],
+"text": "We will see about that.",
+"translation_key": "We will see about that.",
+"type": "dialogue"
+},
+"36": {
+"next_id": "37",
+"next_id_after": "41",
+"replacements": [  ],
+"text": "I do not know yet.",
+"translation_key": "I do not know yet.",
+"type": "response"
+},
+"37": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "38",
+"parent_id": "36",
+"type": "mutation"
+},
+"38": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "39",
+"parent_id": "36",
+"replacements": [  ],
+"text": "I... do not entirely know yet.",
+"translation_key": "I... do not entirely know yet.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "40",
+"parent_id": "36",
+"type": "mutation"
+},
+"4": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "The forest warned me about new, enstranged footsteps. I knew you were coming.",
+"translation_key": "The forest warned me about new, enstranged footsteps. I knew you were coming.",
+"type": "dialogue"
+},
+"40": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "41",
+"parent_id": "36",
+"replacements": [  ],
+"text": "That is better than thinking you do, so do not fret.",
+"translation_key": "That is better than thinking you do, so do not fret.",
+"type": "dialogue"
+},
+"41": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "42",
+"type": "mutation"
+},
+"42": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "43",
+"replacements": [  ],
+"text": "Ancient knowledge does not sit in books. It grows, hides, waits to be coaxed. And sometimes it even bites.",
+"translation_key": "Ancient knowledge does not sit in books. It grows, hides, waits to be coaxed. And sometimes it even bites.",
+"type": "dialogue"
+},
+"43": {
+"next_id": "44",
+"next_id_after": "58",
+"replacements": [  ],
+"responses": PoolStringArray( "43", "48", "53" ),
+"text": "So? Where do I begin?",
+"translation_key": "So? Where do I begin?",
+"type": "response"
+},
+"44": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "45",
+"parent_id": "43",
+"type": "mutation"
+},
+"45": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "46",
+"parent_id": "43",
+"replacements": [  ],
+"text": "Where do I begin?",
+"translation_key": "Where do I begin?",
+"type": "dialogue"
+},
+"46": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "47",
+"parent_id": "43",
+"type": "mutation"
+},
+"47": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "58",
+"parent_id": "43",
+"replacements": [  ],
+"text": "Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.",
+"translation_key": "Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.",
+"type": "dialogue"
+},
+"48": {
+"next_id": "49",
+"next_id_after": "58",
+"replacements": [  ],
+"text": "What do I need to do?",
+"translation_key": "What do I need to do?",
+"type": "response"
+},
+"49": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "50",
+"parent_id": "48",
+"type": "mutation"
+},
+"5": {
+"next_id": "6",
+"next_id_after": "20",
+"replacements": [  ],
+"responses": PoolStringArray( "5", "10", "15" ),
+"text": "Are you the one they call Eleanore?",
+"translation_key": "Are you the one they call Eleanore?",
+"type": "response"
+},
+"50": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "51",
+"parent_id": "48",
+"replacements": [  ],
+"text": "What do I need to do?",
+"translation_key": "What do I need to do?",
+"type": "dialogue"
+},
+"51": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "52",
+"parent_id": "48",
+"type": "mutation"
+},
+"52": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "58",
+"parent_id": "48",
+"replacements": [  ],
+"text": "Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.",
+"translation_key": "Begin by staying. Observe, breathe. The forest might speak to you yet if you truly wish to be here. In time, you will know where to step.",
+"type": "dialogue"
+},
+"53": {
+"next_id": "54",
+"next_id_after": "58",
+"replacements": [  ],
+"text": "That is a poetic way to say nothing.",
+"translation_key": "That is a poetic way to say nothing.",
+"type": "response"
+},
+"54": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "55",
+"parent_id": "53",
+"type": "mutation"
+},
+"55": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "56",
+"parent_id": "53",
+"replacements": [  ],
+"text": "Thanks for saying nothing so poetically.",
+"translation_key": "Thanks for saying nothing so poetically.",
+"type": "dialogue"
+},
+"56": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "57",
+"parent_id": "53",
+"type": "mutation"
+},
+"57": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "58",
+"parent_id": "53",
+"replacements": [  ],
+"text": "And yet you stayed to listen. Perhaps you are more patient than you let on... but you just do not know it yet.",
+"translation_key": "And yet you stayed to listen. Perhaps you are more patient than you let on... but you just do not know it yet.",
+"type": "dialogue"
+},
+"58": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "59",
+"type": "mutation"
+},
+"59": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "60",
+"replacements": [  ],
+"text": "Out back, there is soil. It has been waiting.",
+"translation_key": "Out back, there is soil. It has been waiting.",
+"type": "dialogue"
+},
+"6": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "7",
+"parent_id": "5",
+"type": "mutation"
+},
+"60": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "61",
+"replacements": [  ],
+"text": "You may plant what you find. Or what finds you. Pay attention to how things grow... and how they do not.",
+"translation_key": "You may plant what you find. Or what finds you. Pay attention to how things grow... and how they do not.",
+"type": "dialogue"
+},
+"61": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"63": {
+"next_id": "64",
+"text": "EleanoreAfter",
+"type": "title"
+},
+"64": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "66",
+"type": "mutation"
+},
+"66": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "67",
+"type": "mutation"
+},
+"67": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "68",
+"replacements": [  ],
+"text": "What are you waiting for?",
+"translation_key": "What are you waiting for?",
+"type": "dialogue"
+},
+"68": {
+"next_id": "69",
+"next_id_after": "78",
+"replacements": [  ],
+"responses": PoolStringArray( "68", "73" ),
+"text": "You want me to grow plants?",
+"translation_key": "You want me to grow plants?",
+"type": "response"
+},
+"69": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "70",
+"parent_id": "68",
+"type": "mutation"
+},
+"7": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "8",
+"parent_id": "5",
+"replacements": [  ],
+"text": "Are you Eleanore?",
+"translation_key": "Are you Eleanore?",
+"type": "dialogue"
+},
+"70": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "71",
+"parent_id": "68",
+"replacements": [  ],
+"text": "Do you want me to grow plants?",
+"translation_key": "Do you want me to grow plants?",
+"type": "dialogue"
+},
+"71": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "72",
+"parent_id": "68",
+"type": "mutation"
+},
+"72": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "78",
+"parent_id": "68",
+"replacements": [  ],
+"text": "Want is a strong word, but yes. You'll need their trust before you can wield them.",
+"translation_key": "Want is a strong word, but yes. You'll need their trust before you can wield them.",
+"type": "dialogue"
+},
+"73": {
+"next_id": "74",
+"next_id_after": "78",
+"replacements": [  ],
+"text": "...Are you always this vague?",
+"translation_key": "...Are you always this vague?",
+"type": "response"
+},
+"74": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "75",
+"parent_id": "73",
+"type": "mutation"
+},
+"75": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "76",
+"parent_id": "73",
+"replacements": [  ],
+"text": "Are you always like this? Like this vague?",
+"translation_key": "Are you always like this? Like this vague?",
+"type": "dialogue"
+},
+"76": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "77",
+"parent_id": "73",
+"type": "mutation"
+},
+"77": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "78",
+"parent_id": "73",
+"replacements": [  ],
+"text": "Only when I'm being honest.",
+"translation_key": "Only when I'm being honest.",
+"type": "dialogue"
+},
+"78": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "79",
+"type": "mutation"
+},
+"79": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "80",
+"replacements": [  ],
+"text": "Stay. Learn. Grow. And when you feel ready... the old stones beneath this forest have more to say.",
+"translation_key": "Stay. Learn. Grow. And when you feel ready... the old stones beneath this forest have more to say.",
+"type": "dialogue"
+},
+"8": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "9",
+"parent_id": "5",
+"type": "mutation"
+},
+"80": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"82": {
+"next_id": "83",
+"text": "EleanoreDrake",
+"type": "title"
+},
+"83": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "84",
+"type": "mutation"
+},
+"84": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "85",
+"type": "mutation"
+},
+"85": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "86",
+"replacements": [  ],
+"text": "You’re picking things up faster than I expected. Perhaps there’s more to you than dirt and determination.",
+"translation_key": "You’re picking things up faster than I expected. Perhaps there’s more to you than dirt and determination.",
+"type": "dialogue"
+},
+"86": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "87",
+"type": "mutation"
+},
+"87": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "88",
+"replacements": [  ],
+"text": "I've had worse compliments. Something on your mind?",
+"translation_key": "I've had worse compliments. Something on your mind?",
+"type": "dialogue"
+},
+"88": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "89",
+"type": "mutation"
+},
+"89": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "90",
+"replacements": [  ],
+"text": "There is... someone. A hunter named Drake. He’s from these woods, knows every bend in the river, every stubborn root. Or at least... he did. He hasn’t been by in days.",
+"translation_key": "There is... someone. A hunter named Drake. He’s from these woods, knows every bend in the river, every stubborn root. Or at least... he did. He hasn’t been by in days.",
+"type": "dialogue"
+},
+"9": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "20",
+"parent_id": "5",
+"replacements": [  ],
+"text": "Names come and go. That one's still warm though. Let's say yes, for now.",
+"translation_key": "Names come and go. That one's still warm though. Let's say yes, for now.",
+"type": "dialogue"
+},
+"90": {
+"next_id": "91",
+"next_id_after": "105",
+"replacements": [  ],
+"responses": PoolStringArray( "90", "95", "100" ),
+"text": "Sounds like trouble. Want me to help?",
+"translation_key": "Sounds like trouble. Want me to help?",
+"type": "response"
+},
+"91": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "92",
+"parent_id": "90",
+"type": "mutation"
+},
+"92": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "93",
+"parent_id": "90",
+"replacements": [  ],
+"text": "Sounds like trouble. Want me to look for him?",
+"translation_key": "Sounds like trouble. Want me to look for him?",
+"type": "dialogue"
+},
+"93": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "94",
+"parent_id": "90",
+"type": "mutation"
+},
+"94": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "105",
+"parent_id": "90",
+"replacements": [  ],
+"text": "Only if you’ve time while staying around this land. But yes. I’d appreciate that.",
+"translation_key": "Only if you’ve time while staying around this land. But yes. I’d appreciate that.",
+"type": "dialogue"
+},
+"95": {
+"next_id": "96",
+"next_id_after": "105",
+"replacements": [  ],
+"text": "Maybe he just wandered off.",
+"translation_key": "Maybe he just wandered off.",
+"type": "response"
+},
+"96": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "97",
+"parent_id": "95",
+"type": "mutation"
+},
+"97": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "98",
+"parent_id": "95",
+"replacements": [  ],
+"text": "Maybe he just wandered off. Hunters like space, don’t they?",
+"translation_key": "Maybe he just wandered off. Hunters like space, don’t they?",
+"type": "dialogue"
+},
+"98": {
+"mutation": {
+"expression": [ {
+"function": "_eleanore",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "99",
+"parent_id": "95",
+"type": "mutation"
+},
+"99": {
+"character": "Eleanore",
+"character_replacements": [  ],
+"next_id": "105",
+"parent_id": "95",
+"replacements": [  ],
+"text": "Drake is a man of space, yes. But he never breaks a promise. Not without a reason. He was meant to bring me sprigs from the ridge three days ago.",
+"translation_key": "Drake is a man of space, yes. But he never breaks a promise. Not without a reason. He was meant to bring me sprigs from the ridge three days ago.",
+"type": "dialogue"
+}
+}

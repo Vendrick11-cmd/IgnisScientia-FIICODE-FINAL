@@ -1,0 +1,710 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Misc/CharacterMenu/InventoryButton.png" type="Texture" id=1]
+[ext_resource path="res://Misc/CharacterMenu/MapPress.png" type="Texture" id=2]
+[ext_resource path="res://Misc/CharacterMenu/MapButton.png" type="Texture" id=3]
+[ext_resource path="res://Misc/CharacterMenu/InventoryHover.png" type="Texture" id=4]
+[ext_resource path="res://Misc/CharacterMenu/CharacterMenu.gd" type="Script" id=5]
+[ext_resource path="res://Misc/CharacterMenu/MapHover.png" type="Texture" id=6]
+[ext_resource path="res://Misc/CharacterMenu/InventoryPress.png" type="Texture" id=7]
+[ext_resource path="res://Misc/CharacterMenu/EquipmentHover.png" type="Texture" id=8]
+[ext_resource path="res://Misc/CharacterMenu/EquipmentButton.png" type="Texture" id=9]
+[ext_resource path="res://Misc/CharacterMenu/EquipmentPress.png" type="Texture" id=10]
+[ext_resource path="res://Misc/CharacterMenu/SkillTreePress.png" type="Texture" id=11]
+[ext_resource path="res://Misc/CharacterMenu/SkillTreeHover.png" type="Texture" id=12]
+[ext_resource path="res://Misc/CharacterMenu/SkillTreeButton.png" type="Texture" id=13]
+[ext_resource path="res://Misc/SkillTree/SkillTree.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Misc/Inventory/Inventory.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sounds/UI/CharacterMenuOpen.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/UI/CharacterMenuClose.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/UI/CharacterMenuHover.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/UI/Click.mp3" type="AudioStream" id=19]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.188, 0.188 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ), ExtResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.21, 0.21 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "UnHover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 6 ), ExtResource( 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="InputEventKey" id=15]
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.188, 0.188 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 1 ), ExtResource( 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.21, 0.21 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "UnHover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 4 ), ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.188, 0.188 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 9 ), ExtResource( 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.21, 0.21 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "UnHover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 8 ), ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Hover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.188, 0.188 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 13 ), ExtResource( 12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.21, 0.21 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "UnHover"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.188, 0.188 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 12 ), ExtResource( 13 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Active"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -94.1804 ), Vector2( 0, 10.0965 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../Sounds/CharacterMenu")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Inactive"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10.0965 ), Vector2( 0, -94.1804 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../Sounds/CharacterMenu")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0.3 )
+}
+
+[node name="CharacterMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 10
+script = ExtResource( 5 )
+
+[node name="Tree" type="Node2D" parent="."]
+pause_mode = 2
+position = Vector2( 0, -94.1804 )
+
+[node name="SkillTree" parent="Tree" instance=ExtResource( 14 )]
+layer = 5
+
+[node name="Inventory" parent="Tree" instance=ExtResource( 15 )]
+layer = 5
+__meta__ = {
+"_edit_vertical_guides_": [ 958.984 ]
+}
+
+[node name="MapCont" type="Node2D" parent="Tree"]
+position = Vector2( -1099.07, -177.553 )
+
+[node name="Map" type="Button" parent="Tree/MapCont"]
+margin_left = -1.22461
+margin_top = -0.718399
+margin_right = 2575.78
+margin_bottom = 415.282
+rect_scale = Vector2( 0.188, 0.188 )
+rect_pivot_offset = Vector2( 1353.58, 219.383 )
+rect_clip_content = true
+icon = ExtResource( 3 )
+flat = true
+icon_align = 1
+
+[node name="ButtonAnim" type="AnimationPlayer" parent="Tree/MapCont/Map"]
+reset_on_save = false
+anims/Hover = SubResource( 1 )
+anims/Pressed = SubResource( 3 )
+anims/UnHover = SubResource( 2 )
+
+[node name="InventoryCont" type="Node2D" parent="Tree"]
+position = Vector2( -1100.43, -177.564 )
+z_index = 1
+
+[node name="Inventory" type="Button" parent="Tree/InventoryCont"]
+margin_left = 479.099
+margin_top = -0.718399
+margin_right = 3056.1
+margin_bottom = 415.282
+rect_scale = Vector2( 0.188, 0.188 )
+rect_pivot_offset = Vector2( 1353.58, 219.383 )
+rect_clip_content = true
+shortcut = SubResource( 16 )
+icon = ExtResource( 1 )
+flat = true
+icon_align = 1
+
+[node name="ButtonAnim" type="AnimationPlayer" parent="Tree/InventoryCont/Inventory"]
+reset_on_save = false
+anims/Hover = SubResource( 4 )
+anims/Pressed = SubResource( 5 )
+anims/UnHover = SubResource( 6 )
+
+[node name="EquipmentCont" type="Node2D" parent="Tree"]
+position = Vector2( -1100.02, -177.563 )
+
+[node name="Equipment" type="Button" parent="Tree/EquipmentCont"]
+margin_left = 958.267
+margin_top = -0.718399
+margin_right = 3535.27
+margin_bottom = 415.282
+rect_scale = Vector2( 0.188, 0.188 )
+rect_pivot_offset = Vector2( 1353.58, 219.383 )
+rect_clip_content = true
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+
+[node name="ButtonAnim" type="AnimationPlayer" parent="Tree/EquipmentCont/Equipment"]
+reset_on_save = false
+anims/Hover = SubResource( 7 )
+anims/Pressed = SubResource( 8 )
+anims/UnHover = SubResource( 9 )
+
+[node name="SkillTreeCont" type="Node2D" parent="Tree"]
+position = Vector2( -1099.35, -177.556 )
+
+[node name="SkillTree" type="Button" parent="Tree/SkillTreeCont"]
+margin_left = 1436.54
+margin_top = -1.0934
+margin_right = 4013.54
+margin_bottom = 414.907
+rect_scale = Vector2( 0.188, 0.188 )
+rect_pivot_offset = Vector2( 1353.58, 219.383 )
+rect_clip_content = true
+icon = ExtResource( 13 )
+flat = true
+icon_align = 1
+
+[node name="ButtonAnim" type="AnimationPlayer" parent="Tree/SkillTreeCont/SkillTree"]
+reset_on_save = false
+anims/Hover = SubResource( 10 )
+anims/Pressed = SubResource( 11 )
+anims/UnHover = SubResource( 12 )
+
+[node name="TreeAnim" type="AnimationPlayer" parent="Tree"]
+pause_mode = 2
+reset_on_save = false
+anims/Active = SubResource( 13 )
+anims/Inactive = SubResource( 14 )
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="CharacterMenu" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 16 )
+
+[node name="CharacterMenuHover" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 18 )
+
+[node name="Click" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 19 )
+
+[connection signal="mouse_entered" from="Tree/MapCont/Map" to="." method="_on_Map_mouse_entered"]
+[connection signal="mouse_exited" from="Tree/MapCont/Map" to="." method="_on_Map_mouse_exited"]
+[connection signal="pressed" from="Tree/MapCont/Map" to="." method="_on_Map_pressed"]
+[connection signal="mouse_entered" from="Tree/InventoryCont/Inventory" to="." method="_on_Inventory_mouse_entered"]
+[connection signal="mouse_exited" from="Tree/InventoryCont/Inventory" to="." method="_on_Inventory_mouse_exited"]
+[connection signal="pressed" from="Tree/InventoryCont/Inventory" to="." method="_on_Inventory_pressed"]
+[connection signal="mouse_entered" from="Tree/EquipmentCont/Equipment" to="." method="_on_Equipment_mouse_entered"]
+[connection signal="mouse_exited" from="Tree/EquipmentCont/Equipment" to="." method="_on_Equipment_mouse_exited"]
+[connection signal="pressed" from="Tree/EquipmentCont/Equipment" to="." method="_on_Equipment_pressed"]
+[connection signal="mouse_entered" from="Tree/SkillTreeCont/SkillTree" to="." method="_on_SkillTree_mouse_entered"]
+[connection signal="mouse_exited" from="Tree/SkillTreeCont/SkillTree" to="." method="_on_SkillTree_mouse_exited"]
+[connection signal="pressed" from="Tree/SkillTreeCont/SkillTree" to="." method="_on_SkillTree_pressed"]

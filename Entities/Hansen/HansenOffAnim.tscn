@@ -1,0 +1,494 @@
+[gd_scene load_steps=66 format=2]
+
+[ext_resource path="res://Entities/Hansen/Hansen.gd" type="Script" id=12]
+[ext_resource path="res://Shaders/pngfind.com-blur-png-544352.png" type="Texture" id=13]
+[ext_resource path="res://Misc/Camera2D.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/Hemwick/Trails/Capture.PNG" type="Texture" id=15]
+[ext_resource path="res://Entities/Hemwick/Trails/trail.png" type="Texture" id=16]
+[ext_resource path="res://Entities/Hemwick/Trails/run_02.webp" type="Texture" id=17]
+[ext_resource path="res://Misc/Black.jpg" type="Texture" id=18]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 30.7182
+
+[sub_resource type="RayShape2D" id=3]
+length = 20.1476
+
+[sub_resource type="Animation" id=244]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/ArmTrails/Trail:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/ArmTrails/Trail:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 21.9121, -20.0268 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/ArmTrails/Trail:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4.47284 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/ArmTrails/Trail:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.636208, 0.652122 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/ArmTrails/Trail:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/ArmTrails/Trail:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/ArmTrails/Trail:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=265]
+resource_name = "THIdle"
+
+[sub_resource type="AnimationNodeAnimation" id=252]
+animation = "AttackL1"
+
+[sub_resource type="AnimationNodeAnimation" id=258]
+animation = "AttackL2"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "THFall"
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "THIdle"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "THJog"
+
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "THJump"
+
+[sub_resource type="AnimationNodeAnimation" id=247]
+animation = "THLand"
+
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "THPrejump"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "THSprint"
+
+[sub_resource type="AnimationNodeAnimation" id=107]
+animation = "THStep"
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "THTurnL"
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "THTurnR"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=102]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=103]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=105]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=108]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=109]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=110]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=111]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=112]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=113]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=122]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=205]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=206]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=207]
+switch_mode = 2
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=208]
+switch_mode = 2
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=211]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=212]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=248]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=249]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=250]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=253]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=254]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=255]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=256]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=259]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=260]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=261]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=262]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=263]
+switch_mode = 2
+xfade_time = 0.1
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=264]
+switch_mode = 2
+xfade_time = 0.1
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/AttackL1/node = SubResource( 252 )
+states/AttackL1/position = Vector2( -58.0661, -781.942 )
+states/AttackL2/node = SubResource( 258 )
+states/AttackL2/position = Vector2( 474.687, -788.717 )
+states/THFall/node = SubResource( 59 )
+states/THFall/position = Vector2( 539.265, -312.938 )
+states/THIdle/node = SubResource( 42 )
+states/THIdle/position = Vector2( 182.19, -686.086 )
+states/THJog/node = SubResource( 50 )
+states/THJog/position = Vector2( 165.791, -459.629 )
+states/THJump/node = SubResource( 61 )
+states/THJump/position = Vector2( 540.352, -186.271 )
+states/THLand/node = SubResource( 247 )
+states/THLand/position = Vector2( 536.614, -423.249 )
+states/THPrejump/node = SubResource( 62 )
+states/THPrejump/position = Vector2( 541.035, -82.0134 )
+states/THSprint/node = SubResource( 43 )
+states/THSprint/position = Vector2( -166.466, -371.835 )
+states/THStep/node = SubResource( 107 )
+states/THStep/position = Vector2( -305.925, -299.198 )
+states/THTurnL/node = SubResource( 75 )
+states/THTurnL/position = Vector2( -130.377, -549.918 )
+states/THTurnR/node = SubResource( 76 )
+states/THTurnR/position = Vector2( 474.456, -561.342 )
+transitions = [ "THJog", "THSprint", SubResource( 53 ), "THSprint", "THJog", SubResource( 54 ), "THIdle", "THPrejump", SubResource( 63 ), "THJog", "THPrejump", SubResource( 64 ), "THSprint", "THPrejump", SubResource( 65 ), "THPrejump", "THJump", SubResource( 66 ), "THJump", "THFall", SubResource( 67 ), "THSprint", "THIdle", SubResource( 99 ), "THIdle", "THSprint", SubResource( 102 ), "THJog", "THIdle", SubResource( 103 ), "THIdle", "THJog", SubResource( 105 ), "THIdle", "THStep", SubResource( 108 ), "THStep", "THIdle", SubResource( 109 ), "THStep", "THJog", SubResource( 110 ), "THStep", "THSprint", SubResource( 111 ), "THJog", "THStep", SubResource( 112 ), "THSprint", "THStep", SubResource( 113 ), "THStep", "THPrejump", SubResource( 122 ), "THIdle", "THTurnR", SubResource( 205 ), "THIdle", "THTurnL", SubResource( 206 ), "THTurnL", "THIdle", SubResource( 207 ), "THTurnR", "THIdle", SubResource( 208 ), "THJog", "THTurnL", SubResource( 211 ), "THJog", "THTurnR", SubResource( 212 ), "THLand", "THJog", SubResource( 248 ), "THLand", "THIdle", SubResource( 249 ), "THFall", "THLand", SubResource( 250 ), "THIdle", "AttackL1", SubResource( 253 ), "AttackL1", "THIdle", SubResource( 254 ), "THJog", "AttackL1", SubResource( 255 ), "AttackL1", "THJog", SubResource( 256 ), "THIdle", "AttackL2", SubResource( 259 ), "AttackL2", "THIdle", SubResource( 260 ), "THJog", "AttackL2", SubResource( 261 ), "AttackL2", "THJog", SubResource( 262 ), "AttackL1", "AttackL2", SubResource( 263 ), "AttackL2", "AttackL1", SubResource( 264 ) ]
+start_node = "THIdle"
+graph_offset = Vector2( -449.846, -858.134 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+
+[sub_resource type="Animation" id=39]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Blur:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blur:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "ZoomIn"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.35, 0.35 ), Vector2( 0.25, 0.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blur:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Blur:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.364706 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "ZoomOut"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.35, 0.35 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blur:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Blur:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.662745 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Hansen" type="KinematicBody2D" groups=["player"]]
+collision_mask = 8
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 40.6614, -19.6386, 71.9995 ],
+"_edit_vertical_guides_": [ 112.996, 118.665, 113.941, 13.3855, 9.55103, -16.5825, -12.571 ]
+}
+JUMPFORCE = 0
+JOGSPEED = 0
+SIMPLESPEED = 0
+MAXSPEED = 0
+
+[node name="Capture" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.635294 )
+position = Vector2( -10.8644, -3.88652 )
+scale = Vector2( 1.2115, 1.2115 )
+z_index = -2
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.5642, 0 )
+z_index = -6
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 20.5138 )
+z_index = -6
+shape = SubResource( 3 )
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="ArmTrails" type="Node2D" parent="Body"]
+
+[node name="Trail" type="Sprite" parent="Body/ArmTrails"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 21.9121, -20.0268 )
+rotation = -0.0780658
+scale = Vector2( 0.636208, 0.652122 )
+z_index = 1
+texture = ExtResource( 16 )
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 244 )
+anims/THIdle = SubResource( 265 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 16 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+position = Vector2( 0, -44.2 )
+remote_path = NodePath("../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource( 14 )]
+position = Vector2( 0, -44.2 )
+limit_smoothed = false
+smoothing_enabled = false
+smoothing_speed = 10.0
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="CamAnim" type="AnimationPlayer" parent="Camera2D"]
+reset_on_save = false
+anims/RESET = SubResource( 39 )
+anims/ZoomIn = SubResource( 40 )
+anims/ZoomOut = SubResource( 41 )
+
+[node name="Blur" type="Node2D" parent="Camera2D"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="BlurCanvas" type="Sprite" parent="Camera2D/Blur"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0.446304, 2.0585 )
+scale = Vector2( 3.84, 3.296 )
+texture = ExtResource( 13 )
+
+[node name="Black" type="Sprite" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( 16.5431, 6.5659 )
+scale = Vector2( 1.30084, 1.30084 )
+z_index = -6
+texture = ExtResource( 18 )
+
+[node name="Run02" type="Sprite" parent="."]
+visible = false
+position = Vector2( 131.332, 3.44325 )
+scale = Vector2( 0.101504, 0.101504 )
+texture = ExtResource( 17 )

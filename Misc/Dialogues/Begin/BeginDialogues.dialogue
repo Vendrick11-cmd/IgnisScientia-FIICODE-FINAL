@@ -1,0 +1,32 @@
+~ WillyBartender
+
+do _pause()
+do _willy()
+
+Willy: Well, I be damned... Look who decided to stumble back in. Thought the road had swallowed you whole, Hemwick.
+do _hemwick()
+Hemwick: Long time, no see, Willy! Did not let it. Not this time.
+do _willy()
+Willy: Hah! Always were too stubborn to stay down. What has it been? Months? A year? Feels like longer.
+do _hemwick()
+Hemwick: Long enough. Place has not changed much.
+do _willy()
+Willy: Neither have you. Same tattered cloak, same tired look. Though, I would wager you have got some new scars under all that.
+do _hemwick()
+Hemwick: A few. 
+do _willy()
+Willy: Figures. You always come back worse for wear. First round is on the house. Consider it a welcome back gift.
+do _hemwick()
+Hemwick: Appreciated.
+do _willy()
+Willy: So, what brings you back? Looking for trouble, or just a place to rest your bones?
+do _hemwick()
+Hemwick: Both.
+do _willy()
+Willy: Hah! Thought so. Well, you picked the right place. Folk come through here with all sorts of problems, ones that need a blade, a sharp mind, or both. You looking for work, I can point you in the right direction.
+do _hemwick()
+Hemwick: I am listening.
+do _willy()
+Willy: Good. Finish your drink, then we talk. Got some folk who would be glad to have someone like you handling their business. Just a matter of picking which mess you want to step into first.
+do _hemwick()
+do _unpause()

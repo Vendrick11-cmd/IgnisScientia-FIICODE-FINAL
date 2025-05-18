@@ -1,0 +1,219 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Misc/Overlap/InteractRay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant1.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/BlueLotus/2.png" type="Texture" id=3]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/BlueLotus/BlueLotusPatch.gd" type="Script" id=4]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/BlueLotus/Off.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 1e+08
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Off"
+length = 1e+08
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "On"
+length = 1e+08
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.3438, 9.85956 )
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Picked"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Shader" id=1107]
+code = "shader_type canvas_item;
+
+// for circles
+uniform float amplitude: hint_range(0, 2, 0.01) = 2.0;
+uniform float frequency: hint_range(0, 15, 0.01) = 12.69;
+uniform float rippleRate : hint_range(0.5, 150.0, 0.1) = 9.2;
+
+
+// for wave
+uniform float waveAmplitude = 0.1;
+uniform float waveFrequency = 4.0;
+uniform float blendingAmount = 0.6;
+
+
+// other
+uniform sampler2D noise;
+
+
+
+vec2 wave(vec2 uv, float time) {
+    return vec2(
+        uv.x + sin(uv.y * waveFrequency * 5.0 + time) * waveAmplitude,
+        uv.y + sin(uv.x * waveFrequency + time) * waveAmplitude
+    );
+}
+
+void fragment() {
+	vec2 wave_uv = wave(UV, TIME);
+	vec4 ns = texture(noise, wave_uv);
+	
+	vec2 motion = vec2(0.0, 1.0);
+	float pi = 3.14159265358979323846;
+	vec2 uv = UV * 2.0 - 1.0;
+
+	float dist = length(uv);
+	ns *= 1.4142135;
+	dist += -0.1 * ns.x;
+	float ripple = sin(dist * -frequency * pi + rippleRate * TIME) * amplitude / (dist + 1.0);
+
+
+	vec4 color = vec4(1.0, 1.0, 1.0, 2.0 * ripple);
+	
+	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5; 
+
+
+	color.a *= 1.0 * alphaScalar * (ripple + ns.x * ns.y);
+	color.a = max(color.a - (ns.y * 0.45), 0.0);
+
+    COLOR = color;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=1105]
+
+[sub_resource type="NoiseTexture" id=1108]
+flags = 79
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource( 1105 )
+
+[sub_resource type="ShaderMaterial" id=1106]
+shader = SubResource( 1107 )
+shader_param/amplitude = 0.64
+shader_param/frequency = 6.49
+shader_param/rippleRate = 2.1
+shader_param/waveAmplitude = 1.218
+shader_param/waveFrequency = 4.509
+shader_param/blendingAmount = 1.679
+shader_param/noise = SubResource( 1108 )
+
+[node name="BlueLotusPatch" type="StaticBody2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1000.0
+one_shot = true
+
+[node name="InteractRay" parent="." instance=ExtResource( 1 )]
+position = Vector2( 7.94289, -67.9041 )
+cast_to = Vector2( 0, 20 )
+
+[node name="Sprite" parent="InteractRay" index="0"]
+position = Vector2( 56.2048, 7.85962 )
+
+[node name="AnimationPlayer" parent="InteractRay" index="1"]
+anims/Idle = SubResource( 1 )
+anims/Off = SubResource( 2 )
+anims/On = SubResource( 3 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, -2.31246 )
+collision_layer = 1024
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( -0.243161, 1.70146 )
+shape = SubResource( 4 )
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -2.1875 )
+stream = ExtResource( 2 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Idle = SubResource( 6 )
+anims/Picked = SubResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+material = SubResource( 1106 )
+margin_left = -45.1271
+margin_top = -4.56187
+margin_right = -36.1271
+margin_bottom = -2.56187
+rect_scale = Vector2( 10, 10 )
+
+[editable path="InteractRay"]

@@ -1,0 +1,561 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Entities/Hemwick/Bows/Arrows/SimpleArrow.png" type="Texture" id=1]
+[ext_resource path="res://Misc/Overlap/HitBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Hemwick/Bows/Arrows/SimpleArrow.gd" type="Script" id=3]
+[ext_resource path="res://Effects/FireNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Hemwick/Bows/Arrows/FireArrow.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHit1.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHit2.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHit3.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHitStatic2.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHitStatic4.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHitStatic3.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Misc/Arrows/ArrowHitStatic1.mp3" type="AudioStream" id=12]
+
+[sub_resource type="PhysicsMaterial" id=1]
+rough = true
+bounce = 0.25
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.0478, 1.5265 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7.02505, 1.6049 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2.98491, 0.513058 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2.03099, 0.499919 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitBox:damage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitBox:Hostile")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitBox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitBox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitBox:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HitBox:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitBox:Hostile")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitBox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitBox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HitBox:collision_layer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 64, 320 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("HitBox:collision_mask")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 512, 640 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "NoDamage"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitBox:Hostile")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitBox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 14.9824, -10.5002, 10.7719, -7.54205, 5.79466, -3.31548, 2.64216, -1.05337, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:been_shot")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("HitBox:damage")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("HitBox:collision_layer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=9]
+polygon = PoolVector2Array( -10.9759, -0.461342, 1.3503, -0.496901, 2.90003, -0.0436878, 1.3503, 0.475371, -10.9775, 0.471568 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Fire"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_layer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 100663296 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LightOccluder2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Simple"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_layer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 33554432 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LightOccluder2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="SimpleArrow" type="RigidBody2D" groups=["player"]]
+collision_layer = 100663296
+collision_mask = 0
+physics_material_override = SubResource( 1 )
+linear_damp = 0.2
+angular_damp = 0.2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.12055, 0 )
+texture = ExtResource( 5 )
+offset = Vector2( -4.5, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="HitBox" parent="." groups=["player"] instance=ExtResource( 2 )]
+visible = false
+collision_layer = 64
+collision_mask = 512
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -5.70472, 0 )
+collision_layer = 0
+collision_mask = 8
+
+[node name="Fast" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4.08734, 0 )
+shape = SubResource( 7 )
+
+[node name="Slow" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 3.07106, 0 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+reset_on_save = false
+anims/Hit = SubResource( 8 )
+anims/Idle = SubResource( 5 )
+anims/NoDamage = SubResource( 6 )
+
+[node name="ColDetect" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( -4.59541, 0 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 8
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( -1.61738, 0 )
+occluder = SubResource( 9 )
+
+[node name="Fire" parent="." instance=ExtResource( 4 )]
+visible = true
+
+[node name="ArrowType" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Fire = SubResource( 10 )
+anims/Simple = SubResource( 11 )
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="ArrowHit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHit2" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 7 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHit3" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 8 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHitStatic" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 12 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHitStatic2" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 9 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHitStatic3" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 11 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[node name="ArrowHitStatic4" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 10 )
+volume_db = -10.0
+max_distance = 800.0
+attenuation = 1.27456
+bus = "SFX"
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="HitBox"]

@@ -1,0 +1,222 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=1]
+[ext_resource path="res://Misc/ElementsDamage/FireDamage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Level1/TorchBurning.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Levels/Begin/Sprites/Furnace.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Begin/Sprites/Fire2.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Begin/Sprites/BehindFurnace.png" type="Texture" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 1, 0.607843, 0.145098, 1, 1, 1, 0.309804, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 17.42
+flag_disable_z = true
+gravity = Vector3( 0, -5, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.34
+scale_random = 1.0
+color = Color( 1, 0.647059, 0.223529, 1 )
+color_ramp = SubResource( 7 )
+color_initial_ramp = SubResource( 7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 3, 4, 6, 8, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.05, 1.0, 0.95, 1.0, 1.05, 1.0, 0.95, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fire:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="SegmentShape2D" id=10]
+a = Vector2( -16.963, 0 )
+b = Vector2( 14.997, 0 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 15.6933, 2.65404 )
+
+[node name="Furnace" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 7
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Behind" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.447059 )
+position = Vector2( -0.6875, -3.59819 )
+scale = Vector2( 0.45013, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0.646705, -0.599457 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+color = Color( 1, 0.541176, 0.301961, 1 )
+shadow_enabled = true
+shadow_gradient_length = 5.0
+shadow_filter = 1
+shadow_filter_smooth = 64.0
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 1.19209e-07, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+color = Color( 1, 0.541176, 0.301961, 1 )
+shadow_enabled = true
+shadow_gradient_length = 5.0
+shadow_filter = 1
+shadow_filter_smooth = 64.0
+
+[node name="Fire" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( 1.46322, -1.52816 )
+texture = ExtResource( 5 )
+hframes = 12
+
+[node name="Sprite" type="Sprite" parent="Fire"]
+modulate = Color( 0.92549, 0.411765, 0, 0.843137 )
+material = SubResource( 9 )
+position = Vector2( -0.554066, 3.35368 )
+scale = Vector2( 0.222141, 0.320269 )
+texture = ExtResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="Fire"]
+modulate = Color( 0.92549, 0.411765, 0, 0.843137 )
+material = SubResource( 9 )
+position = Vector2( -0.640871, -11.9828 )
+scale = Vector2( 0.222141, 0.198401 )
+texture = ExtResource( 1 )
+
+[node name="Furnace" type="Sprite" parent="."]
+position = Vector2( 0, -56.6833 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 40
+lifetime = 5.68
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+reset_on_save = false
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.46322, -22.6428 )
+shape = SubResource( 10 )
+one_way_collision = true
+
+[node name="FireDamage" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -21.0869 )
+
+[node name="CollisionShape2D" parent="FireDamage/FireArea" index="0"]
+position = Vector2( 0.401987, -7.01228 )
+shape = SubResource( 12 )
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0.401987, 0 )
+stream = ExtResource( 3 )
+volume_db = -20.0
+autoplay = true
+max_distance = 500.0
+bus = "SFX"
+
+[editable path="FireDamage"]

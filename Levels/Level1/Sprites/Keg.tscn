@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Level1/Sprites/FurnitureCollision.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/Keg.png" type="Texture" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -81.6085, -61.262, -84.25, -57.15, -84.9183, 34.8353, -83.8046, 37.2853, -50.1732, 42.1852, -60.8639, 70.694, -57.0776, 70.9167, -46.1641, 49.3124, 41.5894, 48.867, 52.2802, 70.2486, 55.8438, 70.2486, 45.3757, 40.4035, 74.5526, 37.508, 84.5753, 20.3582, 85.4661, 6.10384, 93.2615, 6.32657, 94.1524, 8.10837, 97.716, 8.10837, 100.834, 6.10384, 102.616, 5.65839, 102.17, 11.0038, 109.52, 11.8947, 108.959, 2.08711, 101.371, -3.76224, 101.057, -7.70509, 98.6069, -7.92781, 98.1614, -12.605, 104.62, -13.4959, 104.398, -15.9459, 88.807, -15.9459, 89.6979, -13.4959, 93.9297, -11.7141, 93.2615, -8.15054, 91.9251, -4.36421, 87.9161, -3.91876, 86.8025, -27.0821, 80.5662, -54.2545, 75.5, -59.8795, 13.7646, -69.8414, -25.5216, -68.9996 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Keg" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -46.5445 ]
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.6, 0.6, 0.6, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.0320225, -56.5638 )
+scale = Vector2( 0.595711, 0.595711 )
+polygon = PoolVector2Array( -141.567, -0.217827, -131.686, -8.33444, -35.3454, -19.98, 22.8824, -21.3916, 127.693, -3.3939, 132.633, 0.135063 )
+one_way_collision_margin = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Open = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 156.183, -30.8257 )
+rotation = 1.57838
+enabled = true
+cast_to = Vector2( 2.94, 300 )
+collision_mask = 7

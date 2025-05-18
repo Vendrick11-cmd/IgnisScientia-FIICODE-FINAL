@@ -1,0 +1,50 @@
+~ WoundedMan
+if woundedman == false
+	do _pause()
+	
+	do _hemwick()
+	Hemwick: What happened to you?
+	do _caen()
+	Wounded man: I don't think I have much left...
+	do _hemwick()
+	Hemwick: You are bleeding. What is your name?
+	do _caen()
+	Wounded man: [speed=0.2]My name is Caen. [speed=0.6] I've been *cough* [wait=1] attacked by the rogues that passed through here some time ago. They left me here to die.
+	do _unpause()
+	
+=> END
+~ Caen
+
+if woundedman == true and caen == false
+	do _pause()
+	
+
+	Caen: [speed=0.2]Can you help me? Please... *cough* [wait=1]don't kill me.
+	- I could help him... (Give 2 bandages to Caen)
+		do _hemwick()
+		Hemwick: I may have something. Let me help you.
+		do _caen()
+		Caen: Oh, thank God! Thank you, young man! When we'll meet again, I'll reward you for your kindness.
+	- I have nothing to spare.
+		do _hemwick()
+		Hemwick: I am sorry, but I don't have anything to help you with.
+		do _caen()
+		Caen: If you find something, promise you will come back for me?
+		- I can't promise.
+			do _hemwick()
+			Hemwick: I can't promise.
+		- Yes, of course I'll do. 
+			do _hemwick()
+			Hemwick: Yes, I will, Caen.
+	- This looks like free stuff. (Rob Caen of his posessions)
+		do _hemwick()
+		Hemwick: I'm not here to help you.
+		do _caen()
+		Caen: [speed=0.2]What...?
+		do _hemwick()
+		Hemwick: Let me take all these. I'll need them more than you anyway.
+		do _caen()
+		Caen: No! I won't let you...
+		do _hemwick()
+	do _unpause()
+	

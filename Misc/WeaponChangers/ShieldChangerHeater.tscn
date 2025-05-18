@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Misc/WeaponChangers/ShieldChangerHeater.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Hemwick/ShieldHeater.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/dropshadow.gdshader" type="Shader" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/offset = Vector2( 24.271, -1.95 )
+shader_param/modulate = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 5.77409
+
+[node name="ShieldChanger_Heater" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Heater" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( -0.223116, 3.40569 )
+scale = Vector2( 0.0187984, 0.0187984 )
+texture = ExtResource( 2 )
+vframes = 2
+frame = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PickUpArea" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( -0.466971, 0.131371 )
+shape = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="PickUpArea" to="." method="_on_PickUpArea_area_entered"]

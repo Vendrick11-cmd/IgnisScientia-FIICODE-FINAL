@@ -1,0 +1,52 @@
+~ GraveRandom
+
+do _pause()
+
+
+Hemwick: "He walked the path of blood and thorns,                       A martyr crowned in twisted horns.                             Yet still he kneels, though breath has fled,                    For penance does not end with death."
+Hemwick: Peculiar...
+
+do _unpause()
+
+
+=> END
+~ GraveGarrick
+
+do _pause()
+
+
+Hemwick: This one says "Here lies Garrick, the steadfast. His sword rests, but his memory lingers."
+
+do _unpause()
+
+
+=> END
+~ GraveHemwick
+
+do _pause()
+
+
+
+Hemwick: "Hemwick. His path ends here, his spirit remains unforgotten."
+Hemwick: ...
+Hemwick: That's me.
+
+do _unpause()
+
+
+=> END
+~ GraveRandom2
+do _pause()
+
+Hemwick: "Forsaken by all, yet never yielding. His strength was his curse, and his fate was sealed long before death found him."
+Hemwick: Damn.
+do _unpause()
+
+
+=> END
+~ GraveRandom3
+do _pause()
+
+Hemwick: This one says "Here lies one who gave all to save others. Her sacrifice was silent, her resolve unyielding. Though she fell, she rose in the hearts of those she protected."
+Hemwick: I hope I will get to be remembered just like her. 
+do _unpause()

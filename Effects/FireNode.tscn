@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=573]
+code = "shader_type canvas_item;
+
+uniform vec4 color1 : hint_color;
+uniform vec4 color2 : hint_color;
+uniform float brightness = 0.0;
+uniform sampler2D noise;
+uniform float timeOffset = 0.0;
+uniform float timeRate = 1.0;
+uniform float noiseAmmount = 0.1;
+
+uniform float offsetX = 0.0;
+
+uniform float flickerT = 0.6;
+
+vec4 lerp(vec4 col1, vec4 col2, float t) {
+	float r = (col2.r - col1.r) * t + col1.r;
+	float g = (col2.g - col1.g) * t + col1.g;
+	float b = (col2.b - col1.b) * t + col1.b;
+	return vec4(r, g, b, col1.a);
+}
+
+void fragment() {
+	COLOR = lerp(color1, color2, texture(noise, UV).r);
+	float dist = 1.0 - sqrt(pow(UV.x - 0.5, 2.0) + pow(UV.y - 0.5, 2.0));
+	float flickerValue = texture(noise, vec2(TIME + timeOffset, (TIME + timeOffset) * 0.9)).r;
+	if (flickerValue > flickerT) {
+		dist *= flickerValue / (1.0 - flickerT) * 0.62;
+	}
+	COLOR.a *= dist + cos(UV.x * 10.0 + TIME * timeRate + timeOffset + offsetX) * 0.02 + brightness + cos(TIME * timeRate * 2.0 + timeOffset * 2.0) * 0.03;
+	COLOR.a = (COLOR.a * (2.0 - noiseAmmount) + texture(noise, vec2(UV.x + timeOffset * -0.1 + TIME * timeRate * -0.1 + offsetX, UV.y) + brightness * 4.0).r * noiseAmmount) / 2.0;
+	COLOR.a = round(COLOR.a * 20.0) / 20.0;
+	COLOR.a = clamp(COLOR.a, 0.0, 1.0);
+}"
+
+[sub_resource type="OpenSimplexNoise" id=575]
+
+[sub_resource type="NoiseTexture" id=574]
+flags = 47
+seamless = true
+noise = SubResource( 575 )
+
+[sub_resource type="ShaderMaterial" id=576]
+shader = SubResource( 573 )
+shader_param/color1 = Color( 1, 0.568627, 0, 1 )
+shader_param/color2 = Color( 0.658824, 0.027451, 0.027451, 1 )
+shader_param/brightness = -0.994
+shader_param/timeOffset = 0.989
+shader_param/timeRate = 3.119
+shader_param/noiseAmmount = 0.667
+shader_param/offsetX = 0.0
+shader_param/flickerT = 1.0
+shader_param/noise = SubResource( 574 )
+
+[sub_resource type="ShaderMaterial" id=577]
+shader = SubResource( 573 )
+shader_param/color1 = Color( 0.996078, 0.870588, 0, 1 )
+shader_param/color2 = Color( 0.658824, 0.027451, 0.027451, 1 )
+shader_param/brightness = -0.994
+shader_param/timeOffset = 0.989
+shader_param/timeRate = 8.574
+shader_param/noiseAmmount = 0.667
+shader_param/offsetX = 0.0
+shader_param/flickerT = 1.0
+shader_param/noise = SubResource( 574 )
+
+[sub_resource type="ShaderMaterial" id=578]
+shader = SubResource( 573 )
+shader_param/color1 = Color( 1, 0.639216, 0, 1 )
+shader_param/color2 = Color( 0.658824, 0.027451, 0.027451, 1 )
+shader_param/brightness = -0.994
+shader_param/timeOffset = 0.989
+shader_param/timeRate = 3.119
+shader_param/noiseAmmount = 0.667
+shader_param/offsetX = 0.0
+shader_param/flickerT = 1.0
+shader_param/noise = SubResource( 574 )
+
+[node name="Fire" type="Node2D"]
+visible = false
+position = Vector2( -1.10634, -0.33935 )
+scale = Vector2( 0.15, 0.1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 1.4
+color = Color( 1, 0.423529, 0, 1 )
+energy = 1.2
+shadow_enabled = true
+
+[node name="ColorRect7" type="ColorRect" parent="."]
+material = SubResource( 576 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect8" type="ColorRect" parent="."]
+material = SubResource( 576 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect9" type="ColorRect" parent="."]
+material = SubResource( 576 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 577 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource( 577 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource( 577 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+material = SubResource( 578 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+material = SubResource( 578 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+material = SubResource( 578 )
+margin_left = -21.0
+margin_top = 39.0
+margin_right = 59.0
+margin_bottom = 83.0
+rect_rotation = -89.8543

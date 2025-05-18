@@ -1,0 +1,172 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 32
+syntax_version = 2
+raw_text = "~ ThisCould
+
+if thiscould == false
+
+	do _pause()
+	
+	
+	Hemwick: This could come in handy.
+	
+	do _unpause()
+
+	
+	
+~ Doesnotopen
+	
+do _pause()
+
+Hemwick: Does not open from this side.
+
+do _unpause()
+
+~ YouShould
+do _pause()
+Hemwick: What am I doing? I shouldn't be here.
+do _unpause()
+
+"
+errors = [  ]
+titles = {
+"Doesnotopen": "15",
+"ThisCould": "2",
+"YouShould": "22"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "ThisCould",
+"type": "title"
+},
+"13": {
+"next_id": "15",
+"text": "Doesnotopen",
+"type": "title"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "19",
+"replacements": [  ],
+"text": "Does not open from this side.",
+"translation_key": "Does not open from this side.",
+"type": "dialogue"
+},
+"19": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "thiscould"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "4",
+"next_id_after": "end!",
+"type": "condition"
+},
+"21": {
+"next_id": "22",
+"text": "YouShould",
+"type": "title"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "23",
+"type": "mutation"
+},
+"23": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "24",
+"replacements": [  ],
+"text": "What am I doing? I shouldn't be here.",
+"translation_key": "What am I doing? I shouldn't be here.",
+"type": "dialogue"
+},
+"24": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"4": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "7",
+"parent_id": "2",
+"type": "mutation"
+},
+"7": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "9",
+"parent_id": "2",
+"replacements": [  ],
+"text": "This could come in handy.",
+"translation_key": "This could come in handy.",
+"type": "dialogue"
+},
+"9": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "2",
+"type": "mutation"
+}
+}

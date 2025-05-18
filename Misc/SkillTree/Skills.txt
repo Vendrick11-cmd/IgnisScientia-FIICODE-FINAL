@@ -1,0 +1,7 @@
+- Movement - Character - Special
+- Dagger - ShortSword
+- Sorcery - Faith
+- Sword - Axe
+- Mace - Flail
+- GreatSword - GreatAxe - Spear
+- Bow - Crossbow - Chakras

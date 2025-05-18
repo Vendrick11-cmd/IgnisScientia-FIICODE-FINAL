@@ -1,0 +1,4901 @@
+[gd_scene load_steps=293 format=2]
+
+[ext_resource path="res://Misc/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://Misc/UI elements/BarEnd2.png" type="Texture" id=2]
+[ext_resource path="res://Misc/UI elements/healthfill.png" type="Texture" id=3]
+[ext_resource path="res://Misc/UI elements/Orb.png" type="Texture" id=4]
+[ext_resource path="res://Misc/UI elements/livingfill.png" type="Texture" id=5]
+[ext_resource path="res://Misc/LivingUI.gd" type="Script" id=6]
+[ext_resource path="res://Misc/StaminaUI.gd" type="Script" id=7]
+[ext_resource path="res://Misc/UI elements/staminafill.png" type="Texture" id=8]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/Bones/Skull.png" type="Texture" id=9]
+[ext_resource path="res://Misc/Charms/LeechTalisman.png" type="Texture" id=10]
+[ext_resource path="res://Misc/Charms/GlassTalisman.png" type="Texture" id=11]
+[ext_resource path="res://Misc/UI elements/healthcontour2.png" type="Texture" id=12]
+[ext_resource path="res://Misc/GUI.gd" type="Script" id=13]
+[ext_resource path="res://Misc/UI elements/Frame1.png" type="Texture" id=14]
+[ext_resource path="res://Entities/Hemwick/Bows/Arrows/SimpleArrow.png" type="Texture" id=15]
+[ext_resource path="res://Misc/UI elements/barbackground.png" type="Texture" id=16]
+[ext_resource path="res://Misc/ArrowsUI.gd" type="Script" id=17]
+[ext_resource path="res://Misc/UI elements/WeaponIcons/Dagger.png" type="Texture" id=18]
+[ext_resource path="res://Misc/UI elements/UI Icons/HealthStat.png" type="Texture" id=19]
+[ext_resource path="res://Misc/UI elements/UI Icons/ArmorStat.png" type="Texture" id=20]
+[ext_resource path="res://Misc/ArmorStatUI.gd" type="Script" id=21]
+[ext_resource path="res://Misc/UI elements/UI Icons/ArmorEmpty.png" type="Texture" id=22]
+[ext_resource path="res://Misc/ManaUI.gd" type="Script" id=24]
+[ext_resource path="res://Misc/UI elements/UI Icons/ManaStat.png" type="Texture" id=27]
+[ext_resource path="res://Misc/UI elements/UI Icons/StaminaStat.png" type="Texture" id=28]
+[ext_resource path="res://Misc/UI elements/UI Icons/LivingStat.png" type="Texture" id=29]
+[ext_resource path="res://Misc/UI elements/manafill.png" type="Texture" id=30]
+[ext_resource path="res://Misc/CoinNumber.gd" type="Script" id=31]
+[ext_resource path="res://Sounds/UI/BarsAnimation.mp3" type="AudioStream" id=32]
+[ext_resource path="res://Shaders/Highlight.gdshader" type="Shader" id=33]
+[ext_resource path="res://Fonts/OptionFont.tres" type="DynamicFont" id=34]
+[ext_resource path="res://Sounds/UI/BarsAnimation2.mp3" type="AudioStream" id=35]
+[ext_resource path="res://Misc/Charms/GoldenEye.png" type="Texture" id=36]
+[ext_resource path="res://Misc/Charms/Rage.png" type="Texture" id=37]
+[ext_resource path="res://Misc/Charms/CursedHeart.png" type="Texture" id=38]
+[ext_resource path="res://Misc/Charms/MercenaryToken.png" type="Texture" id=39]
+[ext_resource path="res://Misc/Charms/SearingBrand.png" type="Texture" id=40]
+[ext_resource path="res://Misc/Charms/GlacialEmbrace.png" type="Texture" id=41]
+[ext_resource path="res://Misc/Charms/ParisiticGrowth.png" type="Texture" id=42]
+[ext_resource path="res://Misc/Charms/WatcherEye.png" type="Texture" id=43]
+[ext_resource path="res://Misc/Charms/BindingFeather.png" type="Texture" id=44]
+[ext_resource path="res://Misc/Charms/ObsidianCharm.png" type="Texture" id=45]
+[ext_resource path="res://Misc/Charms/BloodForged.png" type="Texture" id=46]
+[ext_resource path="res://Misc/Charms/VoidKnuckle.png" type="Texture" id=47]
+[ext_resource path="res://Misc/Charms/GrimPact.png" type="Texture" id=48]
+[ext_resource path="res://Misc/Charms/SoulPrism.png" type="Texture" id=49]
+[ext_resource path="res://Misc/Charms/PhantomScar.png" type="Texture" id=50]
+[ext_resource path="res://Misc/Charms/Reversal.png" type="Texture" id=51]
+[ext_resource path="res://Misc/Charms/Mirror.png" type="Texture" id=52]
+[ext_resource path="res://Misc/Charms/HeavensDebt.png" type="Texture" id=53]
+[ext_resource path="res://Misc/Charms/EarthBound.png" type="Texture" id=54]
+[ext_resource path="res://Misc/Charms/GildedScar.png" type="Texture" id=55]
+[ext_resource path="res://Misc/Charms/Berserker.png" type="Texture" id=56]
+[ext_resource path="res://Misc/Charms/InvertedWill.png" type="Texture" id=57]
+[ext_resource path="res://Misc/Charms/Haste.png" type="Texture" id=58]
+[ext_resource path="res://Misc/Charms/Whisperbrand.png" type="Texture" id=59]
+[ext_resource path="res://Misc/Charms/InvertedVertigo.png" type="Texture" id=60]
+[ext_resource path="res://Misc/Charms/CursedHourglass.png" type="Texture" id=61]
+[ext_resource path="res://Misc/Charms/GrimLedger.png" type="Texture" id=62]
+[ext_resource path="res://Misc/Charms/FalseLight.png" type="Texture" id=63]
+[ext_resource path="res://Misc/Charms/Confusion.png" type="Texture" id=64]
+[ext_resource path="res://Misc/Charms/GamblersMemento.png" type="Texture" id=65]
+[ext_resource path="res://Misc/Charms/Puppet.png" type="Texture" id=66]
+[ext_resource path="res://Misc/Charms/Momentum.png" type="Texture" id=67]
+[ext_resource path="res://Misc/Charms/FinalToll.png" type="Texture" id=68]
+[ext_resource path="res://Shaders/Fade.gdshader" type="Shader" id=69]
+
+[sub_resource type="OpenSimplexNoise" id=1278]
+
+[sub_resource type="NoiseTexture" id=1279]
+noise = SubResource( 1278 )
+
+[sub_resource type="ShaderMaterial" id=1395]
+resource_local_to_scene = true
+shader = ExtResource( 69 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1279 )
+
+[sub_resource type="Animation" id=1264]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1252]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1254]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1272]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+
+[sub_resource type="Animation" id=1244]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=1269]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+
+[sub_resource type="Animation" id=1262]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+
+[sub_resource type="Animation" id=1271]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+
+[sub_resource type="Animation" id=1276]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+
+[sub_resource type="Animation" id=1273]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=1263]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1249]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1241]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=1243]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1270]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 62 ) ]
+}
+
+[sub_resource type="Animation" id=1256]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1266]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+
+[sub_resource type="Animation" id=1261]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1268]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1265]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1242]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=1246]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=1260]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1275]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+
+[sub_resource type="Animation" id=1253]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+
+[sub_resource type="Animation" id=1250]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 42 ) ]
+}
+
+[sub_resource type="Animation" id=1258]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1274]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+
+[sub_resource type="Animation" id=1245]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+
+[sub_resource type="Animation" id=1259]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=1248]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1257]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1255]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1251]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+
+[sub_resource type="Animation" id=1267]
+resource_name = "WhisperBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1277]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ), ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=1443]
+resource_name = "Disappear"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 69 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=1393]
+resource_local_to_scene = true
+shader = ExtResource( 69 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1279 )
+
+[sub_resource type="Animation" id=1280]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1281]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1282]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1283]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+
+[sub_resource type="Animation" id=1284]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=1285]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+
+[sub_resource type="Animation" id=1286]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+
+[sub_resource type="Animation" id=1287]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+
+[sub_resource type="Animation" id=1288]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+
+[sub_resource type="Animation" id=1289]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=1290]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1291]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1292]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=1293]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1294]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 62 ) ]
+}
+
+[sub_resource type="Animation" id=1295]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1296]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+
+[sub_resource type="Animation" id=1297]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1298]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1299]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1300]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=1301]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=1302]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1303]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+
+[sub_resource type="Animation" id=1304]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+
+[sub_resource type="Animation" id=1305]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 42 ) ]
+}
+
+[sub_resource type="Animation" id=1306]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1307]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+
+[sub_resource type="Animation" id=1308]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+
+[sub_resource type="Animation" id=1309]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=1310]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1311]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1312]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1313]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+
+[sub_resource type="Animation" id=1314]
+resource_name = "WhisperBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1315]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ), ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=1442]
+resource_name = "Disappear"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 69 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=1389]
+resource_local_to_scene = true
+shader = ExtResource( 69 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1279 )
+
+[sub_resource type="Animation" id=1316]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1317]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1318]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1319]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+
+[sub_resource type="Animation" id=1320]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=1321]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+
+[sub_resource type="Animation" id=1322]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+
+[sub_resource type="Animation" id=1323]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+
+[sub_resource type="Animation" id=1324]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+
+[sub_resource type="Animation" id=1325]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=1326]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1327]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1328]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=1329]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1330]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 62 ) ]
+}
+
+[sub_resource type="Animation" id=1331]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1332]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+
+[sub_resource type="Animation" id=1333]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1334]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1335]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1336]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=1337]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=1338]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1339]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+
+[sub_resource type="Animation" id=1340]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+
+[sub_resource type="Animation" id=1341]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 42 ) ]
+}
+
+[sub_resource type="Animation" id=1342]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1343]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+
+[sub_resource type="Animation" id=1344]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+
+[sub_resource type="Animation" id=1345]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=1346]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1347]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1348]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1349]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+
+[sub_resource type="Animation" id=1350]
+resource_name = "WhisperBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1351]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ), ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=1441]
+resource_name = "Disappear"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 69 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=1391]
+resource_local_to_scene = true
+shader = ExtResource( 69 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1279 )
+
+[sub_resource type="Animation" id=1352]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1353]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1354]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1355]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+
+[sub_resource type="Animation" id=1356]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=1357]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+
+[sub_resource type="Animation" id=1358]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+
+[sub_resource type="Animation" id=1359]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+
+[sub_resource type="Animation" id=1360]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+
+[sub_resource type="Animation" id=1361]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=1362]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1363]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1364]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=1365]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1366]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 62 ) ]
+}
+
+[sub_resource type="Animation" id=1367]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1368]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+
+[sub_resource type="Animation" id=1369]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1370]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1371]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1372]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=1373]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=1374]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1375]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+
+[sub_resource type="Animation" id=1376]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+
+[sub_resource type="Animation" id=1377]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 42 ) ]
+}
+
+[sub_resource type="Animation" id=1378]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1379]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+
+[sub_resource type="Animation" id=1380]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+
+[sub_resource type="Animation" id=1381]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=1382]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1383]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1384]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1385]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+
+[sub_resource type="Animation" id=1386]
+resource_name = "WhisperBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1387]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ), ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=1439]
+resource_name = "Disappear"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 69 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=1433]
+resource_local_to_scene = true
+shader = ExtResource( 69 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1279 )
+
+[sub_resource type="Animation" id=1396]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1397]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1398]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1399]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+
+[sub_resource type="Animation" id=1400]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=1401]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+
+[sub_resource type="Animation" id=1402]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+
+[sub_resource type="Animation" id=1403]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+
+[sub_resource type="Animation" id=1404]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+
+[sub_resource type="Animation" id=1405]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=1406]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1407]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1408]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=1409]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1410]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 62 ) ]
+}
+
+[sub_resource type="Animation" id=1411]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1412]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+
+[sub_resource type="Animation" id=1413]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1414]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1415]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1416]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=1417]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=1418]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1419]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+
+[sub_resource type="Animation" id=1420]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+
+[sub_resource type="Animation" id=1421]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 42 ) ]
+}
+
+[sub_resource type="Animation" id=1422]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1423]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+
+[sub_resource type="Animation" id=1424]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+
+[sub_resource type="Animation" id=1425]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=1426]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1427]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1428]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1429]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+
+[sub_resource type="Animation" id=1430]
+resource_name = "WhisperBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1431]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ), ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=1440]
+resource_name = "Disappear"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 69 ) ]
+}
+
+[sub_resource type="DynamicFontData" id=601]
+font_path = "res://Fonts/alagard.ttf"
+
+[sub_resource type="DynamicFont" id=602]
+size = 72
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 601 )
+
+[sub_resource type="Theme" id=914]
+default_font = SubResource( 602 )
+
+[sub_resource type="DynamicFontData" id=1236]
+font_path = "res://Fonts/JenrivTitlingRegular-x3RKV.otf"
+
+[sub_resource type="DynamicFont" id=1235]
+size = 120
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1236 )
+
+[sub_resource type="Theme" id=1237]
+default_font = SubResource( 1235 )
+
+[sub_resource type="Animation" id=916]
+resource_name = "Hidden"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowFirst:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 90 ), Vector2( 0, 80 ) ]
+}
+
+[sub_resource type="Animation" id=915]
+resource_name = "Visible"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowFirst:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 80 ), Vector2( 0, 90 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=913]
+resource_name = "None"
+length = 999999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Weapons/Weapon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Weapons/Weapon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=599]
+resource_name = "Weapon"
+length = 999999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Weapons/Weapon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Weapons/Weapon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Theme" id=603]
+default_font = SubResource( 602 )
+
+[sub_resource type="Animation" id=912]
+resource_name = "None"
+length = 999999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Weapons/Weapon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Weapons/Weapon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=910]
+resource_name = "Weapon"
+length = 999999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Weapons/Weapon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Weapons/Weapon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Theme" id=79]
+default_font = ExtResource( 34 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 1, 0.960784, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Theme" id=78]
+default_font = ExtResource( 34 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Animation" id=81]
+resource_name = "ChangeToPrimary"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("FramePrimary:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FramePrimary:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FramePrimary:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 246.861, 1027.87 ), Vector2( 111.825, 979.94 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FrameSecondary:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 111.825, 979.94 ), Vector2( 246.861, 1027.87 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FrameSecondary:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("FrameSecondary:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("FramePrimary:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("FrameSecondary:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "ChangeToSecondary"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("FramePrimary:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FramePrimary:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FramePrimary:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 111.825, 979.94 ), Vector2( 246.861, 1027.87 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FrameSecondary:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 246.861, 1027.87 ), Vector2( 111.825, 979.94 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FrameSecondary:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("FrameSecondary:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("FramePrimary:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("FrameSecondary:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=587]
+resource_name = "Dread"
+length = 9999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dread:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0392157 ) ]
+}
+
+[sub_resource type="Animation" id=588]
+resource_name = "DreadOff"
+length = 9999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dread:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.0392157 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=589]
+length = 0.001
+
+[sub_resource type="Animation" id=590]
+resource_name = "Fire"
+length = 9999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0392157 ) ]
+}
+
+[sub_resource type="Animation" id=591]
+resource_name = "FireOff"
+length = 9999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.0392157 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=592]
+length = 0.001
+
+[sub_resource type="DynamicFontData" id=905]
+font_path = "res://Fonts/alagard.ttf"
+
+[sub_resource type="DynamicFont" id=594]
+size = 128
+outline_size = 6
+outline_color = Color( 0.196078, 0, 0, 1 )
+font_data = SubResource( 905 )
+
+[sub_resource type="Theme" id=86]
+default_font = SubResource( 594 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 0.980392, 0.180392, 0.0784314, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Theme" id=595]
+default_font = SubResource( 594 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Theme" id=586]
+default_font = ExtResource( 34 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 0.290196, 0, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Theme" id=596]
+default_font = ExtResource( 34 )
+Button/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+Button/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+Button/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckButton/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+CheckButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.235294, 0.227451, 0.227451, 0.988235 )
+OptionButton/colors/font_color_focus = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_hover = Color( 0.592157, 0.211765, 0.211765, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+
+[sub_resource type="Animation" id=1240]
+resource_name = "Off"
+length = 1e+09
+tracks/0/type = "value"
+tracks/0/path = NodePath("HealthUI:rect_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 89.9999, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HealthUI:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 89.722, 146.129 ), Vector2( 89.722, 99.1168 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StaminaUI:rect_rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 89.9999, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StaminaUI:rect_position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 121.428, 154.399 ), Vector2( 95.633, 133.353 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ManaUI:rect_rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 89.9999, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ManaUI:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 151.699, 159.396 ), Vector2( 95.633, 167.814 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ManaUI/ManaStat:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -89.9999, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ManaUI/ManaStat:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 92.5911, 49.8484 ), Vector2( 102.995, 45.0779 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("StaminaUI/StaminaStat:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 101.714, 49.7112 ), Vector2( 101.714, 49.7112 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("StaminaUI/StaminaStat:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -89.9999, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HealthUI/HealthStat:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112.606, 48.9891 ), Vector2( 114.08, 42.2504 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("HealthUI/HealthStat:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -89.9999, 0.0 ]
+}
+tracks/12/type = "audio"
+tracks/12/path = NodePath("Sounds/BarAnim")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 35 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=1239]
+resource_name = "On"
+length = 1e+09
+tracks/0/type = "value"
+tracks/0/path = NodePath("HealthUI:rect_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 89.9999 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HealthUI:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 89.722, 99.1168 ), Vector2( 89.722, 146.129 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StaminaUI:rect_rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 89.9999 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StaminaUI:rect_position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 95.633, 133.353 ), Vector2( 121.428, 154.399 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ManaUI:rect_rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 89.9999 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ManaUI:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 95.633, 167.814 ), Vector2( 151.699, 159.396 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ManaUI/ManaStat:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -89.9999 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ManaUI/ManaStat:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 102.995, 45.0779 ), Vector2( 92.5911, 49.8484 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("StaminaUI/StaminaStat:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 101.714, 49.7112 ), Vector2( 101.714, 49.7112 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("StaminaUI/StaminaStat:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -89.9999 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HealthUI/HealthStat:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 114.08, 42.2504 ), Vector2( 112.606, 48.9891 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("HealthUI/HealthStat:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -89.9999 ]
+}
+tracks/12/type = "audio"
+tracks/12/path = NodePath("Sounds/BarAnim")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 32 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="DynamicFontData" id=1444]
+font_path = "res://Fonts/alagard.ttf"
+
+[sub_resource type="DynamicFont" id=1445]
+size = 120
+outline_size = 1
+outline_color = Color( 0.113725, 0.113725, 0.192157, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1444 )
+
+[sub_resource type="Theme" id=1446]
+default_font = SubResource( 1445 )
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1218.95, 475.842, 1079.95, 1154.21, 1074.13, 217.676 ],
+"_edit_vertical_guides_": [ 1371.24, 224.802, 236.361, 145.529, 11.8246, 1934.22, 97.0374 ]
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 5.21004
+margin_top = 91.1671
+margin_right = 155.21
+margin_bottom = 857.167
+
+[node name="Charm1" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 1395 )
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 59 )
+expand = true
+
+[node name="CharmType" type="AnimationPlayer" parent="VBoxContainer/Charm1"]
+reset_on_save = false
+anims/Berserker = SubResource( 1264 )
+anims/BindingFeather = SubResource( 1252 )
+anims/BloodForged = SubResource( 1254 )
+anims/Confusion = SubResource( 1272 )
+anims/CursedHeart = SubResource( 1244 )
+anims/CursedHourglass = SubResource( 1269 )
+anims/EarthBound = SubResource( 1262 )
+anims/FalseLight = SubResource( 1271 )
+anims/FinalToll = SubResource( 1276 )
+anims/GamblersMemento = SubResource( 1273 )
+anims/GildedScar = SubResource( 1263 )
+anims/GlacialEmbrace = SubResource( 1249 )
+anims/Glass = SubResource( 1241 )
+anims/GoldenEye = SubResource( 1243 )
+anims/GrimLedger = SubResource( 1270 )
+anims/GrimPact = SubResource( 1256 )
+anims/Haste = SubResource( 1266 )
+anims/HeavensDebt = SubResource( 1261 )
+anims/InvertedVertigo = SubResource( 1268 )
+anims/InvertedWill = SubResource( 1265 )
+anims/Leech = SubResource( 1242 )
+anims/MercenaryToken = SubResource( 1246 )
+anims/Mirror = SubResource( 1260 )
+anims/Momentum = SubResource( 1275 )
+anims/ObsidianCharm = SubResource( 1253 )
+anims/ParisiticGrowth = SubResource( 1250 )
+anims/PhantomScar = SubResource( 1258 )
+anims/Puppet = SubResource( 1274 )
+anims/Rage = SubResource( 1245 )
+anims/Reversal = SubResource( 1259 )
+anims/SearingBrand = SubResource( 1248 )
+anims/SoulPrism = SubResource( 1257 )
+anims/VoidKnuckle = SubResource( 1255 )
+anims/WatcherEye = SubResource( 1251 )
+anims/WhisperBrand = SubResource( 1267 )
+
+[node name="AppearAnim" type="AnimationPlayer" parent="VBoxContainer/Charm1"]
+unique_name_in_owner = true
+reset_on_save = false
+anims/Appear = SubResource( 1277 )
+anims/Disappear = SubResource( 1443 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Charm1"]
+show_behind_parent = true
+margin_left = 1.78381
+margin_top = 0.891907
+margin_right = 146.784
+margin_bottom = 148.892
+texture = ExtResource( 4 )
+
+[node name="Charm2" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 1393 )
+margin_top = 154.0
+margin_right = 150.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 59 )
+expand = true
+
+[node name="CharmType" type="AnimationPlayer" parent="VBoxContainer/Charm2"]
+reset_on_save = false
+anims/Berserker = SubResource( 1280 )
+anims/BindingFeather = SubResource( 1281 )
+anims/BloodForged = SubResource( 1282 )
+anims/Confusion = SubResource( 1283 )
+anims/CursedHeart = SubResource( 1284 )
+anims/CursedHourglass = SubResource( 1285 )
+anims/EarthBound = SubResource( 1286 )
+anims/FalseLight = SubResource( 1287 )
+anims/FinalToll = SubResource( 1288 )
+anims/GamblersMemento = SubResource( 1289 )
+anims/GildedScar = SubResource( 1290 )
+anims/GlacialEmbrace = SubResource( 1291 )
+anims/Glass = SubResource( 1292 )
+anims/GoldenEye = SubResource( 1293 )
+anims/GrimLedger = SubResource( 1294 )
+anims/GrimPact = SubResource( 1295 )
+anims/Haste = SubResource( 1296 )
+anims/HeavensDebt = SubResource( 1297 )
+anims/InvertedVertigo = SubResource( 1298 )
+anims/InvertedWill = SubResource( 1299 )
+anims/Leech = SubResource( 1300 )
+anims/MercenaryToken = SubResource( 1301 )
+anims/Mirror = SubResource( 1302 )
+anims/Momentum = SubResource( 1303 )
+anims/ObsidianCharm = SubResource( 1304 )
+anims/ParisiticGrowth = SubResource( 1305 )
+anims/PhantomScar = SubResource( 1306 )
+anims/Puppet = SubResource( 1307 )
+anims/Rage = SubResource( 1308 )
+anims/Reversal = SubResource( 1309 )
+anims/SearingBrand = SubResource( 1310 )
+anims/SoulPrism = SubResource( 1311 )
+anims/VoidKnuckle = SubResource( 1312 )
+anims/WatcherEye = SubResource( 1313 )
+anims/WhisperBrand = SubResource( 1314 )
+
+[node name="AppearAnim" type="AnimationPlayer" parent="VBoxContainer/Charm2"]
+reset_on_save = false
+anims/Appear = SubResource( 1315 )
+anims/Disappear = SubResource( 1442 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Charm2"]
+show_behind_parent = true
+margin_left = 1.78381
+margin_top = 0.891907
+margin_right = 146.784
+margin_bottom = 148.892
+texture = ExtResource( 4 )
+
+[node name="Charm3" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 1389 )
+margin_top = 308.0
+margin_right = 150.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 59 )
+expand = true
+
+[node name="CharmType" type="AnimationPlayer" parent="VBoxContainer/Charm3"]
+reset_on_save = false
+anims/Berserker = SubResource( 1316 )
+anims/BindingFeather = SubResource( 1317 )
+anims/BloodForged = SubResource( 1318 )
+anims/Confusion = SubResource( 1319 )
+anims/CursedHeart = SubResource( 1320 )
+anims/CursedHourglass = SubResource( 1321 )
+anims/EarthBound = SubResource( 1322 )
+anims/FalseLight = SubResource( 1323 )
+anims/FinalToll = SubResource( 1324 )
+anims/GamblersMemento = SubResource( 1325 )
+anims/GildedScar = SubResource( 1326 )
+anims/GlacialEmbrace = SubResource( 1327 )
+anims/Glass = SubResource( 1328 )
+anims/GoldenEye = SubResource( 1329 )
+anims/GrimLedger = SubResource( 1330 )
+anims/GrimPact = SubResource( 1331 )
+anims/Haste = SubResource( 1332 )
+anims/HeavensDebt = SubResource( 1333 )
+anims/InvertedVertigo = SubResource( 1334 )
+anims/InvertedWill = SubResource( 1335 )
+anims/Leech = SubResource( 1336 )
+anims/MercenaryToken = SubResource( 1337 )
+anims/Mirror = SubResource( 1338 )
+anims/Momentum = SubResource( 1339 )
+anims/ObsidianCharm = SubResource( 1340 )
+anims/ParisiticGrowth = SubResource( 1341 )
+anims/PhantomScar = SubResource( 1342 )
+anims/Puppet = SubResource( 1343 )
+anims/Rage = SubResource( 1344 )
+anims/Reversal = SubResource( 1345 )
+anims/SearingBrand = SubResource( 1346 )
+anims/SoulPrism = SubResource( 1347 )
+anims/VoidKnuckle = SubResource( 1348 )
+anims/WatcherEye = SubResource( 1349 )
+anims/WhisperBrand = SubResource( 1350 )
+
+[node name="AppearAnim" type="AnimationPlayer" parent="VBoxContainer/Charm3"]
+reset_on_save = false
+anims/Appear = SubResource( 1351 )
+anims/Disappear = SubResource( 1441 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Charm3"]
+show_behind_parent = true
+margin_left = 1.78381
+margin_top = 0.891907
+margin_right = 146.784
+margin_bottom = 148.892
+texture = ExtResource( 4 )
+
+[node name="Charm4" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 1391 )
+margin_top = 462.0
+margin_right = 150.0
+margin_bottom = 612.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 59 )
+expand = true
+
+[node name="CharmType" type="AnimationPlayer" parent="VBoxContainer/Charm4"]
+reset_on_save = false
+anims/Berserker = SubResource( 1352 )
+anims/BindingFeather = SubResource( 1353 )
+anims/BloodForged = SubResource( 1354 )
+anims/Confusion = SubResource( 1355 )
+anims/CursedHeart = SubResource( 1356 )
+anims/CursedHourglass = SubResource( 1357 )
+anims/EarthBound = SubResource( 1358 )
+anims/FalseLight = SubResource( 1359 )
+anims/FinalToll = SubResource( 1360 )
+anims/GamblersMemento = SubResource( 1361 )
+anims/GildedScar = SubResource( 1362 )
+anims/GlacialEmbrace = SubResource( 1363 )
+anims/Glass = SubResource( 1364 )
+anims/GoldenEye = SubResource( 1365 )
+anims/GrimLedger = SubResource( 1366 )
+anims/GrimPact = SubResource( 1367 )
+anims/Haste = SubResource( 1368 )
+anims/HeavensDebt = SubResource( 1369 )
+anims/InvertedVertigo = SubResource( 1370 )
+anims/InvertedWill = SubResource( 1371 )
+anims/Leech = SubResource( 1372 )
+anims/MercenaryToken = SubResource( 1373 )
+anims/Mirror = SubResource( 1374 )
+anims/Momentum = SubResource( 1375 )
+anims/ObsidianCharm = SubResource( 1376 )
+anims/ParisiticGrowth = SubResource( 1377 )
+anims/PhantomScar = SubResource( 1378 )
+anims/Puppet = SubResource( 1379 )
+anims/Rage = SubResource( 1380 )
+anims/Reversal = SubResource( 1381 )
+anims/SearingBrand = SubResource( 1382 )
+anims/SoulPrism = SubResource( 1383 )
+anims/VoidKnuckle = SubResource( 1384 )
+anims/WatcherEye = SubResource( 1385 )
+anims/WhisperBrand = SubResource( 1386 )
+
+[node name="AppearAnim" type="AnimationPlayer" parent="VBoxContainer/Charm4"]
+reset_on_save = false
+anims/Appear = SubResource( 1387 )
+anims/Disappear = SubResource( 1439 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Charm4"]
+show_behind_parent = true
+margin_left = 1.78381
+margin_top = 0.891907
+margin_right = 146.784
+margin_bottom = 148.892
+texture = ExtResource( 4 )
+
+[node name="Charm5" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 1433 )
+margin_top = 616.0
+margin_right = 150.0
+margin_bottom = 766.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 59 )
+expand = true
+
+[node name="CharmType" type="AnimationPlayer" parent="VBoxContainer/Charm5"]
+reset_on_save = false
+anims/Berserker = SubResource( 1396 )
+anims/BindingFeather = SubResource( 1397 )
+anims/BloodForged = SubResource( 1398 )
+anims/Confusion = SubResource( 1399 )
+anims/CursedHeart = SubResource( 1400 )
+anims/CursedHourglass = SubResource( 1401 )
+anims/EarthBound = SubResource( 1402 )
+anims/FalseLight = SubResource( 1403 )
+anims/FinalToll = SubResource( 1404 )
+anims/GamblersMemento = SubResource( 1405 )
+anims/GildedScar = SubResource( 1406 )
+anims/GlacialEmbrace = SubResource( 1407 )
+anims/Glass = SubResource( 1408 )
+anims/GoldenEye = SubResource( 1409 )
+anims/GrimLedger = SubResource( 1410 )
+anims/GrimPact = SubResource( 1411 )
+anims/Haste = SubResource( 1412 )
+anims/HeavensDebt = SubResource( 1413 )
+anims/InvertedVertigo = SubResource( 1414 )
+anims/InvertedWill = SubResource( 1415 )
+anims/Leech = SubResource( 1416 )
+anims/MercenaryToken = SubResource( 1417 )
+anims/Mirror = SubResource( 1418 )
+anims/Momentum = SubResource( 1419 )
+anims/ObsidianCharm = SubResource( 1420 )
+anims/ParisiticGrowth = SubResource( 1421 )
+anims/PhantomScar = SubResource( 1422 )
+anims/Puppet = SubResource( 1423 )
+anims/Rage = SubResource( 1424 )
+anims/Reversal = SubResource( 1425 )
+anims/SearingBrand = SubResource( 1426 )
+anims/SoulPrism = SubResource( 1427 )
+anims/VoidKnuckle = SubResource( 1428 )
+anims/WatcherEye = SubResource( 1429 )
+anims/WhisperBrand = SubResource( 1430 )
+
+[node name="AppearAnim" type="AnimationPlayer" parent="VBoxContainer/Charm5"]
+reset_on_save = false
+anims/Appear = SubResource( 1431 )
+anims/Disappear = SubResource( 1440 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Charm5"]
+show_behind_parent = true
+margin_left = 1.78381
+margin_top = 0.891907
+margin_right = 146.784
+margin_bottom = 148.892
+texture = ExtResource( 4 )
+
+[node name="LivingUI" type="Control" parent="."]
+visible = false
+margin_left = 57.1761
+margin_top = 145.823
+margin_right = 97.1761
+margin_bottom = 185.823
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.5, -0.5 )
+script = ExtResource( 6 )
+
+[node name="LivingBackground" type="TextureRect" parent="LivingUI"]
+margin_left = 3.0
+margin_top = -20.2474
+margin_right = 2020.0
+margin_bottom = 105.753
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+
+[node name="LivingFill" type="TextureRect" parent="LivingUI"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 1.0
+margin_top = -39.0
+margin_right = 871.0
+margin_bottom = 86.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="Livingcontour" type="TextureRect" parent="LivingUI"]
+margin_left = 1.0
+margin_top = -21.0
+margin_right = 1984.0
+margin_bottom = 108.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 2
+
+[node name="LivingEnd" type="Sprite" parent="LivingUI"]
+position = Vector2( 554, 46 )
+texture = ExtResource( 2 )
+
+[node name="LivingStat" type="Sprite" parent="LivingUI"]
+position = Vector2( 118.898, 46.578 )
+rotation = 1.57079
+scale = Vector2( 0.988, -0.988 )
+texture = ExtResource( 29 )
+
+[node name="HealthUI" type="Control" parent="."]
+margin_left = 89.722
+margin_top = 99.1168
+margin_right = 129.723
+margin_bottom = 139.117
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="HealthBackground" type="TextureRect" parent="HealthUI"]
+anchor_left = 2.8
+anchor_right = 2.8
+margin_left = 0.809425
+margin_top = -16.0
+margin_right = 2006.81
+margin_bottom = 110.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+
+[node name="HealthFill" type="TextureRect" parent="HealthUI"]
+anchor_left = 2.8
+anchor_right = 2.8
+margin_left = -0.00283051
+margin_top = -16.0
+margin_right = 841.997
+margin_bottom = 102.0
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="Healthcontour" type="TextureRect" parent="HealthUI"]
+margin_left = 111.0
+margin_top = -18.0
+margin_right = 2015.0
+margin_bottom = 108.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 2
+
+[node name="HealthEnd" type="Sprite" parent="HealthUI"]
+position = Vector2( 475.403, 49 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="HealthStat" type="Sprite" parent="HealthUI"]
+position = Vector2( 114.08, 42.2504 )
+scale = Vector2( 0.98839, 0.98839 )
+texture = ExtResource( 19 )
+
+[node name="StaminaUI" type="Control" parent="."]
+margin_left = 95.633
+margin_top = 133.353
+margin_right = 135.633
+margin_bottom = 173.353
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 7 )
+
+[node name="StaminaBackground" type="TextureRect" parent="StaminaUI"]
+margin_left = 101.0
+margin_top = -16.0
+margin_right = 2108.0
+margin_bottom = 110.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+
+[node name="StaminaFill" type="TextureRect" parent="StaminaUI"]
+margin_left = 100.331
+margin_top = -16.0
+margin_right = 950.331
+margin_bottom = 114.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 2
+
+[node name="Staminacontour" type="TextureRect" parent="StaminaUI"]
+margin_left = 100.015
+margin_top = -18.0
+margin_right = 2004.02
+margin_bottom = 110.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 2
+
+[node name="StaminaEnd" type="Sprite" parent="StaminaUI"]
+position = Vector2( 475.403, 49 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="StaminaStat" type="Sprite" parent="StaminaUI"]
+position = Vector2( 101.714, 49.7112 )
+scale = Vector2( 0.988, 0.988 )
+texture = ExtResource( 28 )
+
+[node name="ManaUI" type="Control" parent="."]
+margin_left = 95.633
+margin_top = 167.814
+margin_right = 135.633
+margin_bottom = 207.814
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 24 )
+
+[node name="ManaBackground" type="TextureRect" parent="ManaUI"]
+margin_left = 101.0
+margin_top = -16.0
+margin_right = 2109.0
+margin_bottom = 110.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+
+[node name="ManaFill" type="TextureRect" parent="ManaUI"]
+margin_left = 100.313
+margin_top = -16.0
+margin_right = 950.313
+margin_bottom = 114.0
+texture = ExtResource( 30 )
+expand = true
+stretch_mode = 2
+
+[node name="Manacontour" type="TextureRect" parent="ManaUI"]
+margin_left = 99.7544
+margin_top = -18.0
+margin_right = 2005.75
+margin_bottom = 110.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 2
+
+[node name="ManaEnd" type="Sprite" parent="ManaUI"]
+position = Vector2( 475.403, 49 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="ManaStat" type="Sprite" parent="ManaUI"]
+position = Vector2( 102.995, 45.0779 )
+scale = Vector2( 0.988, 0.988 )
+texture = ExtResource( 27 )
+
+[node name="ArmorStatUI" type="Control" parent="."]
+visible = false
+margin_left = 3.37323
+margin_top = 95.6733
+margin_right = 3.37323
+margin_bottom = 95.6733
+script = ExtResource( 21 )
+
+[node name="ArmorBackground" type="TextureRect" parent="ArmorStatUI"]
+margin_left = 134.0
+margin_top = 116.0
+margin_right = 1134.0
+margin_bottom = 177.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 2
+
+[node name="Armor" type="TextureRect" parent="ArmorStatUI"]
+margin_left = 134.0
+margin_top = 116.0
+margin_right = 1134.0
+margin_bottom = 177.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 2
+
+[node name="ArrowsUI" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 17 )
+
+[node name="ArrowFirst" type="Node2D" parent="ArrowsUI"]
+
+[node name="Frame" type="Sprite" parent="ArrowsUI/ArrowFirst"]
+position = Vector2( 319.007, 1040.29 )
+scale = Vector2( 0.3, 0.4 )
+texture = ExtResource( 14 )
+
+[node name="Arrow" type="Sprite" parent="ArrowsUI/ArrowFirst"]
+position = Vector2( 321.093, 1041.39 )
+rotation = -1.0472
+scale = Vector2( 4, 4.28649 )
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="ArrowsUI/ArrowFirst"]
+margin_left = 333.102
+margin_top = 1053.04
+margin_right = 365.102
+margin_bottom = 1121.04
+rect_scale = Vector2( 0.3, 0.3 )
+theme = SubResource( 914 )
+text = "1"
+align = 2
+
+[node name="X" type="Label" parent="ArrowsUI/ArrowFirst"]
+margin_left = 350.771
+margin_top = 1055.57
+margin_right = 548.771
+margin_bottom = 1175.57
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 1237 )
+text = "x"
+valign = 1
+
+[node name="FirstArrowNumber" type="Label" parent="ArrowsUI/ArrowFirst"]
+margin_left = 370.529
+margin_top = 1047.29
+margin_right = 568.529
+margin_bottom = 1167.29
+rect_scale = Vector2( 0.3, 0.3 )
+theme = SubResource( 1237 )
+text = "0"
+valign = 1
+
+[node name="ArrowGUIAnim" type="AnimationPlayer" parent="ArrowsUI"]
+reset_on_save = false
+anims/Hidden = SubResource( 916 )
+anims/Visible = SubResource( 915 )
+
+[node name="FrameSecondary" type="Sprite" parent="."]
+position = Vector2( 111.825, 979.94 )
+z_index = 1
+texture = ExtResource( 14 )
+
+[node name="Weapons" type="Node2D" parent="FrameSecondary"]
+
+[node name="Weapon" type="Sprite" parent="FrameSecondary/Weapons"]
+texture = ExtResource( 18 )
+
+[node name="EquipAnimSecondary" type="AnimationPlayer" parent="FrameSecondary"]
+reset_on_save = false
+method_call_mode = 1
+anims/None = SubResource( 913 )
+anims/Weapon = SubResource( 599 )
+
+[node name="Label2" type="Label" parent="FrameSecondary"]
+margin_left = -76.7502
+margin_top = -83.1161
+margin_right = -36.7502
+margin_bottom = -15.1161
+theme = SubResource( 603 )
+text = "2"
+
+[node name="FramePrimary" type="Sprite" parent="."]
+position = Vector2( 246.861, 1027.87 )
+rotation = 0.349066
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 14 )
+
+[node name="Weapons" type="Node2D" parent="FramePrimary"]
+
+[node name="Weapon" type="Sprite" parent="FramePrimary/Weapons"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 18 )
+
+[node name="EquipAnimPrimary" type="AnimationPlayer" parent="FramePrimary"]
+reset_on_save = false
+method_call_mode = 1
+anims/None = SubResource( 912 )
+anims/Weapon = SubResource( 910 )
+
+[node name="Label" type="Label" parent="FramePrimary"]
+margin_left = -75.3815
+margin_top = -85.0447
+margin_right = -35.3815
+margin_bottom = -17.0447
+theme = SubResource( 603 )
+text = "1"
+
+[node name="Weapons" type="Control" parent="."]
+margin_left = -18.3848
+margin_right = 21.6152
+margin_bottom = 40.0
+
+[node name="Shields" type="Control" parent="."]
+margin_left = -22.3452
+margin_top = 30.6733
+margin_right = 17.6548
+margin_bottom = 70.6733
+
+[node name="Gold" type="Label" parent="."]
+margin_left = 1423.66
+margin_top = 9.0
+margin_right = 1671.66
+margin_bottom = 130.0
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 79 )
+text = "GOLD"
+
+[node name="CoinNumber" type="Label" parent="."]
+margin_left = 1423.73
+margin_top = 30.6585
+margin_right = 1810.73
+margin_bottom = 151.658
+rect_scale = Vector2( 0.25, 0.25 )
+theme = SubResource( 78 )
+text = "0"
+script = ExtResource( 31 )
+
+[node name="GUIAnim" type="AnimationPlayer" parent="."]
+autoplay = "ChangeToPrimary"
+reset_on_save = false
+anims/ChangeToPrimary = SubResource( 81 )
+anims/ChangeToSecondary = SubResource( 84 )
+
+[node name="ElementDamage" type="Node2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.0392157 )
+z_index = 2
+
+[node name="Dread" type="ColorRect" parent="ElementDamage"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -18.0
+margin_top = -17.989
+margin_right = 1935.0
+margin_bottom = 1238.01
+color = Color( 0.568627, 0, 1, 1 )
+
+[node name="DreadAnim" type="AnimationPlayer" parent="ElementDamage/Dread"]
+root_node = NodePath("../..")
+reset_on_save = false
+anims/Dread = SubResource( 587 )
+anims/DreadOff = SubResource( 588 )
+anims/RESET = SubResource( 589 )
+
+[node name="Fire" type="ColorRect" parent="ElementDamage"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -18.0
+margin_top = -17.989
+margin_right = 1935.0
+margin_bottom = 1238.01
+color = Color( 0.94902, 0.4, 0.0392157, 1 )
+
+[node name="FireAnim" type="AnimationPlayer" parent="ElementDamage/Fire"]
+root_node = NodePath("../..")
+reset_on_save = false
+anims/Fire = SubResource( 590 )
+anims/FireOff = SubResource( 591 )
+anims/RESET = SubResource( 592 )
+
+[node name="DebugStats" type="Node2D" parent="."]
+position = Vector2( 0, 109.617 )
+
+[node name="TEMP" type="Label" parent="DebugStats"]
+margin_left = 145.529
+margin_top = 150.673
+margin_right = 541.529
+margin_bottom = 271.673
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 86 )
+text = "TEMP"
+
+[node name="TempNumber" type="Label" parent="DebugStats"]
+margin_left = 236.114
+margin_top = 150.523
+margin_right = 613.114
+margin_bottom = 271.523
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 595 )
+
+[node name="DREAD" type="Label" parent="DebugStats"]
+margin_left = 145.529
+margin_top = 181.673
+margin_right = 542.529
+margin_bottom = 302.673
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 586 )
+text = "DREAD"
+
+[node name="DreadNumber" type="Label" parent="DebugStats"]
+margin_left = 236.135
+margin_top = 181.987
+margin_right = 613.135
+margin_bottom = 302.987
+rect_scale = Vector2( 0.2, 0.2 )
+theme = SubResource( 596 )
+
+[node name="BarsAnim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Off = SubResource( 1240 )
+anims/On = SubResource( 1239 )
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BarAnim" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 35 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="CharmsAdditions" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="FinalToll" type="Control" parent="CharmsAdditions"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharmsAdditions/FinalToll"]
+margin_left = 16.0
+margin_top = 826.0
+margin_right = 208.0
+margin_bottom = 876.0
+rect_min_size = Vector2( 40, 40 )
+custom_constants/separation = 75
+
+[node name="Needed" type="TextureRect" parent="CharmsAdditions/FinalToll/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 50 )
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Label" type="Label" parent="CharmsAdditions/FinalToll/HBoxContainer/Needed"]
+margin_left = 53.3654
+margin_top = 18.2634
+margin_right = 205.365
+margin_bottom = 131.263
+rect_scale = Vector2( 0.3, 0.3 )
+theme = SubResource( 1446 )
+text = "0"

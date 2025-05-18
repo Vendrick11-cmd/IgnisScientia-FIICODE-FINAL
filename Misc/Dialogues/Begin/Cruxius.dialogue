@@ -1,0 +1,24 @@
+~ Cruxius
+
+if cruxius == false
+	do _pause()
+	
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]You arrive, yet again, a shadow among shadows. No face, no voice to anchor you in the world. And yet... you stand, defiant, against the weight of obscurity.[/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5] Faceless wanderer, you embody potential, unshaped, unbound. But beware. [/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]Tell me, Hemwick, what guides you, if not identity? I'll always watch the thread you follow. [/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]Go now. Become what you must. [/wave]
+	do _cruxius_dialogue_over()
+	
+	do _hemwick()
+	do _unpause()
+	

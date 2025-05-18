@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Level1/Tilesets/Tileset1.tres" type="TileSet" id=1]
+
+[node name="MoveableWall" type="Node2D"]
+
+[node name="Terrain" type="TileMap" parent="."]
+scale = Vector2( 0.7, 0.7 )
+z_index = 1
+tile_set = ExtResource( 1 )
+cell_tile_origin = 1
+compatibility_mode = true
+centered_textures = true
+cell_clip_uv = true
+collision_bounce = 0.2
+collision_layer = 8
+format = 1
+tile_data = PoolIntArray( -65538, -1073741763, 0, -65537, -536870851, 0, -2, -2147483586, 0, -1, -1610612674, 0, 65534, -2147483586, 0, 65535, -1610612674, 0, 131070, -2147483587, 0, 131071, -1610612675, 0 )

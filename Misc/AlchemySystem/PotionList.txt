@@ -1,0 +1,84 @@
+
+
+Health Potion = Lavender, Ginseng, Rosemary, Honey (20 health)
+Health Vial = Lavender, Rosemary, Yarrow (10 health)
+Big Health Potion = Lavender, Valerian Root,Plantain, Nettle, Honey, Yarrow (40 health)
+Regeneration Potion = Lavender, Yarrow, Nettle, Rosemary (regen health 30s)
+Wound Binding Decoction = Yarrow, Comfrey, Plantain (stop bleed)
+
+
+Life Potion = Ginseng, Rosemary, Valerian Root, Bone Marrow, Ginger, Yarrow, Plantain (increase max health)
+Big Regeneration Potion = Ginseng, Rosemary, Billberry, Charcoal, Honey (regen health 60s)
+
+Purification Elixir = Ginseng, Charcoal, Eyebright, Mugwort, Nettle, Rosemary (cures poison, gives health)
+
+Potion of Fiery Resilience = Ginger, Nettle, Charcoal (fire resistance)
+
+Rejuvenation Decoction = Lavender, Comfrey, Yarrow, Ginseng, Valerian Root, Rosemary, Bone Marrow, Mandrake (stops bleed, fire resistance, gives full health)
+
+Elixir of Undying = Rosemary, Blue Lotus, Nettle, Lavender, Yarrow (no damage received)
+
+
+Simple Poison = Mandrake, Mugwort, Bones
+
+Venoumous Vial = Mandrake, Eyebright, Charcoal (paralysis poison)
+
+Bleeding Thorn = Mandrake, Blue Lotus, Nettle (bleeding)
+
+
+Tireless Brew = Ginger, Nettle, Ginseng, Billberry, Valerian Root, Charcoal, Mugwort, Rosemary (increase max stamina)
+
+Stamina Potion = Ginger, Nettle, Ginseng, Thistle, Mugwort, Honey (increase stamina regen)
+
+Potent Stamina Potion = Ginger, Nettle, Billberry, Thistle, Mugwort, Valerian Root, Ginseng, Honey (increase stamina regenx2)
+
+Hunting Instinct Tonic = Ginger, Rosemary, Billberry, Valerian Root (increase speed)
+
+
+Awareness Brew = Eyebright, Mugwort, Blue Lotus (see hidden things)
+
+Dreamwalker's Elixir = Eyebright, Mugwort, Blue Lotus, Valerian Root, Mandrake (dream)
+
+Mana Potion = Eyebright, Valerian Root, Mugwort (20 mana)
+
+Big Mana Potion =Eyebright, Valerian Root, Ginseng, Mugwort, Rosemary (30 mana)
+
+Mana Potion 2 = Rosemary, Ginseng, Mandrake (20 mana)
+
+Luck Potion = Ginseng, Rosemary, Blue Lotus, Lucky Clover (gives luck)
+
+Invisibility Elixir = Eyebright, Mandrake, Mugwort, Thistle, Valerian Root, Ginseng (invisible)
+
+
+Venom Purge Elixir = Charcoal, Thistle, Nettle, Rosemary, Garlic (cure poison)
+
+Plague Ward Potion = Charcoal, Yarrow, Rosemary, Garlic (poison resistance)
+
+Misc:
+Brew of Blossoming = Bone Meal, Charcoal, Bones (plant growth)
+
+Health Vial
+Big Health Potion
+Regeneration Potion (regenerates health)
+Wound Binding Potion (stops bleeding)
+Life Potion (increases maximum health)
+Big Regeneration Potion
+Purification Elixir (cures poison and increases health)
+Fire Resistance Potion
+Rejuvenation Potion (stops bleeding, confers fire resistance, replenishes full health)
+Undying Elixir (grants invulnerability) 
+Simple Poison
+Venom Vial (poison)
+Bleeding Thorn Poison (grants bleeding to the enemy)
+Tireless Brew (increases max stamina)
+Stamina Potion (grants stamina regeneration)
+Potent Stamian Potion (grants more stamina regeneration)
+Hunting Potion (increases Hemwick's speed)
+Awareness Brew (grants seeing hidden things)
+Dreamwalker's Elixir (grants lucid dreams which lead Hemwick to find location of items or to conceive new potion recipes)
+Big Mana Potion (grants more mana)
+Luck Potion (increases luck)
+Invisibility Elixir (grants invisibility for a certain time)
+Venom Purge Elixir (cures poison)
+Plague Ward Potion (grants poison resistance)
+Brew of Blossoming (helps plants to grow faster)

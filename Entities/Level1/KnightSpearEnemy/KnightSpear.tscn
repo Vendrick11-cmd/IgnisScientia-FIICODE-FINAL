@@ -1,0 +1,3899 @@
+[gd_scene load_steps=62 format=2]
+
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/LeftLeg.png" type="Texture" id=1]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/LeftHand.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/RightHand.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/Torso.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/Head.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/RightLeg.png" type="Texture" id=6]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/KnightSpear.gd" type="Script" id=7]
+[ext_resource path="res://Entities/Level1/KnightSpearEnemy/Spear.png" type="Texture" id=8]
+[ext_resource path="res://Misc/Overlap/PlayerDetectionZone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Hemwick/Trails.png" type="Texture" id=11]
+[ext_resource path="res://Misc/Overlap/HitBox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Misc/Stats.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Misc/Overlap/HurtBox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/KnightSword/Cloth2.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/KnightSword/Cloth.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/KnightSword/ArmorStep.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/KnightSword/UnSheathe.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/KnightSword/Hurt3.mp3" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/KnightSword/Hurt2.mp3" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/KnightSword/Hurt1.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Sounds/KnightSword/Sheathe.mp3" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/KnightSword/Sword1.mp3" type="AudioStream" id=23]
+[ext_resource path="res://Sounds/KnightSword/Sword2.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/KnightSword/PommelHit.mp3" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/KnightSword/Die.mp3" type="AudioStream" id=26]
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 10, 34.8634 )
+
+[sub_resource type="RayShape2D" id=17]
+length = 37.6446
+
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 62.9592
+height = 855.239
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 40.7893, 49.9414 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 13.0071, 40.9429 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "Attack1"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/RightArm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/RightArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 21.9795, -5.39243 ), Vector2( 17.0242, 8.52972 ), Vector2( -1.8533, 7.46785 ), Vector2( 28.6201, -20.3299 ), Vector2( 33.2283, -10.9648 ), Vector2( 21.9795, -5.39243 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 290.862, 353.793, 415.0, 246.501, 252.196, 290.862 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Torso:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 7 ), Vector2( -1.68369, 13.4542 ), Vector2( -8.9797, 12.0511 ), Vector2( 11.3649, 12.3317 ), Vector2( 0, 7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.50303, 10.2752, 12.4048, 1.27553, 6.50303 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/Torso:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1, 1.1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 3, 5, 2, 0, 3 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/Head:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.42484, -27.3125 ), Vector2( 4.02231, -20.5542 ), Vector2( -2.00894, -21.773 ), Vector2( 11.6786, -22.1792 ), Vector2( 3.42484, -27.3125 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.5, 10.3, 12.4, 1.3, 6.5 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Legs/RightLeg:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 4.49607, 29.9071 ), Vector2( 0.00622845, 29.9071 ), Vector2( -3.78209, 29.9071 ), Vector2( 17.1238, 29.9071 ), Vector2( 4.49607, 29.9071 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/LeftArm:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -11.2622, -4.43882 ), Vector2( -12.4528, -4.63725 ), Vector2( -20.1339, -7.94807 ), Vector2( 4.76845, -7.18149 ), Vector2( -11.2622, -4.43882 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -3.35094, -8.58089, 28.3569, -15.2443, -3.35094 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/LeftArm:frame")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 1, 4, 3 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Body/Spear:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 37.3745, -8.43132 ), Vector2( 28.9656, 19.108 ), Vector2( -1.93735, 21.8409 ), Vector2( 35.5482, -29.5869 ), Vector2( 40.7922, -20.0352 ), Vector2( 37.3745, -8.43132 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 252.849, 282.14, 305.779, 230.288, 243.316, 252.849 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Body/Trails:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.85, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Body/Trails:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.88348, -37.6006 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Body/Trails:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.3671 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Body/Trails:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.525828, 0.525828 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Body/Trails:frame")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/23/type = "method"
+tracks/23/path = NodePath(".")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_unsheate_anim_finished"
+} ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.0306 ), Vector2( -19.2523, 32.763 ), Vector2( -28.7017, 34.3379 ), Vector2( -0.0385091, 32.6055 ), Vector2( -14.5276, 31.0306 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5.50346, 16.1169, 24.9024, 10.1278, 5.50346 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Character/Misc/HitBox/CollisionShape2D:disabled")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Character/Misc/Attack:enabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Character/Misc/Attack2:enabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Character/Misc/HitBox/CollisionShape2D:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32.836, -5.091 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Character/Misc/HitBox/CollisionShape2D:shape:extents")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 1.15 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40.7893, 49.9414 ) ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Character/Misc/HitBox:damage")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("Character/Body/Trails:flip_h")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/34/type = "audio"
+tracks/34/path = NodePath("Sounds/AudioMaster")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+} ],
+"times": PoolRealArray( 0.95 )
+}
+tracks/35/type = "audio"
+tracks/35/path = NodePath("Sounds/AudioMaster2")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0.15 )
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Attack2"
+length = 1.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 21.9795, -5.39243 ), Vector2( 16.7354, -0.42929 ), Vector2( 10.7022, 2.20945 ), Vector2( -3.4836, 2.95005 ), Vector2( 36.0945, 1.35789 ), Vector2( 22.0945, -2.39211 ), Vector2( 19.3445, -2.26711 ), Vector2( 21.9795, -5.39243 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 290.862, 329.525, 361.69, 404.262, 331.203, 343.83, 315.554, 290.862 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/RightArm:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 2, 0, 2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/LeftArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -11.2622, -4.43882 ), Vector2( -11.9701, -4.37983 ), Vector2( -21.4887, -1.44736 ), Vector2( -28.4753, 1.52565 ), Vector2( 2.38126, -4.14684 ), Vector2( -8.73852, -2.42657 ), Vector2( -12.4112, -2.42029 ), Vector2( -11.2622, -4.43882 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -3.35094, 12.0407, 33.2005, 46.0931, -65.117, -9.98862, 5.1235, -3.35094 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/LeftArm:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 0, 1, 0, 3 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/Torso:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 7 ), Vector2( -3.875, 9.625 ), Vector2( -9.125, 13.875 ), Vector2( 10.75, 14 ), Vector2( 0.749999, 7.75 ), Vector2( 0, 7 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.50303, 6.50303, 5.61128, 5.61128, 2.30504, 6.50303 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/Torso:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 5, 4, 3 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.0306 ), Vector2( -20.5122, 31.818 ), Vector2( -26.3394, 33.7079 ), Vector2( -4.13326, 33.7079 ), Vector2( -12.2801, 31.4052 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5.50346, 9.56558, 23.9654, 23.9654, 5.50346 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Legs/RightLeg:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 4.49607, 29.4862 ), Vector2( 5.7646, 29.9587 ), Vector2( 0.409939, 29.9587 ), Vector2( 14.8053, 29.9587 ), Vector2( 8.42913, 29.4862 ), Vector2( 4.49607, 29.4862 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1.52207, 0.0, 0.0, 0.0, 1.52207, 1.52207 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Body/Spear:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 37.3745, -8.43132 ), Vector2( 31.0821, 4.96084 ), Vector2( 20.3893, 13.7393 ), Vector2( -3.19873, 7.96617 ), Vector2( 53.1413, 7.54572 ), Vector2( 36.3234, 5.02303 ), Vector2( 32.5394, 0.608324 ), Vector2( 37.3745, -8.43132 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 252.849, 268.874, 279.639, 276.533, 267.754, 262.751, 261.39, 252.849 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Body/Head:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.42484, -27.3125 ), Vector2( -0.459579, -24.7039 ), Vector2( -6.18272, -20.5054 ), Vector2( 13.6256, -20.4112 ), Vector2( 1.6592, -26.766 ), Vector2( 1.6592, -26.766 ), Vector2( 3.42484, -27.3125 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.8, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.5, 6.5, 5.6, 5.6, 2.3, 2.3, 6.5 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Body/Trails:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.75, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Body/Trails:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 55.8092, 12.1024 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Body/Trails:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.05592 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/Trails:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.760931, 0.253058 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Character/Misc/Attack:enabled")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Character/Misc/Attack2:enabled")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/26/type = "method"
+tracks/26/path = NodePath(".")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_unsheate_anim_finished"
+} ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Character/Body/Trails:frame")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Character/Misc/HitBox/CollisionShape2D:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 56.1442, 8.71588 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Character/Misc/HitBox/CollisionShape2D:shape:extents")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40.7893, 12.1737 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Character/Misc/HitBox/CollisionShape2D:disabled")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0.75, 0.8, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Character/Misc/HitBox:damage")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Character/Body/Trails:flip_h")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/33/type = "audio"
+tracks/33/path = NodePath("Sounds/AudioMaster")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0.15, 0.75 )
+}
+tracks/34/type = "audio"
+tracks/34/path = NodePath("Sounds/AudioMaster2")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.32,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "Attack3"
+length = 1.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 6.274 ), Vector2( 12.5569, 2.06761 ), Vector2( 16.1153, 2.38419e-07 ), Vector2( 10.684, -7.60666 ), Vector2( 33.4, 20.3241 ), Vector2( 3.43445, 9.31738 ), Vector2( -0.802266, 5.03037 ), Vector2( 0, 6.274 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.50303, 6.50303, -10.9708, -17.7925, 17.4079, 14.1752, 6.29368, 6.50303 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Torso:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.1, 1.2, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 3, 4, 6, 5, 2, 6, 3, 4, 6 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.29734, -27.0707 ), Vector2( 15.8786, -31.229 ), Vector2( 9.26882, -32.7985 ), Vector2( -1.90735e-06, -39.3466 ), Vector2( 43.0566, -11.7697 ), Vector2( 11.1608, -23.2714 ), Vector2( 2.31765, -28.3394 ), Vector2( 3.32104, -27.0387 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.66158, 6.5, -11.0, -17.8, 17.4, 14.2, 6.3, 6.3 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Spear:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 37.3745, -8.43132 ), Vector2( 18.8884, -30.2583 ), Vector2( 37.9654, -44.7365 ), Vector2( 20.9991, -51.6863 ), Vector2( 5.13908, -52.1238 ), Vector2( -13.3815, -60.5423 ), Vector2( -27.8067, -45.9655 ), Vector2( -33.7934, -42.5339 ), Vector2( 83.1488, 39.5107 ), Vector2( 46.7686, -2.38169 ), Vector2( 42.2014, -14.8234 ), Vector2( 37.3745, -8.43132 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 252.849, 205.568, 197.891, 163.314, 139.476, 119.865, 75.2082, 71.3374, 288.084, 242.804, 239.397, 252.849 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 23.2132, -6.13518 ), Vector2( 17.6962, -23.7915 ), Vector2( 32.5552, -28.0096 ), Vector2( 24.2358, -34.3766 ), Vector2( 24.6215, -23.8067 ), Vector2( 24.7884, -27.1438 ), Vector2( 16.6125, -45.331 ), Vector2( 10.6057, -44.1631 ), Vector2( 51.8536, 18.172 ), Vector2( 30.6165, -1.16984 ), Vector2( 25.7996, -11.4289 ), Vector2( 23.2132, -6.13518 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.45, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 292.514, 229.63, 228.975, 201.741, 333.559, 280.018, 221.911, 202.999, 21.543, -53.1812, -61.9323, 292.514 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/RightArm:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7, 1, 1.35, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0, 2, 0, 1, 2 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/LeftArm:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.45, 1.55, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10.336, -4.8304 ), Vector2( -2.77646, -9.87008 ), Vector2( 17.0053, -14.4028 ), Vector2( 16.6127, -21.0628 ), Vector2( 6.80793, -32.1968 ), Vector2( -3.60883, -38.6248 ), Vector2( -7.27964, -38.4579 ), Vector2( -15.1218, -32.618 ), Vector2( 37.0108, 8.01983 ), Vector2( 8.2851, 2.38419e-07 ), Vector2( 0, -7.39789 ), Vector2( -5.89958, -2.92445 ), Vector2( -10.336, -4.8304 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.35, 1.55, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -8.61252, -56.1494, -63.3372, -103.684, -126.873, -169.36, -192.196, -232.59, -28.0012, -53.0226, -20.0762, -8.61252 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/LeftArm:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 0, 0, 0, 3 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.0306 ), Vector2( -4.63888, 32.1782 ), Vector2( 3.97715, 31.9919 ), Vector2( 2.38419e-07, 31.151 ), Vector2( 12.2895, 36.702 ), Vector2( -12.5169, 32.918 ), Vector2( -12.3067, 31.026 ), Vector2( -14.5276, 31.0306 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5.50346, 14.8257, 5.0749, -5.65965, 42.723, 14.7449, 0.184177, 5.50346 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/RightLeg:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 10.4893, 29.4862 ), Vector2( 23.1846, 29.4862 ), Vector2( 30.1486, 29.4862 ), Vector2( 26.7511, 12.4459 ), Vector2( 35.6571, 34.6088 ), Vector2( 8.26652, 29.7089 ), Vector2( 4.70066, 29.7089 ), Vector2( 10.4893, 29.4862 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 1, 1.35, 1.45, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1.52207, 1.52207, -7.38981, -7.88827, 0.877168, 0.877168, 0.877168, 1.52207 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 1.35, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Body/Trails:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.95, 1, 1.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Body/Trails:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.3, 0.95, 1.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.113, 22.8234 ), Vector2( -23.113, 22.8234 ), Vector2( -0.750284, -34.1806 ), Vector2( -0.750284, -34.1806 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/Trails:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.3, 0.95, 1.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -247.754, -247.754, 4.03998, 4.03998 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Character/Body/Trails:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.3, 0.95, 1.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.254327, 0.612481 ), Vector2( 0.254327, 0.612481 ), Vector2( 0.836465, 0.890191 ), Vector2( 0.836465, 0.890191 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Character/Body/Trails:frame")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0.95 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Character/Body/Trails:flip_h")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Character/Misc/HitBox/CollisionShape2D:disabled")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 1, 1.15, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Character/Misc/HitBox/CollisionShape2D:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 74.8579, -16.7614 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Character/Misc/HitBox/CollisionShape2D:shape:extents")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 60.3366, 64.6084 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Character/Misc/HitBox:damage")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/31/type = "method"
+tracks/31/path = NodePath(".")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_unsheate_anim_finished"
+} ]
+}
+tracks/32/type = "audio"
+tracks/32/path = NodePath("Sounds/AudioMaster")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"clips": [ {
+"end_offset": 0.173864,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+} ],
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/33/type = "audio"
+tracks/33/path = NodePath("Sounds/AudioMaster2")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"clips": [ {
+"end_offset": 0.545995,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0.15, 1 )
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("Character/Misc/Attack:enabled")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Character/Misc/Attack2:enabled")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Die"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.0306 ), Vector2( -15.4115, 33.859 ), Vector2( -13.8205, 33.859 ), Vector2( -11.1689, 35.6268 ), Vector2( -8.5172, 40.7533 ), Vector2( -5.512, 43.0514 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5.50346, 29.9915, 31.2466, 34.8625, 70.1801, 70.1801 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Legs/RightLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 10.4893, 29.4862 ), Vector2( 3.77175, 29.663 ), Vector2( 1.65043, 30.3701 ), Vector2( 0.589767, 30.3701 ), Vector2( -1.00123, 42.0374 ), Vector2( 0.0594387, 43.4516 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1.52207, -3.14826, 26.8838, 55.3127, 129.231, 108.866 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Torso:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 6.274 ), Vector2( 1.26135, 6.90467 ), Vector2( 10.0907, 13.0012 ), Vector2( 13.0339, 17.6261 ), Vector2( 23.5451, 42.4325 ), Vector2( 24.5962, 40.5405 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.50303, 23.5551, 47.5065, 66.7422, 74.9161, 91.1908 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/Head:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.29734, -27.0707 ), Vector2( 14.9646, -23.5351 ), Vector2( 16.7324, 5.63301 ), Vector2( 17.4395, 25.7856 ), Vector2( 16.7324, 37.2761 ), Vector2( 16.3788, 40.458 ), Vector2( 16.3788, 41.8722 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.66158, 25.6578, 93.8668, 119.562, 152.401, 80.2554, 97.8146 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/Spear:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 44.6777, 0.488647 ), Vector2( 44.5009, 4.02418 ), Vector2( 45.7384, 12.3327 ), Vector2( 46.0919, 22.7625 ), Vector2( 57.2289, 30.7175 ), Vector2( 64.1232, 40.7937 ), Vector2( 64.1232, 40.7937 ), Vector2( 64.1232, 43.7989 ), Vector2( 64.2999, 43.6222 ), Vector2( 63.7047, 44.9119 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 242.747, 213.182, 207.056, 195.601, 249.705, 281.318, 261.014, 274.844, 265.355, 269.619 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 19.4377, 4.76837e-07 ), Vector2( 19.4377, 6.01041 ), Vector2( 23.5036, 16.2635 ), Vector2( 25.6249, 13.6118 ), Vector2( 33.9334, 48.2601 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 342.364, 378.596, 428.243, 488.982, 453.053 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/LeftArm:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10.336, -4.8304 ), Vector2( -3.26492, -7.30528 ), Vector2( 13.3521, -5.00718 ), Vector2( 19.3625, 0.296119 ), Vector2( 32.0904, 22.7468 ), Vector2( 35.626, 28.2268 ), Vector2( 38.6312, 37.4192 ), Vector2( 41.106, 39.3638 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -8.61252, -1.11971, 47.7929, 82.2163, 103.488, 103.488, 39.7033, 24.6964 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath(".:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath(".:collision_layer")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Misc/HurtBox:collision_layer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Misc/HurtBox:collision_mask")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Misc/HitBox:collision_layer")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Misc/HitBox:collision_mask")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Body/Trails:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/21/type = "audio"
+tracks/21/path = NodePath("Sounds/AudioMaster")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/22/type = "audio"
+tracks/22/path = NodePath("Sounds/AudioMaster2")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"clips": [ {
+"end_offset": 0.192166,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0.3, 0.7 )
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/Torso:frame")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 3, 4, 0, 1 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath(".:NORMALSPEED")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Hurt"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Sounds/Hurt1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Sounds/Hurt2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 20 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Sounds/Hurt3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 2, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 7 ), Vector2( 0, 6 ), Vector2( 0, 5 ), Vector2( 0, 4 ), Vector2( 0, 3 ), Vector2( 0, 6 ), Vector2( 0, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Spear:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 37.522, 7.78464 ), Vector2( 37.522, 6.73234 ), Vector2( 37.522, 5.52218 ), Vector2( 37.522, 4.50495 ), Vector2( 37.522, 3.45264 ), Vector2( 37.522, 6.73234 ), Vector2( 37.522, 7.78464 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 268.622 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.44616, -27.3187 ), Vector2( 3.44616, -28.3605 ), Vector2( 3.44616, -29.3526 ), Vector2( 3.44616, -30.3199 ), Vector2( 3.44616, -31.3368 ), Vector2( 3.44616, -28.3357 ), Vector2( 3.44616, -27.3187 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Head:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/RightArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 19.4377, 4.76837e-07 ), Vector2( 19.4377, -1.08738 ), Vector2( 19.4377, -2.17477 ), Vector2( 19.4377, -3.192 ), Vector2( 19.4377, -4.13908 ), Vector2( 19.4377, -1.08738 ), Vector2( 19.4377, 4.76837e-07 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/LeftArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10.336, -4.8304 ), Vector2( -10.336, -5.84763 ), Vector2( -10.336, -6.79471 ), Vector2( -10.336, -7.84702 ), Vector2( -10.336, -8.79409 ), Vector2( -10.336, -5.84763 ), Vector2( -10.336, -4.8304 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/LeftArm:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -8.61252 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 342.364 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/RightArm:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.2809 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.50346 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:flip_h")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/RightLeg:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 4.6202, 29.7511 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:flip_h")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6.66158 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/24/type = "audio"
+tracks/24/path = NodePath("Sounds/AudioMaster")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.219618,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0.4, 1.9, 3.4, 4.9, 6.4 )
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Character/Body/Torso:scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1.02, 1 ), Vector2( 1.04, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Move"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 5, 4, 3, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 7 ), Vector2( 0, 8 ), Vector2( 0, 6 ), Vector2( 0, 5 ), Vector2( 0, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Spear:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 37.3745, -8.43132 ), Vector2( 37.3745, -7.54743 ), Vector2( 37.3745, -9.40359 ), Vector2( 37.3745, -10.641 ), Vector2( 37.3745, -8.34293 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 252.849 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.29734, -26.3226 ), Vector2( 3.3341, -25.4035 ), Vector2( 3.29734, -27.352 ), Vector2( 3.3341, -28.3079 ), Vector2( 3.3341, -26.3226 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Head:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/RightArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 20.1066, -6.14158 ), Vector2( 20.1066, -4.99253 ), Vector2( 20.1066, -7.02547 ), Vector2( 20.1066, -8.17451 ), Vector2( 20.1066, -6.14158 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/LeftArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10.3156, -5.3854 ), Vector2( -10.2073, -4.27252 ), Vector2( -10.3763, -6.33241 ), Vector2( -10.4683, -7.30116 ), Vector2( -10.3703, -5.29356 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/LeftArm:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -3.35094 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 296.88, 296.88 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/RightArm:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6.66158 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -18.0188, 32.2945 ), Vector2( -15.8011, 32.528 ), Vector2( -6.46347, 32.6447 ), Vector2( 8.12661, 27.6257 ), Vector2( 13.1456, 30.6604 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 33.2287, 49.0211, 61.7434, -3.19201, -20.5242 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 2 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/LeftLeg:flip_h")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 11.6352, 30.1985 ), Vector2( 11.5185, 29.3814 ), Vector2( -0.779133, 29.3814 ), Vector2( -6.61516, 28.4477 ), Vector2( -14.6689, 29.3814 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -15.4822, 0.372565, 0.372565, 31.2787, 44.9994 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Legs/RightLeg:flip_h")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("AnimationPlayer:playback_speed")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/25/type = "audio"
+tracks/25/path = NodePath("Sounds/AudioMaster")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
+tracks/26/type = "audio"
+tracks/26/path = NodePath("Sounds/AudioMaster2")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Spear:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -14.528, 15 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.49, -33.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Head:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/RightArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 13.316, -6 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/LeftArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.336, -4.8304 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/LeftArm:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -8.61252 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 16.3117 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/RightArm:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 6.50303 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.23465 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.375, 30.4699 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/LeftLeg:flip_h")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 7.47239, 29.625 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Legs/RightLeg:flip_h")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Character/Body/Trails:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Character/Body/Trails:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3.78592, -35.1282 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Character/Body/Trails:rotation_degrees")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 17.7444 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Character/Body/Trails:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.414674, 0.414674 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Character/Body/Trails:frame")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath(".:NORMALSPEED")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("AnimationPlayer:playback_speed")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Character/Misc/HitBox/CollisionShape2D:disabled")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Character/Misc/Attack:enabled")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("Character/Misc/Attack2:enabled")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath(".:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Character/Misc/HitBox/CollisionShape2D:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32.8676, -5.0914 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Character/Misc/HitBox/CollisionShape2D:shape:extents")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40.7893, 49.9414 ) ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("Character/Body/Trails:flip_h")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("Character/Misc/HitBox:damage")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15 ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("CollisionShape2D2:disabled")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath(".:collision_layer")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("Character/Misc/HurtBox:collision_layer")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("Character/Misc/HurtBox:collision_mask")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("Character/Misc/HitBox:collision_layer")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("Character/Misc/HitBox:collision_mask")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("Character/Body/Trails:visible")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("Character/Body/Torso:scale")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.02, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Sheathe"
+length = 1.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0, 6.27278 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Spear:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 44.6777, 0.488647 ), Vector2( 50.143, 3.22951 ), Vector2( 26.2602, -12.559 ), Vector2( -8.27651, 9.01573 ), Vector2( -10.957, 13.3533 ), Vector2( -14.3787, 19.7633 ), Vector2( -15.5706, 21.2201 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 242.747, 300.039, 377.38, 388.216, 384.644, 384.196, 387.781 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.32675, -27.0804 ), Vector2( 0.654052, -27.2475 ), Vector2( -0.475903, -27.1686 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Head:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/RightArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 19.4377, 4.76837e-07 ), Vector2( 22.2621, -4.90548 ), Vector2( 23.1459, -20.2487 ), Vector2( 7.5812, -8.2401 ), Vector2( 7.91482, -2.57419 ), Vector2( 5.25836, -2.56356 ), Vector2( 2.38724, -2.82475 ), Vector2( 13.1528, 0 ), Vector2( 14.9768, 9.9476e-14 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/LeftArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -8.13112, -11.9175 ), Vector2( -9.23355, -10.5 ), Vector2( -9.23355, -10.5 ), Vector2( -8.28861, -5.61785 ), Vector2( -10.5695, -1.16931 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/LeftArm:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 3, 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -55.099, -46.5294, -41.8218, -27.6032, -6.83154 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 342.364, 297.205, 251.793, 96.0847, 57.6093, 42.537, 23.2149, 6.07904, 12.1244 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/RightArm:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 4, 3, 2, 1, 0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6.50303, 2.0, 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6.04886, 2.0, 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -14.5276, 31.0306 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.50346 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/LeftLeg:flip_h")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 10.4893, 29.4862 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1.52207 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Legs/RightLeg:flip_h")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/24/type = "method"
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_unsheate_anim_finished"
+} ]
+}
+tracks/25/type = "audio"
+tracks/25/path = NodePath("Sounds/AudioMaster")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "UnSheathe"
+length = 1.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/Body/Torso:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 3, 6, 3, 5, 2, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Character/Body/Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -1 ), Vector2( 0, -1.19209e-07 ), Vector2( 0, 6.94293 ), Vector2( 0, 6.274 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Character/Body/Spear:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 0.8, 0.9, 1, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14.528, 14 ), Vector2( -14.5276, 13.0641 ), Vector2( -7.99125, 0 ), Vector2( -10.3611, -26.4787 ), Vector2( -0.779135, -45.4493 ), Vector2( 36.6614, -16.7075 ), Vector2( 36.4387, -18.0995 ), Vector2( 35.6134, -14.4266 ), Vector2( 43.7886, -8.07691 ), Vector2( 44.4904, -1.24377 ), Vector2( 44.6777, 0.488647 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Character/Body/Spear:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 0.8, 0.9, 1, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20.0, 25.3882, 3.44731, 42.5015, 113.384, 233.717, 233.717, 227.376, 234.944, 242.747 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Character/Body/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.509221, -34.4662 ), Vector2( 3.40303, -33.3376 ), Vector2( 3.29734, -26.3226 ), Vector2( 3.29734, -27.0707 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Character/Body/Head:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Character/Body/RightArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.6, 0.7, 0.8, 0.9, 1, 1.3, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13.316, -6 ), Vector2( 10.6719, -9.08475 ), Vector2( 5.6003, -8.9973 ), Vector2( 0.874418, -12.0826 ), Vector2( 1.23662, -25.133 ), Vector2( 10.5112, -30.8214 ), Vector2( 15.5112, -24.2037 ), Vector2( 10.6167, -1.51737 ), Vector2( 10.6167, -2.64237 ), Vector2( 18.0192, -3.44358 ), Vector2( 19.4377, -1.47567 ), Vector2( 19.4377, 4.76837e-07 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Character/Body/LeftArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.7, 0.8, 0.9, 1, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -8.801, -9.04104 ), Vector2( -6.26519, -14.1127 ), Vector2( -9.23821, -18.9499 ), Vector2( -6.09741, -26.213 ), Vector2( -6.32903, -26.3039 ), Vector2( -4.76837e-07, -31.8922 ), Vector2( 4.81577, -15.328 ), Vector2( 4.75678, -13.0857 ), Vector2( 3.49685, -11.5895 ), Vector2( -0.779133, -8.32619 ), Vector2( -4.28683, -5.9143 ), Vector2( -10.336, -4.8304 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Character/Body/LeftArm:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.7, 0.8, 0.9, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 1, 4, 1, 0, 3 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Character/Body/LeftArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.7, 0.8, 0.9, 1, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -12.3146, -30.8015, -41.9185, -51.4048, -169.412, -147.876, -92.0047, -79.1452, -67.375, -42.6938, -27.5279, -8.61252 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Character/Body/RightArm:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Character/Body/RightArm:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.6, 0.7, 0.8, 0.9, 1, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16.3117, -10.8642, 40.6661, 73.471, 78.1743, 169.687, 227.211, 279.489, 279.489, 303.173, 325.415, 342.364 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Character/Body/RightArm:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.6, 0.7, 0.8, 0.9, 1, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 3, 2, 1, 3, 2, 1 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Character/Body/Torso:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 6.50303, 6.50303 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Character/Body/Head:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 6.66158, 6.66158 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Character/Legs/LeftLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10.375, 30.4699 ), Vector2( -12.0767, 31.3553 ), Vector2( -14.5276, 31.0306 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Character/Legs/LeftLeg:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 10.8643, 5.50346 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Character/Legs/LeftLeg:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Character/Legs/LeftLeg:flip_h")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Character/Legs/RightLeg:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 7.47239, 29.625 ), Vector2( 12.3306, 29.4862 ), Vector2( 11.3653, 29.4862 ), Vector2( 10.4893, 29.4862 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Character/Legs/RightLeg:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.52207 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Character/Legs/RightLeg:frame")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Character/Legs/RightLeg:flip_h")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Character/Body/LeftArm:flip_h")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/24/type = "method"
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_unsheate_anim_finished"
+} ]
+}
+tracks/25/type = "audio"
+tracks/25/path = NodePath("Sounds/AudioMaster")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"clips": [ {
+"end_offset": 1.10724,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+tracks/26/type = "audio"
+tracks/26/path = NodePath("Sounds/AudioMaster2")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+}, {
+"end_offset": 0.475839,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0.1, 1 )
+}
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "Attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "Attack3"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "Die"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/Attack1/node = SubResource( 20 )
+states/Attack1/position = Vector2( 897.667, 161.247 )
+states/Attack2/node = SubResource( 32 )
+states/Attack2/position = Vector2( 897.296, 274.983 )
+states/Attack3/node = SubResource( 36 )
+states/Attack3/position = Vector2( 877.889, 382.088 )
+states/Die/node = SubResource( 40 )
+states/Die/position = Vector2( 610.111, 644.31 )
+states/Idle/node = SubResource( 6 )
+states/Idle/position = Vector2( 348.778, 161 )
+states/Move/node = SubResource( 7 )
+states/Move/position = Vector2( 617.667, 274.704 )
+transitions = [ "Move", "Attack1", SubResource( 21 ), "Attack1", "Move", SubResource( 23 ), "Move", "Attack2", SubResource( 33 ), "Attack2", "Move", SubResource( 34 ), "Move", "Attack3", SubResource( 37 ), "Attack3", "Move", SubResource( 38 ), "Idle", "Die", SubResource( 41 ), "Move", "Die", SubResource( 43 ), "Attack1", "Die", SubResource( 45 ), "Attack2", "Die", SubResource( 46 ), "Attack3", "Die", SubResource( 47 ), "Idle", "Move", SubResource( 49 ), "Move", "Idle", SubResource( 50 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -59.617, -120.529 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[node name="KnightSpear" type="KinematicBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 8
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 45.7596, 2.02367 ],
+"_edit_vertical_guides_": [ -23.8125 ]
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.23435, -4.08378 )
+shape = SubResource( 48 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.779133, 5.03037 )
+shape = SubResource( 17 )
+
+[node name="Stats" parent="." instance=ExtResource( 13 )]
+max_health = 70
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="Legs" type="Node2D" parent="Character"]
+
+[node name="LeftLeg" type="Sprite" parent="Character/Legs"]
+position = Vector2( -14.5276, 31.0306 )
+rotation = 0.0960535
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="RightLeg" type="Sprite" parent="Character/Legs"]
+position = Vector2( 4.49607, 29.9071 )
+texture = ExtResource( 6 )
+hframes = 3
+
+[node name="Body" type="Node2D" parent="Character"]
+
+[node name="Torso" type="Sprite" parent="Character/Body"]
+position = Vector2( 0, 7 )
+rotation = 0.113499
+texture = ExtResource( 4 )
+hframes = 7
+
+[node name="Head" type="Sprite" parent="Character/Body"]
+position = Vector2( 3.42484, -27.3125 )
+rotation = 0.113446
+texture = ExtResource( 5 )
+
+[node name="Trails" type="Sprite" parent="Character/Body"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -9.88348, -37.6006 )
+rotation = 0.704539
+scale = Vector2( 0.525828, 0.525828 )
+texture = ExtResource( 11 )
+hframes = 3
+frame = 1
+
+[node name="RightArm" type="Sprite" parent="Character/Body"]
+position = Vector2( 21.9795, -5.39243 )
+rotation = 5.0765
+texture = ExtResource( 3 )
+hframes = 6
+frame = 2
+
+[node name="Spear" type="Sprite" parent="Character/Body"]
+position = Vector2( 37.3745, -8.43132 )
+rotation = 4.41305
+scale = Vector2( 0.5, 0.4 )
+texture = ExtResource( 8 )
+
+[node name="LeftArm" type="Sprite" parent="Character/Body"]
+position = Vector2( -11.2622, -4.43882 )
+rotation = -0.0584849
+texture = ExtResource( 2 )
+hframes = 6
+frame = 3
+
+[node name="Misc" type="Node2D" parent="Character"]
+visible = false
+
+[node name="PlayerDetectionZone" parent="Character/Misc" instance=ExtResource( 10 )]
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="Character/Misc/PlayerDetectionZone" index="0"]
+visible = false
+position = Vector2( 215.734, -19.0273 )
+rotation = 1.57079
+shape = SubResource( 13 )
+
+[node name="Attack" type="RayCast2D" parent="Character/Misc"]
+position = Vector2( -14.928, 19.7633 )
+rotation = -1.5821
+cast_to = Vector2( -0.847361, 120 )
+collision_mask = 3
+
+[node name="Attack2" type="RayCast2D" parent="Character/Misc"]
+position = Vector2( -14.928, -12.8249 )
+rotation = -1.5821
+cast_to = Vector2( -0.847361, 120 )
+collision_mask = 3
+
+[node name="Attack3" type="RayCast2D" parent="Character/Misc"]
+position = Vector2( -12.2793, 19.7633 )
+rotation = -4.71239
+cast_to = Vector2( -0.847361, 75 )
+collision_mask = 3
+
+[node name="Attack4" type="RayCast2D" parent="Character/Misc"]
+position = Vector2( -12.2793, -12.8249 )
+rotation = -4.71239
+cast_to = Vector2( -0.847361, 75 )
+collision_mask = 3
+
+[node name="HitBox" parent="Character/Misc" instance=ExtResource( 12 )]
+collision_layer = 256
+collision_mask = 128
+damage = 8
+
+[node name="CollisionShape2D" parent="Character/Misc/HitBox" index="0"]
+position = Vector2( 32.836, -5.091 )
+shape = SubResource( 30 )
+disabled = true
+
+[node name="HurtBox" parent="Character/Misc" instance=ExtResource( 14 )]
+visible = false
+collision_layer = 512
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="Character/Misc/HurtBox" index="0"]
+position = Vector2( -0.802266, 2.06761 )
+shape = SubResource( 29 )
+
+[node name="FloorDetect" type="RayCast2D" parent="Character/Misc"]
+position = Vector2( 104.046, 38.3766 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Attack1 = SubResource( 18 )
+anims/Attack2 = SubResource( 19 )
+anims/Attack3 = SubResource( 35 )
+anims/Die = SubResource( 39 )
+anims/Hurt = SubResource( 31 )
+anims/Idle = SubResource( 2 )
+anims/Move = SubResource( 5 )
+anims/RESET = SubResource( 3 )
+anims/Sheathe = SubResource( 24 )
+anims/UnSheathe = SubResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 12 )
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="AudioMaster" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 24 )
+max_distance = 400.0
+
+[node name="AudioMaster2" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 15 )
+volume_db = -10.0
+max_distance = 400.0
+
+[node name="Hurt1" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 21 )
+max_distance = 400.0
+bus = "SFX"
+
+[node name="Hurt2" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 20 )
+max_distance = 400.0
+bus = "SFX"
+
+[node name="Hurt3" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 19 )
+max_distance = 400.0
+bus = "SFX"
+
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="area_entered" from="Character/Misc/HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="Character/Misc/PlayerDetectionZone"]
+[editable path="Character/Misc/HitBox"]
+[editable path="Character/Misc/HurtBox"]

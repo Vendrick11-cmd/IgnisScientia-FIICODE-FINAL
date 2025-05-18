@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/Level1/Sprites/Rubbles/Paper/pageanim.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.2
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.0
+flatness = 0.05
+gravity = Vector3( 0, 3, 0 )
+initial_velocity = 70.0
+initial_velocity_random = 0.51
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+radial_accel = -0.01
+radial_accel_random = 1.0
+scale = 0.02
+anim_speed = 8.0
+anim_speed_random = 1.0
+
+[node name="PaperRubble" type="Particles2D"]
+material = SubResource( 6 )
+position = Vector2( 0, -13.3635 )
+scale = Vector2( 0.2, 0.2 )
+emitting = false
+amount = 30
+lifetime = 13.1
+one_shot = true
+speed_scale = 4.44
+explosiveness = 1.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )

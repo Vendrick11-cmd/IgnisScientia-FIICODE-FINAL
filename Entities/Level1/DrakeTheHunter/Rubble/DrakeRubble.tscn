@@ -1,0 +1,426 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/9.png" type="Texture" id=1]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/8.png" type="Texture" id=2]
+[ext_resource path="res://Levels/LevelAssets/Rubbles/Bones/BoneRubble.gd" type="Script" id=3]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/10.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/1.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/4.png" type="Texture" id=6]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/5.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/3.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/2.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/7.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/6.png" type="Texture" id=11]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/11.png" type="Texture" id=12]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/12.png" type="Texture" id=13]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/13.png" type="Texture" id=14]
+[ext_resource path="res://Entities/Level1/DrakeTheHunter/Rubble/14.png" type="Texture" id=15]
+
+[sub_resource type="PhysicsMaterial" id=8]
+bounce = 0.5
+
+[sub_resource type="Gradient" id=17]
+interpolation_mode = 2
+colors = PoolColorArray( 0.596191, 0.198311, 0.0116444, 1, 0.533333, 0.0509804, 0.027451, 1 )
+
+[sub_resource type="GradientTexture" id=18]
+gradient = SubResource( 17 )
+
+[sub_resource type="ParticlesMaterial" id=19]
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 39.14
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_random = 0.5
+color = Color( 1, 0.0627451, 0, 1 )
+color_ramp = SubResource( 18 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 11.4513, 16.236 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 17.0406, 7.09454 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4.60818, 16.363 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 7.92197, 11.1682 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.62456, 15.4546 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 7.43736, 16.363 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12.3877, 13.6226 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 11.2668, 15.0804 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7.62816, 16.1908 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6.46282, 12.1535 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 6.46282, 12.1535 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 17.4242, 8.68675 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8.29843, 17.588 )
+
+[node name="BoneRubble" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( -0.871241, -14.2829 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+position = Vector2( -0.0117097, 0.0113297 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 0.264085, -0.416115 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 16 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( 0.982015, -14.2236 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D2"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( 0.0285001, -0.080019 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2( 0.515216, -0.219038 )
+rotation = 1.57079
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 15 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2( -0.566269, -15.1918 )
+rotation = 3.14159
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D3"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( 0.0738696, -0.155913 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2( 0.0114479, -0.007658 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 3 )
+
+[node name="RigidBody2D11" type="RigidBody2D" parent="."]
+position = Vector2( 5.55144, -13.2396 )
+rotation = 1.57079
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D11"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D11"]
+position = Vector2( -0.136356, -0.142775 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D11"]
+position = Vector2( 0.63678, 0.184267 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 14 )
+
+[node name="RigidBody2D12" type="RigidBody2D" parent="."]
+position = Vector2( -1.24624, -11.6418 )
+rotation = 3.66519
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D12"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+scale = Vector2( 1, 1 )
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D12"]
+position = Vector2( -0.115049, -0.166228 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D12"]
+position = Vector2( 0.598597, -0.20077 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 13 )
+
+[node name="RigidBody2D13" type="RigidBody2D" parent="."]
+position = Vector2( 11.7635, -11.5772 )
+rotation = 6.02138
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D13"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D13"]
+position = Vector2( -0.0791513, -0.156606 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D13"]
+position = Vector2( 0.0312233, -0.00947571 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 3 )
+
+[node name="RigidBody2D14" type="RigidBody2D" parent="."]
+position = Vector2( 8.36578, -17.0088 )
+rotation = 6.80677
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D14"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D14"]
+position = Vector2( -0.393291, 0.290758 )
+rotation = -1.57079
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D14"]
+position = Vector2( -0.271067, -0.0265741 )
+rotation = -0.523598
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 12 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+position = Vector2( 4.16277, -18.0686 )
+rotation = -2.09439
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D4"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D4"]
+position = Vector2( 0.0534172, -0.00471711 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2( 0.232718, -0.294361 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 4 )
+
+[node name="RigidBody2D7" type="RigidBody2D" parent="."]
+position = Vector2( 2.73722, -21.8045 )
+rotation = 3.66519
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( 0.0135536, 0.061058 )
+rotation = 2.61799
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D7"]
+position = Vector2( 1.91569, -0.589237 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 11 )
+
+[node name="RigidBody2D10" type="RigidBody2D" parent="."]
+position = Vector2( 4.10198, -12.1209 )
+rotation = -0.261799
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D10"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D10"]
+position = Vector2( -0.100989, -0.0844777 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D10"]
+position = Vector2( -0.0670028, -0.208154 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 9 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="."]
+position = Vector2( 0.525871, -4.41993 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D5"]
+position = Vector2( -0.0681996, -0.0334272 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
+position = Vector2( 0.00105667, -0.00469732 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 5 )
+
+[node name="RigidBody2D8" type="RigidBody2D" parent="."]
+position = Vector2( -0.695025, -8.80982 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D8"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D8"]
+position = Vector2( -0.0419211, -0.0991225 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D8"]
+position = Vector2( 0.412311, 0.223186 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 10 )
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="."]
+position = Vector2( 7.66228, -5.49793 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D6"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D6"]
+position = Vector2( -0.0416045, -0.0296431 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
+position = Vector2( 0.0168266, 0.00917816 )
+rotation = 1.57079
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="RigidBody2D9" type="RigidBody2D" parent="."]
+position = Vector2( 5, -17.9006 )
+collision_layer = 0
+collision_mask = 8
+physics_material_override = SubResource( 8 )
+gravity_scale = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D9"]
+position = Vector2( 1.15454, -1.1875 )
+rotation = -1.57079
+amount = 1000
+local_coords = false
+draw_order = 1
+process_material = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D9"]
+position = Vector2( -0.0729766, 0.0600891 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D9"]
+position = Vector2( 0.0084343, 0.0325317 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 60.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer_timeout"]

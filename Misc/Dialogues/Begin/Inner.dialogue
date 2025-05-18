@@ -1,0 +1,27 @@
+~ ThisCould
+#_talkright()
+#_talkleft()
+#_monologue()
+#_monologueend()
+# _pause()
+# _unpause()
+if thiscould == false
+
+	do _pause()
+	
+	
+	Hemwick: This could come in handy.
+	
+	do _unpause()
+
+	
+	
+=> END
+~ Doesnotopen
+	
+do _pause()
+
+Hemwick: Does not open from this side.
+
+do _unpause()
+

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelAssets/Sprites/Charm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/LevelAssets/Sprites/Pedestal.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -8.89899, 12.8464, 7.97149, 12.9515, 7.97149, 12.2682, 5.97436, 12.0055, 1.9801, 6.90752, 2.03266, 1.0738, 2.19033, -7.96583, 3.92468, -9.06951, 7.76127, -9.06951, 9.86351, -11.1192, 7.65615, -12.8535, -8.89899, -12.9061, -10.9487, -11.855, -6.06097, -8.43884, -3.22294, -7.80816, -3.06527, 6.74986, -4.06384, 8.90465, -6.90186, 11.8478 )
+
+[node name="CharmGiver" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Pedestal" type="Sprite" parent="."]
+modulate = Color( 1, 0.85098, 0.701961, 1 )
+position = Vector2( -0.0158386, 0.0571136 )
+texture = ExtResource( 4 )
+
+[node name="Charm" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.418339, -36.7119 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
+occluder = SubResource( 3 )

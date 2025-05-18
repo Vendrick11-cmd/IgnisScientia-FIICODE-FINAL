@@ -1,0 +1,431 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 48
+syntax_version = 2
+raw_text = "~ DrakeTheHunter
+
+do _pause()
+do _hemwick()
+Hemwick: Well, I was expecting a pile of bones and a scrap of a journal. This is better.
+do _drake()
+Drake: You took your time.
+do _hemwick()
+Hemwick: Excuse me for not sprinting through the charming undead welcoming committee.
+do _drake()
+Drake: And here I thought they'd break you in two.
+do _hemwick()
+Hemwick: They tried. I'm flexible.
+do _hemwick()
+Hemwick: Eleanore sent me to find you. I suppose you are Drake, the hunter. She's worried.
+do _drake()
+Drake: She shouldn't be.
+do _hemwick()
+Hemwick: Try telling her that. She hides it like poison in tea, but it's there.
+do _drake()
+Drake: ...Told her not to fuss. Figures she would.
+- Why didn't you try to find a way out?
+	do _hemwick()
+	Hemwick: Why didn't you try to find a way out?
+	do _drake()
+	Drake: This wall enclosed right behind me as I entered this room. Now it has opened, but there are monsters outside. It was a trap.
+	do _hemwick()
+	Hemwick: What were you even doing down here?
+	do _drake()
+	Drake: Following a scent. Something's stirring below these stones. I came to find the source.
+do _drake()
+Drake: Well, you found me. And I'm still breathing, for now. That enough for you?
+do _hemwick()
+Hemwick: For Eleanore, maybe. For me? I was hoping you'd offer a snack or something.
+do _drake()
+Drake: All I've got is silence unfortunately. 
+
+do _unpause()
+
+~ Drake_Has_Charm
+
+
+	
+	
+	
+
+"
+errors = [  ]
+titles = {
+"DrakeTheHunter": "2",
+"Drake_Has_Charm": "title has no body"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "DrakeTheHunter",
+"type": "title"
+},
+"10": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "11",
+"replacements": [  ],
+"text": "And here I thought they'd break you in two.",
+"translation_key": "And here I thought they'd break you in two.",
+"type": "dialogue"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "12",
+"type": "mutation"
+},
+"12": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "13",
+"replacements": [  ],
+"text": "They tried. I'm flexible.",
+"translation_key": "They tried. I'm flexible.",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "15",
+"replacements": [  ],
+"text": "Eleanore sent me to find you. I suppose you are Drake, the hunter. She's worried.",
+"translation_key": "Eleanore sent me to find you. I suppose you are Drake, the hunter. She's worried.",
+"type": "dialogue"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "17",
+"replacements": [  ],
+"text": "She shouldn't be.",
+"translation_key": "She shouldn't be.",
+"type": "dialogue"
+},
+"17": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "18",
+"type": "mutation"
+},
+"18": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "19",
+"replacements": [  ],
+"text": "Try telling her that. She hides it like poison in tea, but it's there.",
+"translation_key": "Try telling her that. She hides it like poison in tea, but it's there.",
+"type": "dialogue"
+},
+"19": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "20",
+"type": "mutation"
+},
+"2": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "21",
+"replacements": [  ],
+"text": "...Told her not to fuss. Figures she would.",
+"translation_key": "...Told her not to fuss. Figures she would.",
+"type": "dialogue"
+},
+"21": {
+"next_id": "22",
+"next_id_after": "30",
+"replacements": [  ],
+"responses": PoolStringArray( "21" ),
+"text": "Why didn't you try to find a way out?",
+"translation_key": "Why didn't you try to find a way out?",
+"type": "response"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "23",
+"parent_id": "21",
+"type": "mutation"
+},
+"23": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "24",
+"parent_id": "21",
+"replacements": [  ],
+"text": "Why didn't you try to find a way out?",
+"translation_key": "Why didn't you try to find a way out?",
+"type": "dialogue"
+},
+"24": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "25",
+"parent_id": "21",
+"type": "mutation"
+},
+"25": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "26",
+"parent_id": "21",
+"replacements": [  ],
+"text": "This wall enclosed right behind me as I entered this room. Now it has opened, but there are monsters outside. It was a trap.",
+"translation_key": "This wall enclosed right behind me as I entered this room. Now it has opened, but there are monsters outside. It was a trap.",
+"type": "dialogue"
+},
+"26": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "27",
+"parent_id": "21",
+"type": "mutation"
+},
+"27": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "28",
+"parent_id": "21",
+"replacements": [  ],
+"text": "What were you even doing down here?",
+"translation_key": "What were you even doing down here?",
+"type": "dialogue"
+},
+"28": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "29",
+"parent_id": "21",
+"type": "mutation"
+},
+"29": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "30",
+"parent_id": "21",
+"replacements": [  ],
+"text": "Following a scent. Something's stirring below these stones. I came to find the source.",
+"translation_key": "Following a scent. Something's stirring below these stones. I came to find the source.",
+"type": "dialogue"
+},
+"3": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "4",
+"type": "mutation"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "31",
+"type": "mutation"
+},
+"31": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "32",
+"replacements": [  ],
+"text": "Well, you found me. And I'm still breathing, for now. That enough for you?",
+"translation_key": "Well, you found me. And I'm still breathing, for now. That enough for you?",
+"type": "dialogue"
+},
+"32": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "33",
+"type": "mutation"
+},
+"33": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "34",
+"replacements": [  ],
+"text": "For Eleanore, maybe. For me? I was hoping you'd offer a snack or something.",
+"translation_key": "For Eleanore, maybe. For me? I was hoping you'd offer a snack or something.",
+"type": "dialogue"
+},
+"34": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "35",
+"type": "mutation"
+},
+"35": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "37",
+"replacements": [  ],
+"text": "All I've got is silence unfortunately.",
+"translation_key": "All I've got is silence unfortunately.",
+"type": "dialogue"
+},
+"37": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"39": {
+"next_id": "",
+"text": "Drake_Has_Charm",
+"type": "title"
+},
+"4": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "Well, I was expecting a pile of bones and a scrap of a journal. This is better.",
+"translation_key": "Well, I was expecting a pile of bones and a scrap of a journal. This is better.",
+"type": "dialogue"
+},
+"5": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "6",
+"type": "mutation"
+},
+"6": {
+"character": "Drake",
+"character_replacements": [  ],
+"next_id": "7",
+"replacements": [  ],
+"text": "You took your time.",
+"translation_key": "You took your time.",
+"type": "dialogue"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "8",
+"type": "mutation"
+},
+"8": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "9",
+"replacements": [  ],
+"text": "Excuse me for not sprinting through the charming undead welcoming committee.",
+"translation_key": "Excuse me for not sprinting through the charming undead welcoming committee.",
+"type": "dialogue"
+},
+"9": {
+"mutation": {
+"expression": [ {
+"function": "_drake",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "10",
+"type": "mutation"
+}
+}

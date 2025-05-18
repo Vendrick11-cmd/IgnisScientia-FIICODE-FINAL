@@ -1,0 +1,4739 @@
+[gd_scene load_steps=136 format=2]
+
+[ext_resource path="res://Levels/LevelHollowgrove/TileTextures/17.png" type="Texture" id=1]
+[ext_resource path="res://Levels/LevelHollowgrove/TileTextures/TilePlot.gd" type="Script" id=2]
+[ext_resource path="res://Misc/Overlap/InteractRay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/UI/InventoryConsume/AddIngredient.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/UI/Hover.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Rosemary/Rosemary (2).png" type="Texture" id=6]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Rosemary/Rosemary (1).png" type="Texture" id=7]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Rosemary/Rosemary (3).png" type="Texture" id=8]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav3.png" type="Texture" id=9]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav2.png" type="Texture" id=10]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav1.png" type="Texture" id=11]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav7.png" type="Texture" id=12]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav5.png" type="Texture" id=13]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (3).png" type="Texture" id=14]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (6).png" type="Texture" id=15]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (5).png" type="Texture" id=16]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (2).png" type="Texture" id=17]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Nettle/Nettle (1).png" type="Texture" id=18]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Rosemary/Rosemary (4).png" type="Texture" id=19]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Lav6.png" type="Texture" id=20]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (5).png" type="Texture" id=21]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (2).png" type="Texture" id=22]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (1).png" type="Texture" id=23]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (6).png" type="Texture" id=24]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (7).png" type="Texture" id=25]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Garlic.png" type="Texture" id=26]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (4).png" type="Texture" id=27]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Comfrey/Comfrey (3).png" type="Texture" id=28]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Thistle/Thistle (4).png" type="Texture" id=29]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Thistle/Thistle (3).png" type="Texture" id=30]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Thistle/Thistle (2).png" type="Texture" id=31]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Thistle/Thistle (1).png" type="Texture" id=32]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (4).png" type="Texture" id=33]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (1).png" type="Texture" id=34]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (7).png" type="Texture" id=35]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Plantain.png" type="Texture" id=36]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (3).png" type="Texture" id=37]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (5).png" type="Texture" id=38]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (2).png" type="Texture" id=39]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Eyebright.png" type="Texture" id=40]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Billberry.png" type="Texture" id=41]
+[ext_resource path="res://Misc/Inventory/InventoryButtonOptions.gd" type="Script" id=42]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (8).png" type="Texture" id=43]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Rosemary.png" type="Texture" id=44]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Yarrow/Yarrow (6).png" type="Texture" id=45]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Valerian.png" type="Texture" id=46]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Yarrow.png" type="Texture" id=47]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Mandrake.png" type="Texture" id=48]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Mugwort.png" type="Texture" id=49]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/BlueLotus.png" type="Texture" id=50]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginger/4.png" type="Texture" id=51]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Comfrey.png" type="Texture" id=52]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Ginger.png" type="Texture" id=53]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginger/3.png" type="Texture" id=54]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Lavender.png" type="Texture" id=55]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Nettle.png" type="Texture" id=56]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Thistle.png" type="Texture" id=57]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginger/2.png" type="Texture" id=58]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/Ginseng.png" type="Texture" id=59]
+[ext_resource path="res://Misc/Inventory/InventoryItemIcons/None.png" type="Texture" id=60]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginger/1.png" type="Texture" id=61]
+[ext_resource path="res://Levels/LevelHollowgrove/TileTextures/PlantPanel.png" type="Texture" id=62]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginseng/3.png" type="Texture" id=63]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginseng/2.png" type="Texture" id=64]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Ginseng/1.png" type="Texture" id=65]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Valerian/4.png" type="Texture" id=66]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Valerian/3.png" type="Texture" id=67]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Valerian/1.png" type="Texture" id=68]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Valerian/2.png" type="Texture" id=69]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mugwort/2.png" type="Texture" id=70]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mugwort/1.png" type="Texture" id=71]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mugwort/4.png" type="Texture" id=72]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mugwort/3.png" type="Texture" id=73]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mandrake/3.png" type="Texture" id=74]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mandrake/1.png" type="Texture" id=75]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Mandrake/2.png" type="Texture" id=76]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Plantain/1.png" type="Texture" id=77]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Plantain/2.png" type="Texture" id=78]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Plantain/3.png" type="Texture" id=79]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Plantain/4.png" type="Texture" id=80]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Garlic/1.png" type="Texture" id=81]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Garlic/2.png" type="Texture" id=82]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Garlic/3.png" type="Texture" id=83]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Eyebright/3.png" type="Texture" id=84]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Eyebright/2.png" type="Texture" id=85]
+[ext_resource path="res://Levels/LevelHollowgrove/EnvirSprites/Plants/Eyebright/1.png" type="Texture" id=86]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant1.mp3" type="AudioStream" id=87]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant2.mp3" type="AudioStream" id=88]
+[ext_resource path="res://Sounds/Levels/HollowGrove/PickPlant3.mp3" type="AudioStream" id=89]
+
+[sub_resource type="CircleShape2D" id=1432]
+
+[sub_resource type="Shader" id=1440]
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture : hint_albedo;
+uniform float dissolve_value : hint_range(0,1);
+
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+    main_texture.a *= floor(dissolve_value + min(1, noise_texture.x));
+    COLOR = main_texture;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=1436]
+
+[sub_resource type="NoiseTexture" id=1437]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource( 1436 )
+
+[sub_resource type="ShaderMaterial" id=1441]
+resource_local_to_scene = true
+shader = SubResource( 1440 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 1437 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/alagard.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/styles/normal = null
+
+[sub_resource type="Animation" id=1374]
+resource_name = "Billberry"
+length = 99999.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=1375]
+resource_name = "BlueLotus"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ) ]
+}
+
+[sub_resource type="Animation" id=1380]
+resource_name = "Comfrey"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=1381]
+resource_name = "Eyebright"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 40 ) ]
+}
+
+[sub_resource type="Animation" id=1382]
+resource_name = "Garlic"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 26 ) ]
+}
+
+[sub_resource type="Animation" id=1383]
+resource_name = "Ginger"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 53 ) ]
+}
+
+[sub_resource type="Animation" id=1384]
+resource_name = "Ginseng"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 59 ) ]
+}
+
+[sub_resource type="Animation" id=1387]
+resource_name = "Lavender"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 55 ) ]
+}
+
+[sub_resource type="Animation" id=1389]
+resource_name = "Mandrake"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 48 ) ]
+}
+
+[sub_resource type="Animation" id=1390]
+resource_name = "Mugwort"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 49 ) ]
+}
+
+[sub_resource type="Animation" id=1391]
+resource_name = "Nettle"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 56 ) ]
+}
+
+[sub_resource type="Animation" id=1392]
+resource_name = "None"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=1393]
+resource_name = "Plantain"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=1421]
+resource_name = "Rosemary"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=1422]
+resource_name = "Thistle"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=1423]
+resource_name = "Valerian"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=1429]
+resource_name = "Yarrow"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ) ]
+}
+
+[sub_resource type="Animation" id=1430]
+resource_name = "Active"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ConfirmPanel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 569.388, -1575.05 ), Vector2( 569.388, 46.1226 ), Vector2( 569.388, -35.9858 ) ]
+}
+
+[sub_resource type="Animation" id=1431]
+resource_name = "Inactive"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ConfirmPanel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 569.388, -35.9858 ), Vector2( 569.388, 46.1226 ), Vector2( 569.388, -1575.05 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1433]
+extents = Vector2( 31.8885, 10 )
+
+[sub_resource type="Animation" id=1444]
+resource_name = "Comfrey"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -36.2938 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 22 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 28 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 27 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 25 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5.52609, -21.1043 ), Vector2( -21.3089, -39.1326 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 24 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -38.729 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -39.1525 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1454]
+resource_name = "Eyebright"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 86 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -37.7184 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 85 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -39.7604 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 84 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -3.2932, -41.0233 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 86 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -37.8099 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 84 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 11.5189, -40.6448 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 85 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 28.7645, -39.2629 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 86 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -37.9717 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 86 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -37.9568 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1453]
+resource_name = "Garlic"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 81 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -39.0247 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 82 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -39.7604 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 83 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -3.2932, -38.6636 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 82 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.7903 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 83 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -40.6448 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 81 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -39.2629 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 83 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -39.1937 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 82 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -39.6845 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1447]
+resource_name = "Ginger"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -36.2938 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 61 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -38.4955 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -38.729 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 51 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -38.6322 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1448]
+resource_name = "Ginseng"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -36.2938 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 63 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -37.7597 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 64 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -38.729 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -38.6322 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1442]
+resource_name = "Lavender"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -27.4056, -37.1948 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -16.5067, -41.9697 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -2.10249, -39.8421 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 9.25744, -40.0313 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 15.6775, -42.4908 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12.3803, -21.1043 ), Vector2( 20.1394, -39.8341 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88384, -21.6163 ), Vector2( -9.88385, -41.6005 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -19.857 ), Vector2( 19.4119, -42.3924 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1451]
+resource_name = "Mandrake"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ), ExtResource( 75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -35.2687 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 76 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -36.5005 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 74 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -3.2932, -33.4195 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -35.8927 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 76 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -35.9677 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 74 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -33.8062 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 76 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -35.3669 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -35.3938 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1450]
+resource_name = "Mugwort"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 71 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -41.7716 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 70 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 72 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 73 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -42.3956 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 71 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 70 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -40.3722 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 73 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -43.1956 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 72 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -40.8234 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1443]
+resource_name = "Nettle"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -27.4056, -39.4998 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -16.5067, -41.4686 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -39.1406 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 4.24645, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 14.2744, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 25.2229, -39.1326 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -38.9076 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -40.6916 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1434]
+resource_name = "None"
+length = 1e+10
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant4:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant5:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant6:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant7:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant8:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("InteractRay:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("InteractRay:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_not_ready_to_harvest"
+} ]
+}
+
+[sub_resource type="Animation" id=1452]
+resource_name = "Plantain"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 77 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -39.0247 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -39.7604 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 79 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -3.2932, -38.6636 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 80 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.7903 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 77 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -40.6448 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -39.2629 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 79 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -39.1937 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 80 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -37.7324 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1435]
+resource_name = "Rosemary"
+length = 70.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -25.0866 ), Vector2( -23.811, -39.2447 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -26.9291 ), Vector2( -14.4256, -38.7984 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -26.2205 ), Vector2( -2.10249, -38.0898 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -26.2205 ), Vector2( 5.47364, -37.711 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -26.2205 ), Vector2( 15.6775, -36.6259 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -26.5908 ), Vector2( 25.2229, -38.3206 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant2:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant3:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant4:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant5:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant8:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -27.6523 ), Vector2( 19.4119, -36.7231 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant7:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -27.569 ), Vector2( -9.88385, -38.0572 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 62 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 62 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1445]
+resource_name = "Thistle"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -36.2938 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 29 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -39.1326 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 29 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -38.729 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -39.1525 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1449]
+resource_name = "Valerian"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -41.7716 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -42.3956 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 68 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -40.3722 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 69 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88384, -43.1956 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -40.8234 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1446]
+resource_name = "Yarrow"
+length = 70.0
+step = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 34 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plant:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23.811, -18.465 ), Vector2( -26.5057, -36.2938 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Plant2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14.4256, -23.2399 ), Vector2( -17.5754, -37.7001 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Plant3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Plant3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.10249, -21.1123 ), Vector2( -4.80843, -37.3969 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Plant4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Plant4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.47364, -21.3015 ), Vector2( 3.51525, -39.5302 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plant5:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 38 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plant5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6775, -23.761 ), Vector2( 12.0245, -38.6824 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Plant6:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Plant6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.2229, -21.1043 ), Vector2( 27.079, -39.1326 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Plant7:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 35 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Plant7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.88385, -23.4588 ), Vector2( -9.88385, -38.729 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Plant8:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Plant8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19.4119, -23.4003 ), Vector2( 19.4119, -39.1525 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("InteractRay:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("InteractRay:enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 60 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ready_to_harvest"
+} ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1439]
+resource_name = "Active"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InteractRay:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractRay:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1456]
+resource_name = "Inactive"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InteractRay:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractRay:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PickUpArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=1455]
+extents = Vector2( 31.6738, 7.81874 )
+
+[node name="TilePlot" type="StaticBody2D"]
+pause_mode = 2
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1432 )
+disabled = true
+
+[node name="Plant" type="Sprite" parent="."]
+position = Vector2( -23.811, -18.465 )
+
+[node name="Plant2" type="Sprite" parent="."]
+position = Vector2( -14.4256, -23.2399 )
+
+[node name="Plant3" type="Sprite" parent="."]
+position = Vector2( -2.10249, -21.1123 )
+
+[node name="Plant4" type="Sprite" parent="."]
+position = Vector2( 5.47364, -21.3015 )
+
+[node name="Plant5" type="Sprite" parent="."]
+position = Vector2( 15.6775, -23.761 )
+
+[node name="Plant6" type="Sprite" parent="."]
+position = Vector2( -5.52609, -21.1043 )
+
+[node name="Plant7" type="Sprite" parent="."]
+position = Vector2( -9.88385, -23.4588 )
+
+[node name="Plant8" type="Sprite" parent="."]
+position = Vector2( 19.4119, -23.4003 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1441 )
+texture = ExtResource( 1 )
+
+[node name="InteractRay" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 13.7858, -53.1057 )
+scale = Vector2( 1.3, 1.3 )
+enabled = false
+
+[node name="Plants" type="CanvasLayer" parent="."]
+layer = 10
+scale = Vector2( 0.8, 0.8 )
+transform = Transform2D( 0.8, 0, 0, 0.8, 0, 0 )
+
+[node name="ConfirmPanel" type="TextureRect" parent="Plants"]
+margin_left = 569.388
+margin_top = -1575.05
+margin_right = 1735.39
+margin_bottom = -850.052
+texture = ExtResource( 62 )
+expand = true
+
+[node name="InventoryItems" type="Panel" parent="Plants/ConfirmPanel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 0.852
+margin_left = 304.56
+margin_top = 456.0
+margin_right = -301.44
+margin_bottom = 48.3
+rect_clip_content = true
+
+[node name="Ingredients" type="ScrollContainer" parent="Plants/ConfirmPanel/InventoryItems"]
+margin_left = -19.0
+margin_top = 7.0
+margin_right = 587.0
+margin_bottom = 214.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Plants/ConfirmPanel/InventoryItems/Ingredients"]
+margin_right = 323.0
+margin_bottom = 746.0
+custom_constants/separation = 10
+script = ExtResource( 42 )
+
+[node name="Comfrey" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_right = 323.0
+margin_bottom = 44.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Comfrey Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Comfrey" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Eyebright" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 54.0
+margin_right = 323.0
+margin_bottom = 98.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Eyebright Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Eyebright" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Garlic" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 108.0
+margin_right = 323.0
+margin_bottom = 152.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Garlic Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Garlic" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Ginger" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 162.0
+margin_right = 323.0
+margin_bottom = 206.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Ginger Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginger" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Ginseng" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 216.0
+margin_right = 323.0
+margin_bottom = 260.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Ginseng Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginseng" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Lavender" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 270.0
+margin_right = 323.0
+margin_bottom = 314.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Lavender Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Lavender" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Mandrake" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 324.0
+margin_right = 323.0
+margin_bottom = 368.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Mandrake Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mandrake" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Mugwort" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 378.0
+margin_right = 323.0
+margin_bottom = 422.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Mugwort Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mugwort" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Nettle" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 432.0
+margin_right = 323.0
+margin_bottom = 476.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Nettle Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Nettle" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Plantain" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 486.0
+margin_right = 323.0
+margin_bottom = 530.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Plantain Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Plantain" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Rosemary" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 540.0
+margin_right = 323.0
+margin_bottom = 584.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Rosemary Seed"
+flat = true
+align = 0
+expand_icon = true
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Rosemary" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Thistle" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 594.0
+margin_right = 323.0
+margin_bottom = 638.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Thistle Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Thistle" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Valerian Root" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 648.0
+margin_right = 323.0
+margin_bottom = 692.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Valerian Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Valerian Root" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="Yarrow" type="Button" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer"]
+margin_top = 702.0
+margin_right = 323.0
+margin_bottom = 746.0
+theme = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.898039, 0.231373, 0.231373, 1 )
+text = "  Yarrow Seed"
+flat = true
+align = 0
+
+[node name="Amount" type="Label" parent="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Yarrow" groups=["code_plant_amounts"]]
+margin_left = 405.061
+margin_top = -0.375519
+margin_right = 576.061
+margin_bottom = 37.6245
+theme = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 2
+
+[node name="ItemDesc" type="Node2D" parent="Plants/ConfirmPanel"]
+position = Vector2( -393, -112 )
+
+[node name="Image" type="Sprite" parent="Plants/ConfirmPanel/ItemDesc"]
+position = Vector2( 976.742, 416.057 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 46 )
+
+[node name="DescAnim" type="AnimationPlayer" parent="Plants/ConfirmPanel/ItemDesc"]
+autoplay = "None"
+reset_on_save = false
+anims/Billberry = SubResource( 1374 )
+anims/BlueLotus = SubResource( 1375 )
+anims/Comfrey = SubResource( 1380 )
+anims/Eyebright = SubResource( 1381 )
+anims/Garlic = SubResource( 1382 )
+anims/Ginger = SubResource( 1383 )
+anims/Ginseng = SubResource( 1384 )
+anims/Lavender = SubResource( 1387 )
+anims/Mandrake = SubResource( 1389 )
+anims/Mugwort = SubResource( 1390 )
+anims/Nettle = SubResource( 1391 )
+anims/None = SubResource( 1392 )
+anims/Plantain = SubResource( 1393 )
+anims/Rosemary = SubResource( 1421 )
+anims/Thistle = SubResource( 1422 )
+anims/Valerian = SubResource( 1423 )
+anims/Yarrow = SubResource( 1429 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plants"]
+reset_on_save = false
+anims/Active = SubResource( 1430 )
+anims/Inactive = SubResource( 1431 )
+
+[node name="AddIngredient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+bus = "SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 536870912
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.196755, -13.1662 )
+shape = SubResource( 1433 )
+
+[node name="Planting" type="AnimationPlayer" parent="."]
+autoplay = "None"
+reset_on_save = false
+playback_speed = 0.25
+anims/Comfrey = SubResource( 1444 )
+anims/Eyebright = SubResource( 1454 )
+anims/Garlic = SubResource( 1453 )
+anims/Ginger = SubResource( 1447 )
+anims/Ginseng = SubResource( 1448 )
+anims/Lavender = SubResource( 1442 )
+anims/Mandrake = SubResource( 1451 )
+anims/Mugwort = SubResource( 1450 )
+anims/Nettle = SubResource( 1443 )
+anims/None = SubResource( 1434 )
+anims/Plantain = SubResource( 1452 )
+anims/Rosemary = SubResource( 1435 )
+anims/Thistle = SubResource( 1445 )
+anims/Valerian = SubResource( 1449 )
+anims/Yarrow = SubResource( 1446 )
+
+[node name="DigAnim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Active = SubResource( 1439 )
+anims/Inactive = SubResource( 1456 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( 0, -37.5058 )
+shape = SubResource( 1455 )
+disabled = true
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -13.6419 )
+stream = ExtResource( 87 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="PickUp2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -13.6419 )
+stream = ExtResource( 88 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="PickUp3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.625, -13.6419 )
+stream = ExtResource( 89 )
+volume_db = 10.0
+bus = "SFX"
+
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Comfrey" to="." method="_on_Comfrey_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Comfrey" to="." method="_on_Comfrey_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Comfrey" to="." method="_on_Comfrey_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Eyebright" to="." method="_on_Eyebright_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Eyebright" to="." method="_on_Eyebright_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Eyebright" to="." method="_on_Eyebright_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Garlic" to="." method="_on_Garlic_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Garlic" to="." method="_on_Garlic_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Garlic" to="." method="_on_Garlic_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginger" to="." method="_on_Ginger_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginger" to="." method="_on_Ginger_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginger" to="." method="_on_Ginger_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginseng" to="." method="_on_Ginseng_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginseng" to="." method="_on_Ginseng_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Ginseng" to="." method="_on_Ginseng_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Lavender" to="." method="_on_Lavender_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Lavender" to="." method="_on_Lavender_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Lavender" to="." method="_on_Lavender_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mandrake" to="." method="_on_Mandrake_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mandrake" to="." method="_on_Mandrake_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mandrake" to="." method="_on_Mandrake_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mugwort" to="." method="_on_Mugwort_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mugwort" to="." method="_on_Mugwort_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Mugwort" to="." method="_on_Mugwort_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Nettle" to="." method="_on_Nettle_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Nettle" to="." method="_on_Nettle_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Nettle" to="." method="_on_Nettle_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Plantain" to="." method="_on_Plantain_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Plantain" to="." method="_on_Plantain_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Plantain" to="." method="_on_Plantain_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Rosemary" to="." method="_on_Rosemary_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Rosemary" to="." method="_on_Rosemary_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Rosemary" to="." method="_on_Rosemary_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Thistle" to="." method="_on_Thistle_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Thistle" to="." method="_on_Thistle_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Thistle" to="." method="_on_Thistle_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Valerian Root" to="." method="_on_Valerian_Root_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Valerian Root" to="." method="_on_Valerian_Root_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Valerian Root" to="." method="_on_Valerian_Root_pressed"]
+[connection signal="focus_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Yarrow" to="." method="_on_Yarrow_focus_entered"]
+[connection signal="mouse_entered" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Yarrow" to="." method="_on_Yarrow_mouse_entered"]
+[connection signal="pressed" from="Plants/ConfirmPanel/InventoryItems/Ingredients/VBoxContainer/Yarrow" to="." method="_on_Yarrow_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

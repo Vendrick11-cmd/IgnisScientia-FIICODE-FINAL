@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.187792, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.85368, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=134]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 160.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 134 )
+color = Color( 1, 1, 1, 0.117647 )
+
+[node name="Dust" type="Particles2D"]
+amount = 2000
+lifetime = 60.0
+preprocess = 20.0
+randomness = 1.0
+visibility_rect = Rect2( -700, -700, 1400, 1400 )
+local_coords = false
+process_material = SubResource( 3 )

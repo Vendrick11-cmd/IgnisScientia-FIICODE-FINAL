@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Misc/Overlap/HitBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/SpikesShort.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/Highlight.gdshader" type="Shader" id=3]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -282.955, -75.3462, -273.407, -17.0459, -217.726, 83.1802, -187.436, 68.4804, -196.345, 50.2169, -184.317, 7.89925, -172.736, 31.5081, -178.972, 58.235, -152.245, 70.7076, -120.618, 61.3532, -133.536, 28.3899, -122.845, 8.79015, -93.0003, 31.9535, -100.128, 56.4532, -71.1733, 69.8167, -62.2643, 59.1259, -55.5826, 62.2441, -40.8827, 90.3074, -15.9376, 81.8439, -13.7103, 86.7438, 13.0166, 86.2984, 15.6893, 77.8348, 42.8618, 84.962, 69.5887, 16.3628, 87.4067, 51.1078, 96.7611, 47.9897, 86.9612, 91.1983, 114.134, 102.335, 131.952, 56.4532, 148.879, 90.3074, 181.321, 75.1369, 176.276, 64.2052, 204.867, 60.4212, 232.196, 67.1484, 240.184, 59.5803, 254.9, 89.8526, 282.229, 75.5573, 252.377, 10.8083, 270.456, -48.8953, 265.832, -102.292, 246.07, -74.9631, 225.469, -119.531, 206.548, -58.9861, 209.491, -49.7362, 189.31, -67.3951, 199.821, -6.00961, 214.957, 15.4332, 205.707, 44.8646, 182.162, -62.7701, 152.311, -104.815, 149.367, -69.0768, 142.22, -58.9861, 132.129, -79.588, 90.5046, -110.701, 101.857, -56.043, 84.6184, -66.5542, 94.2887, -11.4754, 83.357, -30.3956, 77.8912, -82.5312, 63.5959, -65.2928, 60.2324, -74.5427, 20.7102, -106.076, 30.801, -48.8953, 41.7326, -29.9752, 16.5057, 62.103, 16.5057, -38.8046, -2.83487, -85.8948, -21.755, -28.2934, -18.8119, 59.5803, -47.4023, 4.50166, -29.7435, -48.0544, -34.3684, -97.6673, -69.6861, -50.5771, -73.0497, -35.0205, -106.265, -66.1336, -99.1175, -18.623, -112.572, -30.3955, -107.106, -46.3726, -111.31, -94.7241, -147.049, -45.5317, -163.446, -51.418, -167.651, -107.758, -195.82, -67.8153, -216.002, -82.9515, -208.434, -43.8498, -218.525, -1.38452, -243.331, -44.2702 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/highlight_color = Color( 1, 1, 1, 1 )
+shader_param/frequency = 0.52
+shader_param/highlight_speed = 3.789
+shader_param/highlight_width = 9.217
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16.5728, 6.26025 )
+
+[node name="DeadlySpikeShort" type="StaticBody2D"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource( 2 )
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Sprites"]
+material = SubResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="HitBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 256
+collision_mask = 640
+damage = 3
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+position = Vector2( 0.022747, 1.49769 )
+shape = SubResource( 5 )
+
+[editable path="HitBox"]

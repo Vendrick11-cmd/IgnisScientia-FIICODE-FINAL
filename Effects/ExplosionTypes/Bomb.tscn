@@ -1,0 +1,296 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Effects/ExplosionTypes/Bomb.gd" type="Script" id=1]
+[ext_resource path="res://Levels/LevelAssets/Sprites/Bomb.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Misc/Explosions/FizzleDynamite.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Misc/Explosions/BombImpact.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Misc/Overlap/HurtBox.tscn" type="PackedScene" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 30.0
+bounce = 0.8
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Light2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Start"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -4.22614, 3.07518, -6.92347, 6.70979, -8.57365, 9.0538, 6.70979, -8.57365 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.924325, 0.924325 ), Vector2( 1.05016, 1.05016 ), Vector2( 0.898842, 0.898842 ), Vector2( 1.10618, 1.10618 ), Vector2( 0.959697, 0.959697 ), Vector2( 0.924325, 0.924325 ), Vector2( 1.10618, 1.10618 ), Vector2( 0.959697, 0.959697 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_explode"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Light2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.4, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.48226, -10.3277 ), Vector2( 0.975247, -8.98394 ), Vector2( 1.9145, -9.5812 ), Vector2( -0.166043, -7.7557 ), Vector2( 1.23726, -8.8312 ), Vector2( -0.314713, -8.02396 ), Vector2( 1.29801, -7.97095 ), Vector2( 1.23726, -8.8312 ), Vector2( -0.314713, -8.02396 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fizzle:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 5.06527
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 5.46889
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 7.75101
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( -3.74924, -3.32955, -2.58475, -4.41418, -1.3398, -4.86013, -0.0285397, -5.04225, 1.42824, -4.80602, 2.53067, -4.35323, 3.77091, -3.30986, 4.30244, -2.54209, 4.9324, -0.98688, 5.10958, 0.154924, 4.81428, 1.78888, 3.94809, 3.24567, 2.84566, 4.22998, 0.995147, 5.09618, -0.540382, 5.15524, -2.29246, 4.58433, -3.56956, 3.6873, -4.21991, 2.8883, -4.88884, 1.51328, -4.98174, -0.604999, -4.79593, -1.60839, -4.18275, -2.89051 )
+
+[node name="Bomb" type="RigidBody2D"]
+collision_layer = 32768
+collision_mask = 8
+physics_material_override = SubResource( 1 )
+gravity_scale = 5.0
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.84375 )
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+reset_on_save = false
+anims/Idle = SubResource( 4 )
+anims/Start = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.0698185 )
+shape = SubResource( 3 )
+
+[node name="Light2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3.13128, -10.1396 )
+texture_scale = 0.3
+energy = 0.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -2.84375 )
+collision_layer = 0
+collision_mask = 328
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 2.91357 )
+shape = SubResource( 5 )
+
+[node name="Fizzle" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.534744, -1.81898 )
+stream = ExtResource( 4 )
+volume_db = -8.0
+max_distance = 400.0
+bus = "SFX"
+
+[node name="Impact" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 2.91357 )
+stream = ExtResource( 5 )
+volume_db = 15.0
+max_distance = 400.0
+bus = "SFX"
+
+[node name="HurtBox" parent="." instance=ExtResource( 6 )]
+collision_layer = 0
+collision_mask = 320
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
+occluder = SubResource( 7 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="HurtBox"]

@@ -1,0 +1,594 @@
+[gd_scene load_steps=69 format=2]
+
+[ext_resource path="res://Entities/LevelHollowgrove/Cat/CAT 1.png" type="Texture" id=1]
+[ext_resource path="res://Entities/LevelHollowgrove/Cat/WitchCat.gd" type="Script" id=2]
+[ext_resource path="res://Entities/LevelHollowgrove/Cat/Meow-VFX.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/Levels/HollowGrove/CatMeow2.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Levels/HollowGrove/CatMeow3.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Levels/HollowGrove/CatMeow4.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Levels/HollowGrove/CatMeow.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Light2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.48733, -5.48142 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Idle2"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Meow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_meow"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Light2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.51858, -3.51267 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Idle3"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Light2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.65717, -4.00873 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Idle4"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Light2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 8.50143, -3.5076 ), Vector2( 7.54201, -3.5076 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Idle6"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24, 25 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Light2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2.46819, -4.55991 ), Vector2( 2.46819, -3.57775 ), Vector2( 3.5205, -3.54268 ), Vector2( 3.48543, -4.47806 ), Vector2( 2.59096, -4.58914 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Idle8"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Light2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.7, 0.8, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8.5365, -2.49037 ), Vector2( 6.50204, -0.490984 ), Vector2( 5.51989, -0.490984 ), Vector2( 5.42869, -0.490984 ), Vector2( 4.39742, -0.490984 ), Vector2( 4.46758, -0.490984 ), Vector2( 5.48481, -0.490984 ), Vector2( 6.46696, -2.49037 ), Vector2( 8.46635, -2.49037 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 35, 36, 37, 38, 39, 40, 41, 42 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 58, 59, 60, 61, 62, 63, 64, 65, 58, 59, 60, 61, 62, 63, 64, 65 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Meow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Meow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_meow"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Light2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.5365, -3.54268 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Idle3"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Idle4"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Idle6"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Idle8"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=85]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=86]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachine" id=3]
+states/Idle/node = SubResource( 2 )
+states/Idle/position = Vector2( 412, 301 )
+states/Idle2/node = SubResource( 18 )
+states/Idle2/position = Vector2( 115, 409 )
+states/Idle3/node = SubResource( 19 )
+states/Idle3/position = Vector2( 668, 128 )
+states/Idle4/node = SubResource( 20 )
+states/Idle4/position = Vector2( 65, 733 )
+states/Idle6/node = SubResource( 22 )
+states/Idle6/position = Vector2( 434, 879 )
+states/Idle8/node = SubResource( 24 )
+states/Idle8/position = Vector2( 870, 538 )
+states/Walk/node = SubResource( 7 )
+states/Walk/position = Vector2( 711, 351 )
+transitions = [ "Idle", "Walk", SubResource( 8 ), "Walk", "Idle", SubResource( 9 ), "Idle2", "Walk", SubResource( 25 ), "Walk", "Idle2", SubResource( 26 ), "Idle2", "Idle", SubResource( 27 ), "Idle", "Idle2", SubResource( 28 ), "Idle", "Idle4", SubResource( 29 ), "Idle", "Idle3", SubResource( 30 ), "Idle", "Idle6", SubResource( 31 ), "Idle", "Idle8", SubResource( 33 ), "Idle2", "Idle4", SubResource( 35 ), "Idle2", "Idle3", SubResource( 36 ), "Idle2", "Idle6", SubResource( 37 ), "Idle2", "Idle8", SubResource( 40 ), "Idle3", "Idle", SubResource( 41 ), "Idle3", "Idle2", SubResource( 42 ), "Idle3", "Idle4", SubResource( 43 ), "Idle3", "Idle6", SubResource( 44 ), "Idle3", "Idle8", SubResource( 47 ), "Idle3", "Walk", SubResource( 48 ), "Idle4", "Idle", SubResource( 49 ), "Idle4", "Idle2", SubResource( 50 ), "Idle4", "Idle6", SubResource( 51 ), "Idle4", "Idle3", SubResource( 53 ), "Idle4", "Idle8", SubResource( 55 ), "Idle4", "Walk", SubResource( 56 ), "Idle6", "Idle4", SubResource( 66 ), "Idle6", "Idle3", SubResource( 67 ), "Idle6", "Idle2", SubResource( 68 ), "Idle6", "Idle8", SubResource( 70 ), "Idle6", "Walk", SubResource( 71 ), "Idle6", "Idle", SubResource( 72 ), "Idle8", "Idle3", SubResource( 81 ), "Idle8", "Idle4", SubResource( 84 ), "Idle8", "Idle6", SubResource( 85 ), "Idle8", "Idle2", SubResource( 86 ), "Idle8", "Idle", SubResource( 87 ), "Idle8", "Walk", SubResource( 88 ), "Walk", "Idle4", SubResource( 89 ), "Walk", "Idle3", SubResource( 90 ), "Walk", "Idle6", SubResource( 92 ), "Walk", "Idle8", SubResource( 94 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -51, 96 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 1.78316
+height = 24.804
+
+[node name="WitchCat" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 45.2535 ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 7
+frame = 58
+
+[node name="WallDetect" type="RayCast2D" parent="Sprite"]
+position = Vector2( 3.76469, -135.13 )
+rotation = -1.57079
+enabled = true
+collision_mask = 8
+
+[node name="FloorDetect" type="RayCast2D" parent="Sprite"]
+position = Vector2( 0.221764, 5.28445 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 131072
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sounds" type="Node2D" parent="Sprite"]
+
+[node name="Meow" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( 12.8266, -1.44014 )
+texture = ExtResource( 3 )
+hframes = 3
+frame = 2
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+position = Vector2( 8.5365, -3.54268 )
+texture = ExtResource( 8 )
+texture_scale = 0.14
+color = Color( 0.709804, 0.666667, 0.188235, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Idle = SubResource( 1 )
+anims/Idle2 = SubResource( 10 )
+anims/Idle3 = SubResource( 11 )
+anims/Idle4 = SubResource( 12 )
+anims/Idle6 = SubResource( 14 )
+anims/Idle8 = SubResource( 16 )
+anims/Run = SubResource( 17 )
+anims/Walk = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.51566, -2.02042 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="StatesTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="MeowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+max_distance = 400.0
+attenuation = 2.46229
+bus = "SFX"
+
+[node name="MeowSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+max_distance = 400.0
+attenuation = 2.46229
+bus = "SFX"
+
+[node name="MeowSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+max_distance = 400.0
+attenuation = 2.46229
+bus = "SFX"
+
+[node name="MeowSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+max_distance = 400.0
+attenuation = 2.46229
+bus = "SFX"
+
+[connection signal="timeout" from="WanderTimer" to="." method="_on_WanderTimer_timeout"]
+[connection signal="timeout" from="StatesTimer" to="." method="_on_StatesTimer_timeout"]

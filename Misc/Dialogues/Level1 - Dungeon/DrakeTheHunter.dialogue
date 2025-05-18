@@ -1,0 +1,44 @@
+~ DrakeTheHunter
+#_talkright()
+#_talkleft()
+#_monologue()
+#_monologueend()
+# _pause()
+# _unpause()
+if drake == false
+	do _pause()
+	do _talkright()
+	Drake, the Hunter: Halt! Friend or foe?
+	- Friend.
+		do _talkleft()
+		do _monologueend()
+		Hemwick: Friend. I mean you no harm.
+		do _talkright()
+		Drake, the Hunter: A friend, eh? If that is true, you are the first I have seen in days.
+		do _talkleft()
+		Hemwick: How come?
+		do _talkright()
+		Drake, the Hunter: This is no place for friends. You are always alone. You’ve got the look of someone who knows their way around a fight though. I could use a hand, stranger.
+	- That depends.
+		do _talkleft()
+		do _monologueend()
+		Hemwick: That depends. What happened here?
+		do _talkright()
+		Drake, the Hunter: What happened? I’ll tell you what happened. I was set upon skeletons, bats, cursed things. They are relentless. I held them off, but not without a cost.
+		do _talkleft()
+		Hemwick: You are hurt.
+		do _talkright()
+		Drake, the Hunter: Yes, I am. Now I stand here, waiting to either heal or bleed out. Which way I go might just depend on you.
+	- [Attack him]
+		do _talkleft()
+		do _monologueend()
+		Hemwick: I will kill you!
+		do _talkright()
+		do _NPCdrakehostile()
+		Drake, the Hunter: I knew it!
+		
+	
+		do _unpause()
+	
+	
+

@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=2]
+[ext_resource path="res://Misc/SkillPoint.gd" type="Script" id=3]
+[ext_resource path="res://Shaders/WhiteDot.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Overlap/InteractRay.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 2.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightTexture:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.2, 0.858824, 0.843137, 0.411765 ), Color( 0.2, 0.858824, 0.843137, 1 ), Color( 0.2, 0.858824, 0.843137, 0.411765 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 0.631581
+
+[sub_resource type="Gradient" id=15]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.00809717, 1 )
+colors = PoolColorArray( 0.00142288, 0.219691, 0.364258, 1, 0, 1, 0.929688, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0.348148, 0.828409 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -15.4545 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.79
+flag_disable_z = true
+gravity = Vector3( 0, -10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 4.23
+tangential_accel_random = 1.0
+tangential_accel_curve = SubResource( 19 )
+scale = 0.35
+scale_random = 1.0
+scale_curve = SubResource( 14 )
+color = Color( 0.129412, 0.882353, 1, 1 )
+color_ramp = SubResource( 10 )
+color_initial_ramp = SubResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 9.61816, 9.514 )
+
+[node name="SkillPoint" type="Node2D"]
+light_mask = 0
+script = ExtResource( 3 )
+
+[node name="Light2D" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+light_mask = 0
+material = null
+texture_scale = 0.03
+color = Color( 0.2, 0.858824, 0.843137, 1 )
+energy = 2.5
+shadow_item_cull_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+reset_on_save = false
+anims/Idle = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Light1" type="Sprite" parent="."]
+scale = Vector2( 0.168359, 0.168359 )
+texture = ExtResource( 4 )
+
+[node name="LightTexture" type="Sprite" parent="."]
+modulate = Color( 0.2, 0.858824, 0.843137, 1 )
+light_mask = 0
+position = Vector2( 0, -4.76837e-07 )
+scale = Vector2( 0.109539, 0.109539 )
+texture = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0, -2.33673 )
+amount = 50
+lifetime = 1.56
+speed_scale = 0.6
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 17 )
+
+[node name="InteractRay" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8.44077, -14.178 )
+cast_to = Vector2( 0, 20 )
+
+[node name="Sprite" parent="InteractRay" index="0"]
+position = Vector2( -32.03, 8.33502 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, -2.31246 )
+collision_layer = 1024
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( -0.243161, -2.29854 )
+shape = SubResource( 20 )
+
+[editable path="InteractRay"]

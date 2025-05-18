@@ -1,0 +1,66 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Sounds/Misc/Execution/Execution.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Misc/Execution/3.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Misc/Execution/11.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Misc/Execution/15.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Misc/Execution/6.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Misc/Execution/10.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Misc/Execution/13.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Misc/Execution/2.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Misc/Execution/4.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/Misc/Execution/9.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Misc/Execution/7.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Misc/Execution/8.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Misc/Execution/12.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Misc/Execution/14.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Misc/Execution/5.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Misc/Execution/1.mp3" type="AudioStream" id=16]
+
+[node name="Execution" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Execution" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+
+[node name="Execution2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Execution3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Execution4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Execution5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+
+[node name="Execution6" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Execution7" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Execution8" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Execution9" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Execution10" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Execution11" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Execution12" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Execution13" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Execution14" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+
+[node name="Execution15" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

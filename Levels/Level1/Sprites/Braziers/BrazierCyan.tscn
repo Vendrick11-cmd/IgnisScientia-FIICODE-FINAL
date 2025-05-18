@@ -1,0 +1,261 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Levels/Level1/Sprites/Braziers/BrazierCyan.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/BrazierCyan.png" type="Texture" id=2]
+[ext_resource path="res://Levels/LevelAssets/Fire/CyanFire.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="Animation" id=247]
+resource_name = "Fire"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fire/Flame:energy")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9, 0.85, 0.95, 1.1, 0.9, 0.95, 0.9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.82, 0.82 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fire/Flame:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.307129, -3.26904 ), Vector2( 0.65625, -4.29785 ), Vector2( 1.35986, -6.05469 ), Vector2( 0.0449219, -4.99463 ) ]
+}
+
+[sub_resource type="Animation" id=248]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire/Flame:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fire:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=249]
+resource_name = "TransFire"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fire:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.82, 0.82 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire/Flame:energy")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.95, 1.1, 0.9, 0.95, 0.9 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fire:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_transanim"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fire/Flame:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.307129, -3.26904 ), Vector2( 0.65625, -4.29785 ), Vector2( 1.35986, -6.05469 ), Vector2( 0.0449219, -4.99463 ) ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=250]
+polygon = PoolVector2Array( -9.01587, -14.9067, -8.03271, -14.9067, -7.98145, -11.9966, -9.02441, -12.0293 )
+
+[sub_resource type="OccluderPolygon2D" id=251]
+polygon = PoolVector2Array( -9.01587, -14.9067, -8.03271, -14.9067, -8.05151, -13.0034, -8.98779, -13.0034 )
+
+[sub_resource type="OccluderPolygon2D" id=252]
+polygon = PoolVector2Array( -35.1655, -13.1281, 0.940445, -13.1281, 0.940445, -11.2886, -2.00269, -11.1835, -2.05525, -8.13528, -3.99982, -8.08272, -4.05238, -5.2447, -8.15175, -5.13959, -8.09919, -2.30156, -10.0963, -2.30156, -10.1489, -1.56577, -10.1489, -1.25044, -23.866, -1.19788, -23.866, -2.14389, -25.9682, -2.09134, -25.9157, -5.19214, -29.9625, -5.29725, -29.9099, -8.08272, -31.9596, -8.08272, -31.9596, -11.1835, -35.0604, -11.2361 )
+
+[node name="BrazierCyan" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Light2D" parent="." instance=ExtResource( 4 )]
+material = SubResource( 8 )
+position = Vector2( -0.0437012, -3.9856 )
+texture_scale = 0.05
+color = Color( 0.329412, 0.709804, 0.741176, 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Fire = SubResource( 247 )
+anims/Idle = SubResource( 248 )
+anims/TransFire = SubResource( 249 )
+
+[node name="Fire" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+position = Vector2( -0.580811, -9.14911 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -16 )
+hframes = 8
+
+[node name="Flame" parent="Fire" instance=ExtResource( 4 )]
+material = SubResource( 8 )
+position = Vector2( -0.307129, -3.26904 )
+scale = Vector2( 6.10827, 6.10827 )
+color = Color( 0.329412, 0.709804, 0.741176, 1 )
+energy = 0.0
+
+[node name="LightUp" type="RayCast2D" parent="."]
+position = Vector2( 0, -16.9932 )
+enabled = true
+cast_to = Vector2( 0, 15.387 )
+collision_mask = 67108864
+
+[node name="Occlusion" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Occlusion"]
+position = Vector2( 0, 3.00564 )
+occluder = SubResource( 250 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Occlusion"]
+position = Vector2( 0, -1.11476 )
+occluder = SubResource( 250 )
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Occlusion"]
+position = Vector2( 17.0366, 0 )
+occluder = SubResource( 251 )
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Occlusion"]
+position = Vector2( 17.0366, 4.18213 )
+occluder = SubResource( 251 )
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="Occlusion"]
+position = Vector2( 17.0366, 4.18213 )
+occluder = SubResource( 252 )

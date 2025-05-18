@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Menu/Button.theme" type="Theme" id=1]
+[ext_resource path="res://Misc/FPSLabel.gd" type="Script" id=2]
+
+[node name="FPSLabel" type="CanvasLayer"]
+layer = 94
+script = ExtResource( 2 )
+
+[node name="FPS" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.2, 0.2 )
+theme = ExtResource( 1 )
+text = "FPS = 60"

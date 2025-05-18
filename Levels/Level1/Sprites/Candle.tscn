@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level1/Sprites/Candle.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Begin/Sprites/Candle.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Level1/Sprites/Fire1.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 0.607843, 0.145098, 1, 1, 1, 0.309804, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 9.62
+flag_disable_z = true
+gravity = Vector3( 0, -40, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1.49
+tangential_accel = -16.28
+scale = 1.89
+color = Color( 1, 0.623529, 0.129412, 1 )
+color_ramp = SubResource( 7 )
+color_initial_ramp = SubResource( 7 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Light"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/Flame:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.9, 0.92, 0.8, 0.83, 0.853333, 0.9 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/Particles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -26.6667 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visual/Particles2D:process_material:tangential_accel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -16.28 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visual/Flame:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Candle" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="Visual"]
+position = Vector2( -0.434504, -5.85627 )
+scale = Vector2( 0.15, 0.15 )
+amount = 20
+lifetime = 2.73
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Visual"]
+texture = ExtResource( 3 )
+
+[node name="Flame" type="Sprite" parent="Visual"]
+position = Vector2( -0.407255, -9.07168 )
+scale = Vector2( 0.342869, 0.342869 )
+texture = ExtResource( 4 )
+hframes = 6
+
+[node name="Light2D" parent="Visual" instance=ExtResource( 1 )]
+position = Vector2( -0.499438, -6.09424 )
+texture_scale = 0.5
+energy = 0.9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Light"
+reset_on_save = false
+playback_speed = 0.7
+anims/Light = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[node name="Detect" type="RayCast2D" parent="."]
+position = Vector2( -0.462071, 0.176773 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 4194304
+collide_with_areas = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

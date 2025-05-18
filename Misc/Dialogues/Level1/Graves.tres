@@ -1,0 +1,292 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 35
+syntax_version = 2
+raw_text = "~ GraveRandom
+
+do _pause()
+
+
+Hemwick: \"He walked the path of blood and thorns,                       A martyr crowned in twisted horns.                             Yet still he kneels, though breath has fled,                    For penance does not end with death.\"
+Hemwick: Peculiar...
+
+do _unpause()
+
+
+~ GraveGarrick
+
+do _pause()
+
+
+Hemwick: This one says \"Here lies Garrick, the steadfast. His sword rests, but his memory lingers.\"
+
+do _unpause()
+
+
+~ GraveHemwick
+
+do _pause()
+
+
+
+Hemwick: \"Hemwick. His path ends here, his spirit remains unforgotten.\"
+Hemwick: ...
+Hemwick: That's me.
+
+do _unpause()
+
+
+~ GraveRandom2
+do _pause()
+
+Hemwick: \"Forsaken by all, yet never yielding. His strength was his curse, and his fate was sealed long before death found him.\"
+Hemwick: Damn.
+do _unpause()
+
+
+~ GraveRandom3
+do _pause()
+
+Hemwick: This one says \"Here lies one who gave all to save others. Her sacrifice was silent, her resolve unyielding. Though she fell, she rose in the hearts of those she protected.\"
+Hemwick: I hope I will get to be remembered just like her. 
+do _unpause()
+"
+errors = [  ]
+titles = {
+"GraveGarrick": "13",
+"GraveHemwick": "23",
+"GraveRandom": "2",
+"GraveRandom2": "35",
+"GraveRandom3": "43"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "GraveRandom",
+"type": "title"
+},
+"11": {
+"next_id": "13",
+"text": "GraveGarrick",
+"type": "title"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "18",
+"replacements": [  ],
+"text": "This one says \"Here lies Garrick, the steadfast. His sword rests, but his memory lingers.\"",
+"translation_key": "This one says \"Here lies Garrick, the steadfast. His sword rests, but his memory lingers.\"",
+"type": "dialogue"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"2": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "5",
+"type": "mutation"
+},
+"21": {
+"next_id": "23",
+"text": "GraveHemwick",
+"type": "title"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "27",
+"type": "mutation"
+},
+"27": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "28",
+"replacements": [  ],
+"text": "\"Hemwick. His path ends here, his spirit remains unforgotten.\"",
+"translation_key": "\"Hemwick. His path ends here, his spirit remains unforgotten.\"",
+"type": "dialogue"
+},
+"28": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "29",
+"replacements": [  ],
+"text": "...",
+"translation_key": "...",
+"type": "dialogue"
+},
+"29": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "31",
+"replacements": [  ],
+"text": "That's me.",
+"translation_key": "That's me.",
+"type": "dialogue"
+},
+"31": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"34": {
+"next_id": "35",
+"text": "GraveRandom2",
+"type": "title"
+},
+"35": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "37",
+"type": "mutation"
+},
+"37": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "38",
+"replacements": [  ],
+"text": "\"Forsaken by all, yet never yielding. His strength was his curse, and his fate was sealed long before death found him.\"",
+"translation_key": "\"Forsaken by all, yet never yielding. His strength was his curse, and his fate was sealed long before death found him.\"",
+"type": "dialogue"
+},
+"38": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "39",
+"replacements": [  ],
+"text": "Damn.",
+"translation_key": "Damn.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"42": {
+"next_id": "43",
+"text": "GraveRandom3",
+"type": "title"
+},
+"43": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "45",
+"type": "mutation"
+},
+"45": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "46",
+"replacements": [  ],
+"text": "This one says \"Here lies one who gave all to save others. Her sacrifice was silent, her resolve unyielding. Though she fell, she rose in the hearts of those she protected.\"",
+"translation_key": "This one says \"Here lies one who gave all to save others. Her sacrifice was silent, her resolve unyielding. Though she fell, she rose in the hearts of those she protected.\"",
+"type": "dialogue"
+},
+"46": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "47",
+"replacements": [  ],
+"text": "I hope I will get to be remembered just like her.",
+"translation_key": "I hope I will get to be remembered just like her.",
+"type": "dialogue"
+},
+"47": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"5": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "6",
+"replacements": [  ],
+"text": "\"He walked the path of blood and thorns,                       A martyr crowned in twisted horns.                             Yet still he kneels, though breath has fled,                    For penance does not end with death.\"",
+"translation_key": "\"He walked the path of blood and thorns,                       A martyr crowned in twisted horns.                             Yet still he kneels, though breath has fled,                    For penance does not end with death.\"",
+"type": "dialogue"
+},
+"6": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "8",
+"replacements": [  ],
+"text": "Peculiar...",
+"translation_key": "Peculiar...",
+"type": "dialogue"
+},
+"8": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+}
+}

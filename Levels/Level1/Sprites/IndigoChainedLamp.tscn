@@ -1,0 +1,345 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=1]
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level1/Sprites/ChainedGasLamp.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Level1/Sprites/Chain/Chain2.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level1/Sprites/Chain/Chain1.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level1/Sprites/IndigoLamp.png" type="Texture" id=6]
+
+[sub_resource type="PhysicsMaterial" id=172]
+
+[sub_resource type="PhysicsMaterial" id=171]
+
+[sub_resource type="CapsuleShape2D" id=168]
+radius = 5.0
+height = 4.0
+
+[sub_resource type="Curve" id=164]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.708667, -6.16016 ), 0.0, 0.0, 0, 0, Vector2( 1, -18.4805 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=163]
+curve = SubResource( 164 )
+
+[sub_resource type="ParticlesMaterial" id=176]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 3.31
+flag_disable_z = true
+gravity = Vector3( 0, 2, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 3.6
+tangential_accel_random = 1.0
+tangential_accel_curve = SubResource( 163 )
+scale = 0.61
+color = Color( 0.901961, 0.541176, 0.0313726, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=167]
+blend_mode = 1
+
+[sub_resource type="Animation" id=173]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=174]
+resource_name = "Move"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -3.48004, 3.00282, -0.874103, 1.1333, -0.241414, 0.730442, -0.175677, -0.0133789, 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=175]
+radius = 2.90013
+height = 64.4977
+
+[node name="IndigoGasLamp" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Chain" type="Node2D" parent="."]
+
+[node name="Chain" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 66.0719 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain2" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 66.0719 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain2"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain2/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain3" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 56.6138 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain3"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain3/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain4" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 56.6138 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain4"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain4/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain5" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 47.3326 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain5"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain5/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain6" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 47.3326 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain6"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain6/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain7" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 37.8745 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain7"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain7/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain8" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 37.8745 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain8"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain8/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain9" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 28.4949 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain9"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain9/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain10" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 28.4949 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain10"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain10/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain11" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 19.0368 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain11"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain11/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain12" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 19.0368 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain12"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain12/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain13" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 9.75557 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain13"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain13/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain14" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 9.75557 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain14"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain14/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Chain15" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 0.297569 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain15"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain15/CollisionShape2D"]
+position = Vector2( 0, 1.52413 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Chain16" type="StaticBody2D" parent="Chain" groups=["RigidBodies"]]
+position = Vector2( 0, 0.297569 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 172 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Chain16"]
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Chain/Chain16/CollisionShape2D"]
+position = Vector2( 0, 6.32482 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Lamp" type="StaticBody2D" parent="." groups=["RigidBodies"]]
+position = Vector2( 0, 81.9233 )
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource( 171 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
+visible = false
+shape = SubResource( 168 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Lamp"]
+texture = ExtResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="Lamp"]
+visible = false
+position = Vector2( 0, 1 )
+amount = 30
+lifetime = 3.63
+randomness = 1.0
+fixed_fps = 60
+local_coords = false
+process_material = SubResource( 176 )
+
+[node name="Light2D" parent="Lamp" instance=ExtResource( 2 )]
+position = Vector2( 0.250001, 0 )
+texture_scale = 1.75
+color = Color( 0.392157, 0.415686, 0.713726, 1 )
+shadow_filter = 3
+
+[node name="Light2D4" type="Sprite" parent="Lamp"]
+modulate = Color( 0.392157, 0.415686, 0.713726, 1 )
+self_modulate = Color( 1, 1, 1, 0.431373 )
+material = SubResource( 167 )
+position = Vector2( 0, 1 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 173 )
+anims/Move = SubResource( 174 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 55.3879 )
+shape = SubResource( 175 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

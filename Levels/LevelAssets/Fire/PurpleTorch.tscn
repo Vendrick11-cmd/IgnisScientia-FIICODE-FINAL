@@ -1,0 +1,233 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/Level1/TorchBurning.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Levels/LevelAssets/Fire/Torch.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level1/Sprites/Torch.gd" type="Script" id=5]
+[ext_resource path="res://Levels/LevelAssets/Fire/PurpleFire.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0.788235, 0.356863, 0.811765, 1, 0.52997, 0.0499668, 0.556152, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.966667, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 6.61
+flag_disable_z = true
+gravity = Vector3( 0, -40, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1.49
+tangential_accel = -16.28
+scale = 0.35
+scale_curve = SubResource( 14 )
+color = Color( 0.788235, 0.356863, 0.811765, 1 )
+color_ramp = SubResource( 10 )
+color_initial_ramp = SubResource( 10 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.73
+flag_disable_z = true
+gravity = Vector3( 0, -40, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1.49
+tangential_accel = -16.28
+scale = 0.35
+scale_random = 1.0
+scale_curve = SubResource( 16 )
+color = Color( 0.788235, 0.356863, 0.811765, 1 )
+color_ramp = SubResource( 10 )
+color_initial_ramp = SubResource( 10 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Light"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:process_material:tangential_accel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -16.28, 16.0, 16.0, 0.0, -8.0, 8.0, -5.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.1, 1.0, 0.85, 0.9, 1.1, 1.0, 0.9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Light2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.76837e-07, 2.24786 ), Vector2( -2.60806, 3.7916 ), Vector2( -2.60806, 5.68147 ), Vector2( 2.61363, 5.21697 ), Vector2( 3.29451, 3.7916 ), Vector2( 1.19209e-07, 5.49767 ), Vector2( 0, 2.32868 ), Vector2( -2.60806, 5.15646 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -26.6667 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:tangential_accel")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -16.28 ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[node name="Torch" type="StaticBody2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -3.00677, 23.4025 ],
+"_edit_vertical_guides_": [ -2.60806 ]
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+amount = 20
+lifetime = 2.73
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 17 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+show_behind_parent = true
+amount = 20
+lifetime = 2.73
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 18 )
+
+[node name="Fire" type="Sprite" parent="."]
+position = Vector2( -0.275404, 2.22808 )
+scale = Vector2( 0.355493, 0.355493 )
+texture = ExtResource( 6 )
+hframes = 8
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 17.2916 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Light"
+reset_on_save = false
+playback_speed = 0.7
+anims/Light = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="Light2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4.76837e-07, 6.67227 )
+texture_scale = 0.75
+color = Color( 0.788235, 0.356863, 0.811765, 1 )
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1.17849, 1.17849 )
+stream = ExtResource( 3 )
+volume_db = -35.0
+autoplay = true
+max_distance = 500.0
+bus = "SFX"
+
+[node name="Light2D4" type="Sprite" parent="."]
+modulate = Color( 0.788235, 0.356863, 0.811765, 1 )
+self_modulate = Color( 1, 1, 1, 0.431373 )
+material = SubResource( 9 )
+position = Vector2( 0, 7.6894 )
+texture = ExtResource( 2 )

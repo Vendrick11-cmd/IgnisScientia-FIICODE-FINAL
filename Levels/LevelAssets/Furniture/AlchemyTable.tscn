@@ -1,0 +1,163 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Levels/LevelAssets/Furniture/AlchemyTable.png" type="Texture" id=1]
+[ext_resource path="res://Collectibles/Potions/Bubbly Brew Bottle - CYAN - Spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Collectibles/Potions/Glowing Potion - RED - Spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Collectibles/Potions/Small Bottle - TEAL_GOLD - Spritesheet.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 33.1459, -7.73927, 28.9724, -7.66052, 29.0905, 6.15924, 30.0748, 6.3561, 30.0355, 8.24598, 29.0118, 8.16724, 28.9724, 9.15155, 27.24, 9.26967, 27.0825, 8.3641, 26.177, 8.16724, 26.177, 6.3561, 27.0825, 6.15924, 26.9644, -3.52641, 23.8934, -6.63684, -13.8483, -6.79044, -16.875, -3.90625, -16.9063, 6, -15.9688, 6.1875, -16.0313, 8.03125, -16.7188, 8.15625, -17.0313, 8.9375, -19.1563, 9, -19.1875, 7.9375, -19.9063, 7.8125, -19.9375, 6, -19.0938, 5.96875, -19.032, -7.96631, -22.9533, -8.02484, -23.0236, -9.01981, -23.9834, -9.05493, -23.8803, -9.70725, 34.0121, -9.74727, 34.0121, -8.88107, 32.9884, -8.72358 )
+
+[node name="AlchemyTable" type="StaticBody2D"]
+
+[node name="Potion" type="Sprite" parent="."]
+position = Vector2( -29.0497, 1.00234 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Potion"]
+reset_on_save = false
+playback_speed = 0.3
+anims/Idle = SubResource( 2 )
+
+[node name="Potion5" type="Sprite" parent="."]
+position = Vector2( -26.6043, 1.00234 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Potion5"]
+reset_on_save = false
+playback_speed = 0.3
+anims/Idle = SubResource( 7 )
+
+[node name="Potion6" type="Sprite" parent="."]
+position = Vector2( -24.0522, 1.00234 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Potion6"]
+reset_on_save = false
+playback_speed = 0.3
+anims/Idle = SubResource( 8 )
+
+[node name="Potion1" type="Sprite" parent="."]
+modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
+position = Vector2( 16.4617, -9.93927 )
+texture = ExtResource( 3 )
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Potion1"]
+autoplay = "Idle"
+reset_on_save = false
+playback_speed = 0.3
+anims/Idle = SubResource( 3 )
+
+[node name="Potion2" type="Sprite" parent="."]
+modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
+position = Vector2( -10.4083, -0.0135884 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Potion2"]
+autoplay = "Idle"
+reset_on_save = false
+playback_speed = 0.3
+anims/Idle = SubResource( 4 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
+position = Vector2( -10.0339, 12.7297 )
+occluder = SubResource( 1 )
+
+[node name="AlchemyTable" type="Sprite" parent="."]
+position = Vector2( -6.05761, -0.0371628 )
+texture = ExtResource( 1 )

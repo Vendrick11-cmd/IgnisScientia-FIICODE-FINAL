@@ -1,0 +1,345 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 12
+syntax_version = 2
+raw_text = "~ WillyBartender
+
+do _pause()
+do _willy()
+
+Willy: Well, I be damned... Look who decided to stumble back in. Thought the road had swallowed you whole, Hemwick.
+do _hemwick()
+Hemwick: Long time, no see, Willy! Did not let it. Not this time.
+do _willy()
+Willy: Hah! Always were too stubborn to stay down. What has it been? Months? A year? Feels like longer.
+do _hemwick()
+Hemwick: Long enough. Place has not changed much.
+do _willy()
+Willy: Neither have you. Same tattered cloak, same tired look. Though, I would wager you have got some new scars under all that.
+do _hemwick()
+Hemwick: A few. 
+do _willy()
+Willy: Figures. You always come back worse for wear. First round is on the house. Consider it a welcome back gift.
+do _hemwick()
+Hemwick: Appreciated.
+do _willy()
+Willy: So, what brings you back? Looking for trouble, or just a place to rest your bones?
+do _hemwick()
+Hemwick: Both.
+do _willy()
+Willy: Hah! Thought so. Well, you picked the right place. Folk come through here with all sorts of problems, ones that need a blade, a sharp mind, or both. You looking for work, I can point you in the right direction.
+do _hemwick()
+Hemwick: I am listening.
+do _willy()
+Willy: Good. Finish your drink, then we talk. Got some folk who would be glad to have someone like you handling their business. Just a matter of picking which mess you want to step into first.
+do _hemwick()
+do _unpause()
+"
+errors = [  ]
+titles = {
+"WillyBartender": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "WillyBartender",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "11",
+"type": "mutation"
+},
+"11": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "12",
+"replacements": [  ],
+"text": "Long enough. Place has not changed much.",
+"translation_key": "Long enough. Place has not changed much.",
+"type": "dialogue"
+},
+"12": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "13",
+"type": "mutation"
+},
+"13": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "14",
+"replacements": [  ],
+"text": "Neither have you. Same tattered cloak, same tired look. Though, I would wager you have got some new scars under all that.",
+"translation_key": "Neither have you. Same tattered cloak, same tired look. Though, I would wager you have got some new scars under all that.",
+"type": "dialogue"
+},
+"14": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "15",
+"type": "mutation"
+},
+"15": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "16",
+"replacements": [  ],
+"text": "A few.",
+"translation_key": "A few.",
+"type": "dialogue"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "18",
+"replacements": [  ],
+"text": "Figures. You always come back worse for wear. First round is on the house. Consider it a welcome back gift.",
+"translation_key": "Figures. You always come back worse for wear. First round is on the house. Consider it a welcome back gift.",
+"type": "dialogue"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "19",
+"type": "mutation"
+},
+"19": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "20",
+"replacements": [  ],
+"text": "Appreciated.",
+"translation_key": "Appreciated.",
+"type": "dialogue"
+},
+"2": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "21",
+"type": "mutation"
+},
+"21": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "22",
+"replacements": [  ],
+"text": "So, what brings you back? Looking for trouble, or just a place to rest your bones?",
+"translation_key": "So, what brings you back? Looking for trouble, or just a place to rest your bones?",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "23",
+"type": "mutation"
+},
+"23": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "24",
+"replacements": [  ],
+"text": "Both.",
+"translation_key": "Both.",
+"type": "dialogue"
+},
+"24": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "26",
+"replacements": [  ],
+"text": "Hah! Thought so. Well, you picked the right place. Folk come through here with all sorts of problems, ones that need a blade, a sharp mind, or both. You looking for work, I can point you in the right direction.",
+"translation_key": "Hah! Thought so. Well, you picked the right place. Folk come through here with all sorts of problems, ones that need a blade, a sharp mind, or both. You looking for work, I can point you in the right direction.",
+"type": "dialogue"
+},
+"26": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "27",
+"type": "mutation"
+},
+"27": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "28",
+"replacements": [  ],
+"text": "I am listening.",
+"translation_key": "I am listening.",
+"type": "dialogue"
+},
+"28": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "29",
+"type": "mutation"
+},
+"29": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "30",
+"replacements": [  ],
+"text": "Good. Finish your drink, then we talk. Got some folk who would be glad to have someone like you handling their business. Just a matter of picking which mess you want to step into first.",
+"translation_key": "Good. Finish your drink, then we talk. Got some folk who would be glad to have someone like you handling their business. Just a matter of picking which mess you want to step into first.",
+"type": "dialogue"
+},
+"3": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "5",
+"type": "mutation"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "31",
+"type": "mutation"
+},
+"31": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"5": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "6",
+"replacements": [  ],
+"text": "Well, I be damned... Look who decided to stumble back in. Thought the road had swallowed you whole, Hemwick.",
+"translation_key": "Well, I be damned... Look who decided to stumble back in. Thought the road had swallowed you whole, Hemwick.",
+"type": "dialogue"
+},
+"6": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "7",
+"type": "mutation"
+},
+"7": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "8",
+"replacements": [  ],
+"text": "Long time, no see, Willy! Did not let it. Not this time.",
+"translation_key": "Long time, no see, Willy! Did not let it. Not this time.",
+"type": "dialogue"
+},
+"8": {
+"mutation": {
+"expression": [ {
+"function": "_willy",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "9",
+"type": "mutation"
+},
+"9": {
+"character": "Willy",
+"character_replacements": [  ],
+"next_id": "10",
+"replacements": [  ],
+"text": "Hah! Always were too stubborn to stay down. What has it been? Months? A year? Feels like longer.",
+"translation_key": "Hah! Always were too stubborn to stay down. What has it been? Months? A year? Feels like longer.",
+"type": "dialogue"
+}
+}

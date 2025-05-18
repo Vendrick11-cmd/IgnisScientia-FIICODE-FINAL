@@ -1,0 +1,263 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 39
+syntax_version = 2
+raw_text = "~ Cruxius
+
+if cruxius == false
+	do _pause()
+	
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]You arrive, yet again, a shadow among shadows. No face, no voice to anchor you in the world. And yet... you stand, defiant, against the weight of obscurity.[/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5] Faceless wanderer, you embody potential, unshaped, unbound. But beware. [/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]Tell me, Hemwick, what guides you, if not identity? I'll always watch the thread you follow. [/wave]
+	do _hemwick()
+	Hemwick: ...
+	do _cruxius()
+	Cruxius: [wave amp=25 freq=5]Go now. Become what you must. [/wave]
+	do _cruxius_dialogue_over()
+	
+	do _hemwick()
+	do _unpause()
+	"
+errors = [  ]
+titles = {
+"Cruxius": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "Cruxius",
+"type": "title"
+},
+"10": {
+"character": "Cruxius",
+"character_replacements": [  ],
+"next_id": "11",
+"parent_id": "2",
+"replacements": [  ],
+"text": "[wave amp=25 freq=5] Faceless wanderer, you embody potential, unshaped, unbound. But beware. [/wave]",
+"translation_key": "[wave amp=25 freq=5] Faceless wanderer, you embody potential, unshaped, unbound. But beware. [/wave]",
+"type": "dialogue"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "12",
+"parent_id": "2",
+"type": "mutation"
+},
+"12": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "13",
+"parent_id": "2",
+"replacements": [  ],
+"text": "...",
+"translation_key": "...",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"function": "_cruxius",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "14",
+"parent_id": "2",
+"type": "mutation"
+},
+"14": {
+"character": "Cruxius",
+"character_replacements": [  ],
+"next_id": "15",
+"parent_id": "2",
+"replacements": [  ],
+"text": "[wave amp=25 freq=5]Tell me, Hemwick, what guides you, if not identity? I'll always watch the thread you follow. [/wave]",
+"translation_key": "[wave amp=25 freq=5]Tell me, Hemwick, what guides you, if not identity? I'll always watch the thread you follow. [/wave]",
+"type": "dialogue"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "16",
+"parent_id": "2",
+"type": "mutation"
+},
+"16": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "17",
+"parent_id": "2",
+"replacements": [  ],
+"text": "...",
+"translation_key": "...",
+"type": "dialogue"
+},
+"17": {
+"mutation": {
+"expression": [ {
+"function": "_cruxius",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "18",
+"parent_id": "2",
+"type": "mutation"
+},
+"18": {
+"character": "Cruxius",
+"character_replacements": [  ],
+"next_id": "19",
+"parent_id": "2",
+"replacements": [  ],
+"text": "[wave amp=25 freq=5]Go now. Become what you must. [/wave]",
+"translation_key": "[wave amp=25 freq=5]Go now. Become what you must. [/wave]",
+"type": "dialogue"
+},
+"19": {
+"mutation": {
+"expression": [ {
+"function": "_cruxius_dialogue_over",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "21",
+"parent_id": "2",
+"type": "mutation"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "cruxius"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "3",
+"next_id_after": "end!",
+"type": "condition"
+},
+"21": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "22",
+"parent_id": "2",
+"type": "mutation"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"function": "_unpause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "2",
+"type": "mutation"
+},
+"3": {
+"mutation": {
+"expression": [ {
+"function": "_pause",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "5",
+"parent_id": "2",
+"type": "mutation"
+},
+"5": {
+"mutation": {
+"expression": [ {
+"function": "_cruxius",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "6",
+"parent_id": "2",
+"type": "mutation"
+},
+"6": {
+"character": "Cruxius",
+"character_replacements": [  ],
+"next_id": "7",
+"parent_id": "2",
+"replacements": [  ],
+"text": "[wave amp=25 freq=5]You arrive, yet again, a shadow among shadows. No face, no voice to anchor you in the world. And yet... you stand, defiant, against the weight of obscurity.[/wave]",
+"translation_key": "[wave amp=25 freq=5]You arrive, yet again, a shadow among shadows. No face, no voice to anchor you in the world. And yet... you stand, defiant, against the weight of obscurity.[/wave]",
+"type": "dialogue"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "_hemwick",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "8",
+"parent_id": "2",
+"type": "mutation"
+},
+"8": {
+"character": "Hemwick",
+"character_replacements": [  ],
+"next_id": "9",
+"parent_id": "2",
+"replacements": [  ],
+"text": "...",
+"translation_key": "...",
+"type": "dialogue"
+},
+"9": {
+"mutation": {
+"expression": [ {
+"function": "_cruxius",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "10",
+"parent_id": "2",
+"type": "mutation"
+}
+}

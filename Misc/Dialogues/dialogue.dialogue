@@ -1,0 +1,17 @@
+~ NoWayBackNow
+#_talkright()
+#_talkleft()
+#_monologue()
+#_monologueend()
+# _pause()
+# _unpause()
+
+if noway == false
+	
+	do _pause()
+	
+	
+	Hemwick: No way back now...
+	
+	do _unpause()
+	

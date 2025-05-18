@@ -1,0 +1,5431 @@
+[gd_scene load_steps=123 format=2]
+
+[ext_resource path="res://Shaders/Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Shaders/Light1.png" type="Texture" id=2]
+[ext_resource path="res://Levels/LevelAssets/Sprites/Charm.gd" type="Script" id=3]
+[ext_resource path="res://Levels/LevelAssets/Sprites/PedestalSkull.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Overlap/InteractRay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Misc/Charms/GrimLedger.png" type="Texture" id=6]
+[ext_resource path="res://Levels/LevelAssets/Sprites/PedestalEffect.png" type="Texture" id=7]
+[ext_resource path="res://Misc/Charms/Berserker.png" type="Texture" id=8]
+[ext_resource path="res://Shaders/dropshadow.gdshader" type="Shader" id=9]
+[ext_resource path="res://Misc/Charms/LeechTalisman.png" type="Texture" id=10]
+[ext_resource path="res://Misc/Charms/GlassTalisman.png" type="Texture" id=11]
+[ext_resource path="res://Misc/Charms/GoldenEye.png" type="Texture" id=12]
+[ext_resource path="res://Misc/Charms/CursedHeart.png" type="Texture" id=13]
+[ext_resource path="res://Misc/Charms/Rage.png" type="Texture" id=14]
+[ext_resource path="res://Misc/Charms/GlacialEmbrace.png" type="Texture" id=15]
+[ext_resource path="res://Shaders/Fade.gdshader" type="Shader" id=16]
+[ext_resource path="res://Misc/Charms/BindingFeather.png" type="Texture" id=17]
+[ext_resource path="res://Misc/Charms/ObsidianCharm.png" type="Texture" id=18]
+[ext_resource path="res://Misc/Charms/GildedScar.png" type="Texture" id=19]
+[ext_resource path="res://Misc/Charms/BloodForged.png" type="Texture" id=20]
+[ext_resource path="res://Misc/Charms/VoidKnuckle.png" type="Texture" id=21]
+[ext_resource path="res://Misc/Charms/GrimPact.png" type="Texture" id=22]
+[ext_resource path="res://Misc/Charms/PhantomScar.png" type="Texture" id=23]
+[ext_resource path="res://Misc/Charms/Reversal.png" type="Texture" id=24]
+[ext_resource path="res://Misc/Charms/Mirror.png" type="Texture" id=25]
+[ext_resource path="res://Misc/Charms/EarthBound.png" type="Texture" id=26]
+[ext_resource path="res://Misc/Charms/InvertedWill.png" type="Texture" id=27]
+[ext_resource path="res://Misc/Charms/Confusion.png" type="Texture" id=28]
+[ext_resource path="res://Misc/Charms/GamblersMemento.png" type="Texture" id=29]
+[ext_resource path="res://Misc/Charms/Puppet.png" type="Texture" id=30]
+[ext_resource path="res://Misc/Charms/Momentum.png" type="Texture" id=31]
+[ext_resource path="res://Misc/Charms/FinalToll.png" type="Texture" id=32]
+[ext_resource path="res://Misc/Charms/Haste.png" type="Texture" id=33]
+[ext_resource path="res://Fonts/JenrivTitlingRegular-x3RKV.otf" type="DynamicFontData" id=34]
+[ext_resource path="res://Misc/Charms/Whisperbrand.png" type="Texture" id=35]
+[ext_resource path="res://Misc/Charms/CursedHourglass.png" type="Texture" id=36]
+
+[sub_resource type="OpenSimplexNoise" id=78]
+period = 69.5
+
+[sub_resource type="NoiseTexture" id=79]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource( 78 )
+
+[sub_resource type="ShaderMaterial" id=80]
+shader = ExtResource( 16 )
+shader_param/dissolve_value = 1.0
+shader_param/dissolve_texture = SubResource( 79 )
+
+[sub_resource type="Animation" id=64]
+resource_name = "Berserker"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "If below 30% Health, give 3x Strength.
+If not, halves Strength stat.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Berserker Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=83]
+resource_name = "BindingFeather"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Increases Jump Height.
+Cannot Dash." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Binding feather Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "BloodForged"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "When hit, you lose Gold instead of Health.
+No money? Lose twice the Health when hit.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Blood forged Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ) ]
+}
+
+[sub_resource type="Animation" id=101]
+resource_name = "Confusion"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Increases Strength.
+Right and Left are reversed." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Confusion Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 28 ) ]
+}
+
+[sub_resource type="Animation" id=75]
+resource_name = "CursedHeart"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Constant Health regeneration.
++400% Damage taken." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Cursed Heart Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "CursedHourglass"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Time is slower.
+Gain more gold," ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Cursed Hourglass Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ) ]
+}
+
+[sub_resource type="Animation" id=92]
+resource_name = "EarthBound"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gain increasing Strength bonus if on ground.
+Cannot Dash or Air Dash.
+(Bonus resets if you jump, try to Dash or if entering a new room)
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "EarthBound Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 26 ) ]
+}
+
+[sub_resource type="Animation" id=98]
+resource_name = "FinalToll"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Every dealt hit gets stored in by a hit counter. 
+If the counter is equal to your Health, the counter and the Strength bonus get reset and you lose Max Health equal to 3x Strength bonus accumulated." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Final Toll charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ) ]
+}
+
+[sub_resource type="Animation" id=95]
+resource_name = "GamblersMemento"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "All stats are randomized when entering a new room." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gambler's mEMENTO Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=85]
+resource_name = "GildedScar"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Take increased Damage.
+You drop gold when hit
+ (Bombs too if combined with Void Knuckle).
+Reduces Max Health." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gilded Scar Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ) ]
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "GlacialEmbrace"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Reduced Damage taken.
+Also reduces Speed." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Glacial Embrace Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+
+[sub_resource type="Animation" id=73]
+resource_name = "Glass"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Cannot heal from potions.
+Grants Strength bonus, Max Health is halved." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Glass Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "GoldenEye"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Enemies drop more money.
+Each coin picked drains Health." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Golden eye Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=102]
+resource_name = "GrimLedger"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "eVERY COIN COLLECTED INCREASES STRENGTH AND DRAINS MAX HEALTH." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Grim Ledger Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=88]
+resource_name = "GrimPact"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Increases Strength and Speed.
+Enemies drop more Gold on death.
+Every time you lose health, it becomes Max Health.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Grim Pact Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 22 ) ]
+}
+
+[sub_resource type="Animation" id=99]
+resource_name = "Haste"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gain Speed.
+Take Damage if standing still." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Haste charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+
+[sub_resource type="Animation" id=93]
+resource_name = "InvertedWill"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Attack and Dash are reversed.
+You cannot Heavy Attack (doesn't include Slam Attack)
+Gain Speed." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Inverted wILL Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 27 ) ]
+}
+
+[sub_resource type="Animation" id=72]
+resource_name = "Leech"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Cannot heal from potions.
+ +Health for each hit dealt." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Leech Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=91]
+resource_name = "Mirror"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "50% more Damage taken and dealt.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Mirror Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 25 ) ]
+}
+
+[sub_resource type="Animation" id=97]
+resource_name = "Momentum"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "You gain infinite Stamina.
+Game speeds up with every hit you deal and slows down every time you jump." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Momentum charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ) ]
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "ObsidianCharm"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Reduces Damage taken and dealt." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Obsidian Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=89]
+resource_name = "PhantomScar"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Dash deals Damage equal to half of your Health.
+You take 1 Damage everytime you Dash.
+(Air Dash is not included)
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Phantom Scar Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ) ]
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "Puppet"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gain Strength and Speed.
+Another entity is controlling your Dash.
+(You can still Dash by yourself)" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Puppet charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ) ]
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "Rage"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Grants bonus Strength per hit.
+Halves Max Health.
+(The bonus resets upon entering a new room)" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Rage Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+
+[sub_resource type="Animation" id=90]
+resource_name = "Reversal"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "You gain 3x Strength.
+Every time you hit something, you take damage.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Reversal Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 24 ) ]
+}
+
+[sub_resource type="Animation" id=87]
+resource_name = "VoidKnuckle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Enemies drop bombs on death.
+You do too, when hit, if combined with Gilded Scar.
+" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Void Knuckle Charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ) ]
+}
+
+[sub_resource type="Animation" id=100]
+resource_name = "WhisperBrand"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00797653, -58.2744 ), Vector2( 0.00797653, -56.9633 ), Vector2( 0.00797653, -58.368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Description:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Gain 6x strength and gain hp every time you hit something.
+Enemies are now invisible." ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "WhisperBrand charm" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharmSprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 35 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=65]
+shader = ExtResource( 9 )
+shader_param/offset = Vector2( 3.969, 4.786 )
+shader_param/modulate = Color( 0, 0, 0, 0.45098 )
+
+[sub_resource type="DynamicFontData" id=66]
+font_path = "res://Fonts/JenrivTitlingRegular-x3RKV.otf"
+
+[sub_resource type="DynamicFont" id=67]
+size = 70
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 66 )
+
+[sub_resource type="Theme" id=68]
+default_font = SubResource( 67 )
+
+[sub_resource type="DynamicFont" id=70]
+size = 62
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 34 )
+
+[sub_resource type="Theme" id=71]
+default_font = SubResource( 70 )
+
+[sub_resource type="Animation" id=81]
+resource_name = "Appear"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharmSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Description:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=82]
+resource_name = "Disappear"
+length = 99999.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharmSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Description:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PedestalSkull:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Effects/PedestalEffect:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects/PedestalEffect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Effects/PedestalEffect2:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Effects/PedestalEffect2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Effects/PedestalEffect3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.6, 1.1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Effects/PedestalEffect3:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Effects/PedestalEffect4:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Effects/PedestalEffect4:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Charm/Light2D:energy")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Light2D2:energy")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Remove"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("PedestalSkull:material:shader_param/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.55, 0.4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects/PedestalEffect:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Effects/PedestalEffect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Effects/PedestalEffect2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Effects/PedestalEffect2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Effects/PedestalEffect3:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Effects/PedestalEffect3:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Effects/PedestalEffect4:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Effects/PedestalEffect4:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Charm/Light2D:energy")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Light2D2:energy")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Sprite:material:shader_param/dissolve_value")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Sprite/CharmSprite:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Sprite/Title:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Sprite/Description:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0.348148, 0.828409 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -15.4545 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.18
+flag_disable_z = true
+gravity = Vector3( 0, -10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 4.23
+tangential_accel_random = 1.0
+tangential_accel_curve = SubResource( 19 )
+scale = 0.15
+scale_random = 0.62
+scale_curve = SubResource( 14 )
+color = Color( 0.52549, 0.639216, 0.717647, 1 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 0.631581
+
+[sub_resource type="Shader" id=61]
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture : hint_albedo;
+uniform float dissolve_value : hint_range(0,1);
+
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+    main_texture.a *= floor(dissolve_value + min(1, noise_texture.x));
+    COLOR = main_texture;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=23]
+
+[sub_resource type="NoiseTexture" id=24]
+seamless = true
+as_normalmap = true
+noise = SubResource( 23 )
+
+[sub_resource type="ShaderMaterial" id=62]
+resource_local_to_scene = true
+shader = SubResource( 61 )
+shader_param/dissolve_value = 0.6
+shader_param/dissolve_texture = SubResource( 24 )
+
+[sub_resource type="Animation" id=26]
+resource_name = "Berserker"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.639216, 0.717647, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "BindingFeather"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.803922, 0.737255, 0.392157, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "BloodForged"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.498039, 0.160784, 0.223529, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Confusion"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.490196, 0.356863, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "CursedHeart"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.176471, 0.333333, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "CursedHourglass"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.592157, 0.482353, 0.396078, 1 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "EarthBound"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.537255, 0.423529, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "FalseLight"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.886275, 0.454902, 1 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "FinalToll"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.580392, 0.545098, 0.403922, 1 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "GamblersMemento"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.439216, 0.423529, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "GildedScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.521569, 0.505882, 0.415686, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "GlacialEmbrace"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.6, 0.772549, 1 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Glass"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.666667, 0.843137, 1 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "GoldenEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.541176, 0.360784, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "GrimLedger"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.576471, 0.584314, 0.607843, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "GrimPact"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.517647, 0.466667, 1 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Haste"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.431373, 0.345098, 1 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "HeavensDebt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.54902, 0.521569, 0.321569, 1 ) ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "InvertedVertigo"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.639216, 0.639216, 0.639216, 1 ) ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "InvertedWill"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.423529, 0.439216, 1 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "Leech"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.694118, 0.443137, 1 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "MercenaryToken"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.47451, 0.403922, 0.247059, 1 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Mirror"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.376471, 0.27451, 0.172549, 1 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "Momentum"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.603922, 0.505882, 0.415686, 1 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "ObsidianCharm"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.392157, 0.290196, 0.494118, 1 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "ParisiticGrowth"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.568627, 0.423529, 1 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "PhantomScar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.623529, 0.611765, 0.611765, 1 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "Puppet"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.431373, 0.501961, 1 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "Rage"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.239216, 0.239216, 1 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "Reversal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.639216, 0.384314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "SearingBrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.717647, 0.392157, 0.25098, 1 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "SoulPrism"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.435294, 0.592157, 1 ) ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "VoidKnuckle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.341176, 0.32549, 0.32549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.341176, 0.32549, 0.32549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.690196, 0.690196, 0.690196, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.341176, 0.32549, 0.32549, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.341176, 0.32549, 0.32549, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.341176, 0.32549, 0.32549, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0.619608, 0.619608, 1 ) ]
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "WatcherEye"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.545098, 0.584314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=60]
+resource_name = "Whisperbrand"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charm/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charm/LightTexture2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PedestalSkull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Effects:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.321569, 0.427451, 0.462745, 1 ) ]
+}
+
+[node name="Charm" type="Node2D"]
+light_mask = 0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+material = SubResource( 80 )
+position = Vector2( 0.00797653, -58.2744 )
+scale = Vector2( 0.115068, 0.115068 )
+z_index = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "Idle"
+reset_on_save = false
+anims/Berserker = SubResource( 64 )
+anims/BindingFeather = SubResource( 83 )
+anims/BloodForged = SubResource( 86 )
+anims/Confusion = SubResource( 101 )
+anims/CursedHeart = SubResource( 75 )
+anims/CursedHourglass = SubResource( 94 )
+anims/EarthBound = SubResource( 92 )
+anims/FinalToll = SubResource( 98 )
+anims/GamblersMemento = SubResource( 95 )
+anims/GildedScar = SubResource( 85 )
+anims/GlacialEmbrace = SubResource( 77 )
+anims/Glass = SubResource( 73 )
+anims/GoldenEye = SubResource( 74 )
+anims/GrimLedger = SubResource( 102 )
+anims/GrimPact = SubResource( 88 )
+anims/Haste = SubResource( 99 )
+anims/Idle = SubResource( 63 )
+anims/InvertedWill = SubResource( 93 )
+anims/Leech = SubResource( 72 )
+anims/Mirror = SubResource( 91 )
+anims/Momentum = SubResource( 97 )
+anims/ObsidianCharm = SubResource( 84 )
+anims/PhantomScar = SubResource( 89 )
+anims/Puppet = SubResource( 96 )
+anims/Rage = SubResource( 76 )
+anims/Reversal = SubResource( 90 )
+anims/VoidKnuckle = SubResource( 87 )
+anims/WhisperBrand = SubResource( 100 )
+
+[node name="CharmSprite" type="Sprite" parent="Sprite"]
+material = SubResource( 65 )
+position = Vector2( 0, -253.264 )
+scale = Vector2( 1.98814, 1.98814 )
+texture = ExtResource( 6 )
+
+[node name="Title" type="Label" parent="Sprite"]
+margin_left = -555.0
+margin_top = -106.0
+margin_right = 552.0
+margin_bottom = -3.0
+theme = SubResource( 68 )
+text = "Grim Ledger Charm"
+align = 1
+valign = 1
+
+[node name="Description" type="Label" parent="Sprite"]
+margin_left = -636.0
+margin_top = 14.0
+margin_right = 632.0
+margin_bottom = 276.0
+theme = SubResource( 71 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "eVERY COIN COLLECTED INCREASES STRENGTH AND DRAINS MAX HEALTH."
+align = 1
+autowrap = true
+
+[node name="AppearAnim" type="AnimationPlayer" parent="Sprite"]
+reset_on_save = false
+anims/Appear = SubResource( 81 )
+anims/Disappear = SubResource( 82 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+physics_interpolation_mode = 1
+unique_name_in_owner = true
+reset_on_save = false
+method_call_mode = 1
+anims/Idle = SubResource( 1 )
+anims/Remove = SubResource( 22 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0, -3.36326 )
+amount = 100
+lifetime = 4.25
+speed_scale = 0.6
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 21 )
+
+[node name="InteractRay" parent="." instance=ExtResource( 5 )]
+position = Vector2( 29.6232, 30.2128 )
+rotation = 1.5708
+cast_to = Vector2( 0, 60 )
+
+[node name="Sprite" parent="InteractRay" index="0"]
+position = Vector2( -27.2927, 29.5295 )
+z_index = 3
+
+[node name="Charm" type="Node2D" parent="."]
+position = Vector2( 0, 22.4351 )
+scale = Vector2( 3, 3 )
+
+[node name="Light2D" parent="Charm" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+light_mask = 0
+material = null
+texture_scale = 0.5
+color = Color( 0.52549, 0.639216, 0.717647, 1 )
+shadow_gradient_length = 70.0
+shadow_filter = 0
+shadow_filter_smooth = 20.0
+shadow_item_cull_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Charm"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="LightTexture2" type="Sprite" parent="Charm"]
+modulate = Color( 0.52549, 0.639216, 0.717647, 1 )
+self_modulate = Color( 1, 1, 1, 0.490196 )
+show_behind_parent = true
+light_mask = 0
+position = Vector2( -0.0204938, -0.0625553 )
+scale = Vector2( 0.0526525, 0.0980086 )
+texture = ExtResource( 2 )
+
+[node name="PedestalSkull" type="Sprite" parent="."]
+modulate = Color( 0.52549, 0.639216, 0.717647, 1 )
+material = SubResource( 62 )
+position = Vector2( 0.40802, 21.7951 )
+scale = Vector2( 0.655285, 0.655285 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0, 19.157 )
+z_index = 1
+amount = 100
+lifetime = 4.25
+speed_scale = 0.6
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 21 )
+
+[node name="Effects" type="Node2D" parent="."]
+modulate = Color( 0.52549, 0.639216, 0.717647, 1 )
+position = Vector2( 0, 22.4351 )
+
+[node name="PedestalEffect" type="Sprite" parent="Effects"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -5.43367, 7.95947 )
+rotation = -1.57079
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+hframes = 10
+frame = 9
+
+[node name="PedestalEffect2" type="Sprite" parent="Effects"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 3.60971, 7.95947 )
+rotation = -1.57079
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+flip_v = true
+hframes = 10
+frame = 9
+
+[node name="PedestalEffect3" type="Sprite" parent="Effects"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -0.870346, 17.8188 )
+rotation = -1.57079
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+flip_v = true
+hframes = 10
+frame = 9
+
+[node name="PedestalEffect4" type="Sprite" parent="Effects"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 2.58728, 10.277 )
+rotation = -1.57079
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+hframes = 10
+frame = 9
+
+[node name="Light2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.0022583, 22.5011 )
+texture_scale = 3.0
+color = Color( 0.52549, 0.639216, 0.717647, 1 )
+shadow_gradient_length = 20.0
+shadow_filter = 5
+shadow_filter_smooth = 10.0
+
+[node name="CharmType" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Berserker = SubResource( 26 )
+anims/BindingFeather = SubResource( 27 )
+anims/BloodForged = SubResource( 28 )
+anims/Confusion = SubResource( 29 )
+anims/CursedHeart = SubResource( 30 )
+anims/CursedHourglass = SubResource( 31 )
+anims/EarthBound = SubResource( 32 )
+anims/FalseLight = SubResource( 33 )
+anims/FinalToll = SubResource( 34 )
+anims/GamblersMemento = SubResource( 35 )
+anims/GildedScar = SubResource( 36 )
+anims/GlacialEmbrace = SubResource( 37 )
+anims/Glass = SubResource( 38 )
+anims/GoldenEye = SubResource( 39 )
+anims/GrimLedger = SubResource( 40 )
+anims/GrimPact = SubResource( 41 )
+anims/Haste = SubResource( 42 )
+anims/HeavensDebt = SubResource( 43 )
+anims/InvertedVertigo = SubResource( 44 )
+anims/InvertedWill = SubResource( 45 )
+anims/Leech = SubResource( 46 )
+anims/MercenaryToken = SubResource( 47 )
+anims/Mirror = SubResource( 48 )
+anims/Momentum = SubResource( 49 )
+anims/ObsidianCharm = SubResource( 50 )
+anims/ParisiticGrowth = SubResource( 51 )
+anims/PhantomScar = SubResource( 52 )
+anims/Puppet = SubResource( 53 )
+anims/Rage = SubResource( 54 )
+anims/Reversal = SubResource( 55 )
+anims/SearingBrand = SubResource( 56 )
+anims/SoulPrism = SubResource( 57 )
+anims/VoidKnuckle = SubResource( 58 )
+anims/WatcherEye = SubResource( 59 )
+anims/Whisperbrand = SubResource( 60 )
+
+[node name="ChangedTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ChangedTimer" to="." method="_on_Timer_timeout"]
+
+[editable path="InteractRay"]
