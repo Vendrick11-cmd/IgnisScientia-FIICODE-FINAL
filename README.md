@@ -4,9 +4,6 @@ A 2D pixel-art action-adventure game about alchemy, exploration, and ancient kno
 
 You play as Hemwick, a wanderer seeking forgotten wisdom. From crafting powerful potions to battling spectral knights, Ignis Scientia combines combat, puzzle-solving, and a rich world that grows darker with every step.
 
-🎥 Video Presentation
-https://www.youtube.com/watch?v=24S1DU8GqSo
-
 
 
 🚫 License
